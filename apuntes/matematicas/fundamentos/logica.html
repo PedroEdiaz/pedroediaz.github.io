@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre la Lógica simbólica</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="a lógica es la ciencia que estudia el pensamiento con el objetivo de generar razonamientos correctos y verdaderos. En la matemática cumple dos roles fundamentales, dar un método de estudio y fundamentar los objetos que estudia la matemática. A este segundo Rol se le suele llamar Lógica Simbólica.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-la-Lógica-simbólica">Sobre la Lógica simbólica</h1>
+</center>
+<p>La lógica es la ciencia que estudia el pensamiento con el objetivo de generar razonamientos correctos y verdaderos. En la matemática cumple dos roles fundamentales, dar un método de estudio y fundamentar los objetos que estudia la matemática. A este segundo Rol se le suele llamar Lógica Simbólica.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Fórmulas">Fórmulas</a></li>
+<li><a href="#Tablas-de-verdad">Tablas de verdad</a></li>
+<ul>
+<li><a href="#¿Cómo-resolver-una-tabla-de-verdad?">¿Cómo resolver una tabla de verdad?</a></li>
+</ul>
+<li><a href="#Tautología">Tautología</a></li>
+<li><a href="#Propiedades">Propiedades</a></li>
+<ul>
+<li><a href="#Implicación">Implicación</a></li>
+<li><a href="#Equivalencia">Equivalencia</a></li>
+<li><a href="#Operadores">Operadores</a></li>
+</ul>
+<li><a href="#Ejercicios">Ejercicios</a></li>
+</ul></div>
+<h2
+<h2 id="Fórmulas">Fórmulas</h2>
+<p>Los bloques de construcción de esta lógica son las fórmulas estas
+pueden ser verdaderas o falsas, además se suelen representar por las
+letras \(p,q\) y \(r\).</p>
+<p>Una fórmula \((p)\) se puede negar (\(\neg p\)), operar con otra fórmula
+bajo la conjunción (\(\textrm{ y }\)) o la disyunción (\(\textrm{ o }\)), ademas se puede
+relacionar bajo la implicación (\(\rightarrow\)) o la equivalencia
+(\(\equiv\)) dándonos otras fórmulas. En un lenguaje más formal decimos.</p>
+<ul>
+<li>  Si \(p\) es una fórmula entonces, \((\neg p)\) es una fórmula.</li>
+<li>  Si \(p\) y \(q\) son fórmulas entonces \((p\textrm{ y } q)\) y \((p\textrm{ o } q)\) son</li>
+    fórmulas.
+<li>  Si \(p\) y \(q\) son fórmulas entonces \((p\rightarrow q)\) y</li>
+    \((p\equiv q)\) son fórmulas.
+</ul>
+<p>Esta definición de tiene la particularidad de decirnos si una fórmula
+compleja tiene correcta sintaxis o no, además nos da una jerarquía de
+operaciones. Pero ¿qué valores de verdad tienen estás fórmulas
+complejas?</p>
+<h2 id="Tablas-de-verdad">Tablas de verdad</h2>
+<p>Una Tabla de verdad es una herramienta que nos ayuda a calcular valores
+de verdad de fórmulas. Para crear una tabla de verdad primero debemos
+acordar como las partes de una operación cambian el valor de verdad del
+total.</p>
+<p>Para eso pensamos en que representan estas operaciones, por ejemplo, si
+\(p\) es verdadera y \(q\) es verdadera entonces \((p\textrm{ y } q)\) es verdadera, En
+particular nosotros acordaremos que la siguiente tabla de verdad es
+cierta.
+\(\)\begin{array}{ c c | c c c c c}
+    p & q & \neg p & p\textrm{ y } q & p \textrm{ o } q & p\rightarrow q& p\equiv q \\ \hline
+    v & v  & f & v  & v & v & v \\
+    v & f  & f & f  & v & f & f \\
+    f & v  & v & f  & v & v & f \\
+    f & f  & v & f  & f & v & v \\
+\end{array}\(\)</p>
+<h3 id="¿Cómo-resolver-una-tabla-de-verdad?">¿Cómo resolver una tabla de verdad?</h3>
+<p>Para resolver una tabla de verdad es importante reconocer las *fórmulas
+atómicas* que son aquellas que no se pueden separar, así como tener
+claro la jerarquía de operaciones, nosotros primero resolveremos todo lo
+que esté entre paréntesis y después usaremos el orden de nuestra
+definición.</p>
+<ul>
+<li>  Se diseña una tabla en el que caben todos los valores de verdad</li>
+    posibles.
+<li>  Se resuelven las columnas bajo jerarquía asignándole valores a</li>
+    fórmulas cada vez más complejas.
+<li>  La última columna en resolverse es el valor de verdad de toda la</li>
+    fórmula.
+</ul>
+<p>El punto 1 Puede llegar a ser difícil, el algoritmo que se usa para
+poner todos los valores de verdad posible es contar de \(0\) a \(2^n\) en
+binario, donde \(n\) son el número de variables, y después asignar los \(0\)
+a falso y los \(1\) a verdaderos.
+\(\)\begin{array}{r | c c c | c c c | c c c | c}
+    & p & q & r & p &\textrm{ y }& q & (p\textrm{ y }  q)& \textrm{ o } & r & (p\textrm{ y }  q)\textrm{ o }  r\\ \hline
+    111 & v & v & v & v & v & v & v & v & v & v \\
+    110 & v & v & f & v & v & v & v & v & f & v \\
+    101 & v & f & v & v & f & f & f & v & v & v \\
+    100 & v & f & f & v & f & f & f & f & f & f \\
+    011 & f & v & v & f & f & v & f & v & v & v \\
+    010 & f & v & f & f & f & v & f & f & f & f \\
+    001 & f & f & v & f & f & f & f & v & v & v \\
+    000 & f & f & f & f & f & f & f & f & f & f\\
+\end{array}\(\)</p>
+<p>Podemos poner de ejemplo \((p\textrm{ o } q)\textrm{ y } r\). Al ser 3 variables, habrán \(8\)
+filas, ademas usaremos 5 columnas, la primera para contar en binario, la
+segunda para poner los valores de verdad y las otras tres para ir
+calculando fórmulas, ademas usaremos 5 columnas, la primera para contar
+en binario, la segunda para poner los valores de verdad y las otras tres
+para ir calculando fórmulas más complejas.</p>
+<p>Vemos que tenemos que resolver primero \((p\textrm{ y } q)\), así que vamos por
+cada renglón viendo los valores de verdad de \(p\) y \(q\) y de acuerdo a la
+tabla que acordamos ponemos un valor en medio, al terminar resolveremos
+\((p\textrm{ y } q)\textrm{ o } r\), con los valores de la columna anterior y \(r\), por
+ultimo remarcaremos los resultados de esa columna.</p>
+<h2 id="Tautología">Tautología</h2>
+<p>Un caso muy particular de las tablas de verdad es cuando la última
+columna sale con todas las filas en verdadero. La interpretación de esto
+es bastante literal, no importa los valores de verdad la fórmula siempre
+se cumple, esto nos ayuda a demostrar leyes o propiedades, como la ley
+de simplificación \((p \textrm{ y } q\rightarrow p)\).
+\(\)\begin{array}{ c c c | c | c}
+    p & y & q & \rightarrow & p\\ \hline
+    v & v & v & v  & v\\
+    v & f & f & v  & v\\
+    f & f & v & v  & f\\
+    f & f & f & v  & f\\
+\end{array}\(\)</p>
+<p>Es importante notar que se puede hacer una tabla de verdad en una sola
+columna donde solo remarcamos el ultimo valor que sacamos, como en la
+tabla anterior, ademas se puede hacer una tabla de verdad con una sola
+variable, como La ley del tercero excluido.
+\(\)\begin{array}{c c c |c |c c c c}
+    (p & \textrm{ o } & \neg p)& \textrm{ y } & \neg & (p &\equiv & \neg p) \\ \hline
+    (v & v & f)& v & v & (v &f & f) \\
+    (f & v & v)& v & v & (f &f & v) \\
+\end{array}\(\)</p>
+<p>La ley del tercero excluido, básicamente nos dice que algo es o no es,
+en otros enfoques de la lógica sería incorrecto afirmar esta ley pero en
+esta visión clásica, esta ley es un hecho, y por eso no termina en una
+relación.</p>
+<h2 id="Propiedades">Propiedades</h2>
+<p>Hasta ahora estudiábamos la lógica simbólica a un nivel Axiomático
+acordando que unas reglas son ciertas y creando conocimiento a partir de
+estas. Esta forma de generalizar el conocimiento se le llama *Método
+deductivo* que es el principal en las matemáticas. Pero con la
+tautología podemos asegurar que hay verdades que no depende de las
+proposiciones, llamadas propiedades, estas son esenciales para
+entender la lógica demostrativa.</p>
+<h3 id="Implicación">Implicación</h3>
+<p>Podemos empezar por la implicación, que es nuestra forma de representar
+un razonamiento ya que nos relaciona los valores de verdad de 2
+fórmulas, esta relación cumple 3 propiedades que son las siguientes:</p>
+<p>P1
+:   \(p\rightarrow p\).</p>
+<p>P2
+:   Si \(p\rightarrow q\) y \(q\rightarrow p\) entonces, \(q\equiv p\).</p>
+<p>P3
+:   Si \(p\rightarrow q\) y \(q\rightarrow r\) entonces, \(p\rightarrow r\).</p>
+<p>Donde P1 es la propiedad reflexiva, P2 nos da una definición de
+equivalencia y P3 la propiedad transitiva.</p>
+<h3 id="Equivalencia">Equivalencia</h3>
+<p>En lógica y matemáticas decimos que dos elementos son equivalentes si
+representan lo mismo, en nuestro caso dos fórmulas son equivalentes si
+comparten el mismo valor de verdad. Ademas toda equivalencia cumple las
+siguientes 3 propiedades.</p>
+<p>P1
+:   \(p\equiv p\).</p>
+<p>P2
+:   Si \(p\equiv q\) entonces, \(q\equiv p\).</p>
+<p>P3
+:   Si \(p\equiv q\) y \(q\equiv r\) entonces, \(p\equiv r\).</p>
+<p>Vemos que la inferencia y la equivalencia tienen 2 propiedades iguales,
+P1 y P3, pero en la equivalencia P2 es la ley simétrica pero
+en la inferencia es llamada la ley antisimétrica.</p>
+<h3 id="Operadores">Operadores</h3>
+<p>De la misma forma en que los operadores matemáticos, suma y
+multiplicación tiene ciertas propiedades la conjunción y la disyunción
+tienen sus propiedades, estas se pueden dividir en Propiedades de
+conjunción (y) y de disyunción (o).
+De conjunción</p>
+<p>P1
+:   \((p\textrm{ y } q)\equiv(q\textrm{ y } p)\)</p>
+<p>P2
+:   \((p\textrm{ y } q)\textrm{ y } r\equiv p\textrm{ y } (q\textrm{ y } r)\)</p>
+<p>P3
+:   \((p\textrm{ o } q)\textrm{ y } r\equiv(p\textrm{ y } r)\textrm{ o } (q\textrm{ y } r)\)</p>
+<p>P4
+:   \(\neg(p\textrm{ y } q)\equiv(\neg p\textrm{ o } \neg q)\)
+De conjunción</p>
+<p>P1
+:   \((q\textrm{ o } p)\equiv(p\textrm{ o } q)\)</p>
+<p>P2
+:   \(p\textrm{ o } (q\textrm{ o } r)\equiv (p\textrm{ o } q)\textrm{ o } r\)</p>
+<p>P3
+:   \((p\textrm{ o } r)\textrm{ y } (q\textrm{ o } r)\equiv(p\textrm{ o } q)\textrm{ y } r\)</p>
+<p>P4
+:   \((\neg p\textrm{ y } \neg q)\equiv \neg(p\textrm{ o } q)\)</p>
+<p>Donde P1 es conocida por Ley distributiva, La siguiente *Ley
+asociativa, P3; Ley distributiva* y terminamos con la propiedad
+más interesante de todas, La ley de Morgan.</p>
+<h2 id="Ejercicios">Ejercicios</h2>
+<ul>
+<li>  Piensa en una fórmula que incluya 3 proposiciones y haz una tabla de</li>
+    verdad.
+<li>  Demuestra que P2 es una tautología en la implicación.</li>
+<li>  Demuestra que P3 es una tautología en la equivalencia.</li>
+<li>  Demuestra que P1 y P3 son tautologías en la conjunción.</li>
+<li>  Demuestra que P2 y P4 son tautologías en la disyunción.</li>
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>De como murió mi utopía retro-futurista</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ay 29 2021">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="De-como-murió-mi-utopía-retro-futurista">De como murió mi utopía retro-futurista</h1>
+<p>May 29 2021
+</p></center>
+<p>Siempre he buscado regresar a cuando las computadoras eran simples, a un minimalismo digital, he aprendido sobre servidores, de como las computadoras se comunican entre sí, de como funciona una computadora y simplificar sus procesos para usar sólo los que necesito.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#De-lo-simple-del-internet">De lo simple del internet</a></li>
+<li><a href="#El-problema-del-nuevo-internet">El problema del nuevo internet</a></li>
+<li><a href="#Protocolos-que-vuelven-a-lo-simple">Protocolos que vuelven a lo simple</a></li>
+<ul>
+<li><a href="#Nota">Nota</a></li>
+</ul>
+<li><a href="#Planes-para-este-mes">Planes para este mes</a></li>
+</ul></div>
+<h2
+<h2 id="De-lo-simple-del-internet">De lo simple del internet</h2>
+<p>Partimos de lo simple, una computadora es un dispositivo que almacena y modifica archivos, estos archivos se pueden visualizar bajo ciertas reglas, lo que diferencia un archivo mp3 y un opus.Y el internet comunica a las computadoras entre si, para ver estos archivos de forma remota. </p>
+<p>La forma más simple de internet es poner un archivo en un puerto con un socket, esto lo podemos hacer con netcat, básicamente el socket espera a que alguien lea lo que hay en el, y ya que no haya información que mandar, se cierra. Los servidores web, automatizan esto, le ponen un header para decir las especificaciones del archivo, el cache, y hace que no se cierre el socket.</p>
+<h2 id="El-problema-del-nuevo-internet">El problema del nuevo internet</h2>
+<p>Aquí voy a hablar de mi experiencia con un servidor, básicamente quería transmitir películas en vivo, ya hay un protocolo para hacer esto, rtmp, un puerto asociado a este protocolo y varias aplicaciones que administran el protocolo, si yo mando el video a un link, cualquier persona con ese link puede ver el video, y cualquier reproductor multimedia conoce el protocolo. y con una configuración mínima, puedo mandar el vídeo encriptado de punto a punto. </p>
+<p>Para ver el vídeo en internet, ya se puede, pero en un navegador web no, para eso el servidor web debe pasar el video de rtmp a hls, que solo se puede ver en dispositivos apple, y de ahí a un programa de javascript, para que todos los navegadores lo puedan ver, y si le quieres agregar un chat, mi forma de hacerlo fue con irc, y con otro programa de javascript hacerlo accesible desde el navegador. Además de su configuración mínima para la encriptación punto a punto.</p>
+<p>Con javascript nuestros navegadores web se convirtieron en un sistema operativo propio, vemos el correo desde el navegador, vemos vídeos, nos comunicamos. Y desarrollamos nuestra vida digital en el. La aplicación de escritorio de discord, no deja de ser un navegador que abre la página de discord. Un correo electrónico originalmente era para mandar correos de un usuario a otro en una misma computadora, excepto que ahora la computadora no es nuestra y que miedo dejar mis archivos y fotos en una computadora que no controlo.</p>
+<h2 id="Protocolos-que-vuelven-a-lo-simple">Protocolos que vuelven a lo simple</h2>
+<p>Cuando hubo preocupación por la seguridad de los mensajes web, por Whatsapp, se hablarón de varias alternativas, sin embargo la más interesante de todas fue matrix. Ya que era un protocolo, que hacía las cosas bien, ya que también tenían programado un servidor que puedes hospedar tu mismo, y varios clientes, por lo que funcionaba como discord. La ventaja del protocolo es que está ideado para mandar mensaje entre varios usuarios que pertenecen a distintos servidores. En otras palabras, descentraliza.</p>
+<p>Gemini por otro lado busca ser lo que era alguna vez http, un protocolo para leer archivos de texto con un formato simple, y que tenga links a otras páginas haciendo una red de información, además claro, de que estos links pueden ser archivos que puedes ver en reproductores multimedia o links con otros protocolos, para ver en clientes de estos. </p>
+<h3 id="Nota">Nota</h3>
+<p>Ahora volver a cuándo el internet era simple implica que los anuncios, y la forma de ganar dinero en este ya no sería sostenible, la alternativa sería modelos cómo twitch o donarle a los creadores de contenido.</p>
+<h2 id="Planes-para-este-mes">Planes para este mes</h2>
+<p>Hoy me descargué un cliente de gemini para la terminal, llamado amfora, y estuve navegando un poco, conociendo el cliente y conociendo las páginas, y está bonito ver la página de las personas y como escriben de lo que les interesa, lo adornan con puro texto y como ya tiene hasta buscadores propios, y posiblemente hasta php, es por eso que voy a hospedar mi página en gemini, para apoyar el concepto que me gusta e invitar a más gente a usarlo, y quizá para optimizar espació haga que mi página convierta markdown a html, con php, y no tener dos copias de lo mismo.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

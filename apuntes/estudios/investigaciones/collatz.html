@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Enfoque a la conjetura de Collatz </title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="n esta invesitgación se pretende diseñar un algoritmo que genere una infinidad de sucesiones de números Naturales. Este conjunto de sucesiones tiene la particularidad de que cada sucesion todos sus elementos son o pares o nones, además a la hora de aplicar la función de collatz a cada uno de los elementos de un conjunto se forma otra sucessión del mismo conjunto. Así mismo todos los elementos de un conjunto llegan a una potencia de 2 en los mismos pasos.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Enfoque-a-la-conjetura-de-Collatz-">Enfoque a la conjetura de Collatz </h1>
+</center>
+<p>En esta invesitgación se pretende diseñar un algoritmo que genere una infinidad de sucesiones de números Naturales. Este conjunto de sucesiones tiene la particularidad de que cada sucesion todos sus elementos son o pares o nones, además a la hora de aplicar la función de collatz a cada uno de los elementos de un conjunto se forma otra sucessión del mismo conjunto. Así mismo todos los elementos de un conjunto llegan a una potencia de 2 en los mismos pasos.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Introduction">Introduction</a></li>
+<li><a href="#Sobre-la-formula">Sobre la formula</a></li>
+<li><a href="#Primeras-concluciones">Primeras concluciones</a></li>
+<li><a href="#Sobre-la-variable-c">Sobre la variable c</a></li>
+<li><a href="#Sobre-la-variable-b">Sobre la variable b</a></li>
+<li><a href="#Sobre-el-comportamiento-de-la-determinante">Sobre el comportamiento de la determinante</a></li>
+<li><a href="#Calculo-inverso">Calculo inverso</a></li>
+<li><a href="#Algoritmo-en-python">Algoritmo en python</a></li>
+</ul></div>
+<h2
+<h2 id="Introduction">Introduction</h2>
+<p>La conjetura de Collatz se pregunta si todo número \(x\) Natural llega
+siempre a 1 si se aplicas la siguiente función repetidamente sobre el
+resultado anterior.
+\(\)f(x) =
+  \begin{cases}
+    x/2 & \quad \text{si } x \text{ es par}\\
+    3x+1  & \quad \text{si } x \text{ es impar}
+  \end{cases}\(\)</p>
+<p>Con esto podemos decir \(f(7)=22\) y aplicamos la función denuevo
+\(f(22)=11\) y diremos que \(f(f(7))=f^{2}(7)=11\) jugando con esta notación
+podemos hacer una sucesion para cada número de forma que para la
+sucescsión de \(n\) se cumple y en el caso específico de \(n=7\).
+\[a7=(7,22,11,34,17,52,26,13,40,20,10,5,16,8,4,2,1,4,2,1,\cdots)\] donde
+notamos que tan pronto se llega a 1 este regresa a \(4\) repitiendo un
+ciclo infinito. Con esto tenemos lo necesario para hacer una formula no
+recursiva para la Conjetura de collatz.
+\[f^{a+b}(x_n)=\dfrac{3^ax+c}{2^b}=x'\] \[a,b,c,x,x'\in\mathbb{Z}\]
+donde \(a\) es igual al numero de vez que \(f(x)=3x+1\) y \(b\) el número de
+veces que \(f(x)=x/2\) para llegar a un número \(n\) y \(c\) una constante.</p>
+<h2 id="Sobre-la-formula">Sobre la formula</h2>
+<p>Para demostrar esta formula con inducción nos preguntanmos cuando
+\(x=x'\).
+\[\dfrac{3^ax+c}{2^b}=x\quad\Rightarrow\quad 3^ax+c=2^bx\]
+\[c=2^bx-3^ax\quad =\quad x(2^b-3^a)\]
+y como \(c\in\mathbb{Z}\) vemos un caso trivial donde \(a=b=c=0\), esta tiene la
+particular que no importa el valor de \(x\) ya que siempre se cumple.</p>
+<p>Ahora aplicando inducción sobre \(x_n\) veremos que pasa para \(x_{n+1}\).
+por la definición tenemos 2 posibilidades. El primero donde \(x_n\) es
+impar:
+\[x_{n+1}=3(x_n)+1=3\left(\dfrac{3^ax_n+c}{2^b}+1\right)=\dfrac{3^{a+1}x+3c+2^b}{2^b}\]
+y el segundo donde \(x_{n}\) es par.
+\[x_{n+1}=x_n/2=\left(\dfrac{3^ax+c}{2^b}+1\right)/2=\dfrac{3^{a}x+c}{2^{b+1}}\]</p>
+<p>Esto nos demuestra que siempre el Sucesor de x siempre se puede
+expresar como la formula que propusimos.</p>
+<h2 id="Primeras-concluciones">Primeras concluciones</h2>
+<p>Pero nuestra pregunta elemental es saber si se llega siempre a 1,
+\(x'=1\), para eso solo basta sustituir y poner la función en forma
+lineal. \[\dfrac{3^ax+c}{2^b}=1\] \[3^ax+c=2^b\] Con esta ecuación
+podemos jugar y sacar ciertas desigualdades que pueden ser útiles para
+futuras investigaciones. \[b\geq\log_2(x)\] \[a\leq\log_3(2)b-log_3(x)\]
+\[c=2^b-3^ax\]</p>
+<h2 id="Sobre-la-variable-c">Sobre la variable c</h2>
+<p>Cuando jugamos un poco con esta notación nos damos cuenta que es
+bastante importante saber el valor de \(c\), ya que \(c\) tiene valores muy
+específicos y estos nos ayudan a descubrir las demás variables. entonces
+analizamos esta variable para poder entender la conjetura en general.</p>
+<p>Para esto anliazamos un caso y generalizamos, cuando \(x=7\).
+\[\dfrac{3^5(7)+c}{2^{11}}=1\qquad c=3^02^7+3^12^4+3^22^2+3^32^1+3^42^0=347\]
+con este ejemplo vemos una idea de más o menos como funciona la variable
+'\(c\)' y gracias a nuestra inducción de la formula por inducción podemos
+asegurar lo siguiente.
+\[c=\sum_{n=0}^{a-1} 3^n\cdot 2^{b_n}\qquad b_n>b_{n+1}\]</p>
+<p>Pero ¿a qué nos referimos con \(b_n\)?, nos referimos a valores menores de
+'\(b\)' que cumplen la siguiente propiedad \(b_n>b_{n+1}\) y es importante
+remarcar que hay \(a\) ya que cada que se usa la formula \(3x-1\) se afecta
+el valor de c. con estas caracteristicas podemos encriptar todos los
+valores de '\(b_n\)' en un determinante de la siguiente manera:
+\[det=\sum_{n=0}^{a-1} 2^{b_n}\]</p>
+<p>Lo que la formula nos dice es que, como los \(b_n\) estan ordenados y no
+se repiten se pueden guardar como serie de bits, o números binarios o
+como se quiera ver. en el ejemplo que pusimos al inicio donde x=7 se
+vería así:
+\[c=3^02^7+3^12^4+3^22^2+3^32^1+3^42^0=347\]
+\[det=2^7+2^4+2^2+2^1+2^0=151=10010111_2\]</p>
+<p>Por qué es importante este determinante, es importante por que en un
+número natural nos dice todos los valores necesarios para sacar 'c',que
+sería las posiciónes donde aparece '1' en el binario ,pero no solo eso,
+sino que podemos deducir también el valor de 'a' por la definición del
+determinante, que sería los números de '1' en el binario del
+determinante o, el número de \(b_n\)</p>
+<h2 id="Sobre-la-variable-b">Sobre la variable b</h2>
+<p>El ultimo paso es ver como podemos deducir el valor de b a partir de las
+variables que ya tenemos, para eso usaremos la siguiente ecuacion:
+\[\dfrac{3^ax+c}{2^b}=1\qquad a,b,c,x,n\in \mathbb{N}\]
+y despejamos x
+\[\dfrac{2^b-c}{3^a}=x\qquad x\in \mathbb{N}\]
+ya que x es un número natural podemos usar aritméica modular para llegar
+a la siguiente expresión:
+\[[2^b]_{3^a}=[c]_{3^a}\] donde: \[[p]_q=r\quad \iff  p\mod q =r\] ya
+tenemos una notación y una relación entre \(b\) y dos variables que
+conocemos con el determinante -\(a\) y \(c\)-. ya con esto podemos resolvere
+la pregunta, que valores de \(b\) cumplen la siguiente propiedad:
+\([2^b]_{3^a}=[c]_{3^a}\) .</p>
+<p>Sabemos por las leyes de los modulares que: \[[p]_r[q]_r=[pq]_r\] y
+podemos sustituir \(p=2^B\) y \(q=2^b\) siempre y cuando encontremos un
+valor de \(B\) donde \([2^B]_{3^a}=1\) para que se mantenga la relación.</p>
+<p>Este valor de \(B\) es la famosa función de euler
+\[B=\phi (3^a)=2\cdot 3^{a-1}\] otra propiedad que vamos a usar es la
+siguiente:
+\[[p]_r=1\iff[p^n]_r=1\] esta ultima propiedad se puede demostrar con la
+siguiente formula: \[\dfrac{A^k-1}{A-1}=\sum_{n=0}^{k-1}A^n\] juntando
+estos ultimas propiedades tenemos que:
+\[[2^{Bn}]_r[2^b]_r=[2^{Bn+b}]_r\]
+\[B=2\cdot 3^{a-1}\qquad \forall n\in \mathbb{N}\]</p>
+<p>El ultimo paso para la demostración es mostrar que existe por lo menos
+un \(b\) que cumpla la siguiente propiedad, \([2^b]_{3^a}=[c]_{3^a}\), este
+lo llamaremos \(b_0\). Primero por la función de euler y las propiedades
+que vimos podemos mostrar esto: \[[2^{B\cdot n}]_{3^a}=1\] Esta ecuación
+nos da a entender una cosa: cada \(b=B\cdot n\) se repiten los valores de
+\([c]\) ademas, como \(2^b\) es coprimo a \(3^a\) entonces \([2^b]\) pasa por
+valores únicos antes de repetirse. por lo tanto \([2^b]\) pasa exactamente
+por \(2/3\), (\(B/3^a\)) de los valores de \([c]\) posibles. por definición de
+\(c\) no puede ser un múltiplo de \(3\):
+\[\nexists n\in\mathbb{Z}:\quad [c]_{3^a}=3\cdot n\] Ahora solo basta probar que
+\([2^b]\) no puede ser multiplo de 3. como \(2^b\) es coprimo de \(3^a\):
+\[[2^b]_{3}\neq 0\quad \Rightarrow\quad  \nexists n\in\mathbb{Z}:\quad [2^b]_{3^a}\neq 3\cdot n\]</p>
+<p>Con esto demostramos que para cualquier valor de \([c]\) posible siempre
+se puede encontrar un \(b_0\) entre \(0\leq b_0
+<3^a\) tal que.
+\[[2^{b_0}]_{3^a}=[c]_{3^a}\] y con esto demostramos que para cada
+determinante siempre se puede encontrar un conjunto infinito de valores
+de \(b\): \[b_n=B\cdot n +b_0\quad \forall n\in \mathbb{Z}\]</p>
+<h2 id="Sobre-el-comportamiento-de-la-determinante">Sobre el comportamiento de la determinante</h2>
+. Podemos ver el comportamiento de la determinante a la hora de aplicar
+<p>la función. supongamos que tenemos un número \(x\) con determinante par,
+por lo tanto \(c\) ahora, por la siguiente igualdad \(2^b-c\) es par y
+divisible entre \(3^a\) un número impar. \[x=\frac{2^b-c}{3^a}\] por lo
+tanto \(x\) es par, aplicando la función de collatz a x:
+\[x/2=\frac{2^b-c}{2\cdot 3^a}=\frac{2^{b-1}-c/2}{3^a}\] por definición
+de determinante. \[x'=x/2\iff det_{x'}=det_x/2\]
+asi mismo para \(c\) impar \(x\) no puede ser par ya que \(2^b-c\) es impar y
+si \(x\) es par no se cumple la igualdad. \[3^a x=2^b-c\] Ahora aplicamos
+la función para x.
+\[3x+1=\frac{3(2^b-c)}{ 3^a}+1=\frac{2^{b}-c+3^{a-1}}{3^{a-1}}=\] y al
+ser impar \(c\) impar. \(c=c'+3^{a-1}\cdot 2^{0}\), y por lo tanto.
+\[x'=3x+1\iff det_{x'}=det_x-1\] Esto implica que todos los números con
+determinante \(det\) llegaran a un número con determinante \(0\) siguiendo
+los mismos pasos. ademas los números con \(det=1\) son de la forma.
+\[det_1(n)=\frac{2^{2n+2}-1}{3}\] al ser todos impares se le aplicamos
+la función por lo demostrado anterior \[det_0(n)=2^{2\cdot n+2}\] y al
+ser estos todos pares aplicamos otra vez la función:
+\[det_0(n)=2^{2\cdot n+1}\] y unimos ambos casos: \[det_0=2^{n+1}\] Que
+inegablemente llegará a \(1\) en número de pasos finitos.</p>
+<h2 id="Calculo-inverso">Calculo inverso</h2>
+<p>Con esto se puede concluir que a partir del determinante se puede
+encontrar todas las variables necesarias para encontrar todos los
+números con esa determinante. pero podemos aplicar el procedimiento
+inverso y empezando de los datos de la determinante \(0\) e ir
+consiguiendo los datos de las determinantes siguientes:</p>
+<h2 id="Algoritmo-en-python">Algoritmo en python</h2>
+</code></pre>{.python}
+##det [n,a,b,c]
+<p>det=[[0,0,1,0]]
+n=1
+while True:
+  #Calcular a y c 
+  if(n%2):
+    a=det[n-1][1]+1
+    c=det[n-1][3]+3**dic[n-1][1]
+  else:
+    a=det[n//2][1]
+    c=det[n//2][3]*2
+  #Calcular b_0
+  b=1
+  while True:
+    if (2b%3a==c%3**a):
+      break
+    b+=1
+  print([n,a,b,c])
+  det.append([n,a,b,c])
+  n+=1
+</code></p></pre>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

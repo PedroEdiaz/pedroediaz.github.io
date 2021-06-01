@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre los Naturales (Extra)</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ecimos que un número Natural (n) distinto de 1 tiene un predecesor si">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-los-Naturales-(Extra)">Sobre los Naturales (Extra)</h1>
+</center>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Predecesor">Predecesor</a></li>
+<li><a href="#Tricotomía">Tricotomía</a></li>
+<ul>
+<li><a href="#Demostración">Demostración</a></li>
+<li><a href="#Interpretación">Interpretación</a></li>
+</ul>
+<li><a href="#Cancelación-de-la-suma">Cancelación de la suma</a></li>
+<li><a href="#Cancelación-de-la-Multiplicación">Cancelación de la Multiplicación</a></li>
+<li><a href="#Divisibilidad">Divisibilidad</a></li>
+<li><a href="#Máximo-común-divisor">Máximo común divisor</a></li>
+</ul></div>
+<h2
+<h2 id="Predecesor">Predecesor</h2>
+<p>Decimos que un número Natural \(n\) distinto de 1 tiene un predecesor si
+existe un número \(x\) talque \(x+1=n\), este número \(x\) es el predecesor de
+\(n\) y lo dentotaremos por \(P(n)\). Para demostrar empezamos con inducción
+sobre \(n\) y vemos que para \(n=1\) en efecto se cumple por P3, ya que
+1 no es el sucesor de ningún número, ahora suponemos nuestra hipótesis y
+vemos si se cumple para el sucesor de \(n\), y en efecto \(x+1=S(n)=n+1\) y
+solo basta usar \(x=n\). con esto termina nuestra demostración pero por
+comódidad usamos la ley conmutativa y decimos que \(1+P(n)=n\).</p>
+<h2 id="Tricotomía">Tricotomía</h2>
+<p>Quizá la propiedad más importante del orden en cualquier conjuntos de
+numeros es la tricotomía que nos dice que 2 números Naturales siempre se
+pueden ordenar de una sola manera.
+Teorema Para un par de números Naturales distintos, \(a\) y \(b\), se
+cumple \(a+x=b\) o \(a=b+x\), para algún \(x\) Natural
+\[\forall a,b\in \mathbb{N} \quad a\neq b \quad\Rightarrow\quad \exists x\in\mathbb{N} \,|\, (a+x=b)\textrm{ o }(a=b+x)\]</p>
+<h3 id="Demostración">Demostración</h3>
+<p>Para demostrar este teorema aplicamos inducción sobre \(b\). y
+desarrollamos los casos posibles, que son varios y empezamos para \(b=1\)
+b=1
+:   Se cumple ya que si \(a\neq 1\) entonces por la existencia del
+    predecesor podemos decir que existe \(P(a)\) talque \(a=1+P(a)\).</p>
+<p>S(b)?
+:   Ahora suponemos nuestra hipótesis y vemos si se cumple para el
+    sucesor de \(b\), \(a\neq S(b)\), de esto se presenta dos posibilidades.
+    a=b
+    :   En este caso es claro que se cumple ya que existe \(x'=1\) tal que
+        \(a+x'=S(b)\).
+    a\(\not\)=b
+    :   Para el segundo caso aplicamos nuestra hipótesis y decimos que
+        si \(a\neq b\), entonces existe un \(x\) tal que \(a+x=b\textrm{ o } a=b+x\).</p>
+<h3 id="Interpretación">Interpretación</h3>
+<p>El teorema de tricotomía tiene una interpretación más intuitiva, esta
+dice que dos números Naturales, \(a\textrm{ y } b\), pueden cumplir una y solo una
+de las siguientes propiedades de ordenen, ya sea.
+\[(a=b)\textrm{ o } (a
+< b)\textrm{ o } (b< a)\]</p>
+<h2 id="Cancelación-de-la-suma">Cancelación de la suma</h2>
+<p>Ya por tricotomía podemos hacer una definición de cancelación de la</p>
+<p>Suma, que es útil para varias demostraciones, para esto decimos.
+\[a+b=a+c \quad\Rightarrow\quad b=c\]</p>
+<p>Para eso suponemos \(b\neq c\) hasta llegar a una contradicción, por
+tricotomía, existe un \(x\) Natural tal que \(b=c+x\textrm{ o } b+x=c\). En el primer
+caso, si \(b=c+x\), entonces \(a+b=a+b+x\) y por lo tanto \(a+b>a+b\) que es
+una contradicción ya que \(a+b=a+b\), bajo un razonamiento similar
+demostramos el segundo caso. y por lo tanto \(b\) solo puede ser igual a
+\(a\).</p>
+<p>De esto solo podemos demostrar que si \(a>b\) entonces existe un \(x\) único
+tal que \(a=b+x\), ya que si \(x_1\) lo cumple así como \(x_2\), entonces
+\(a=b+x_1\) y \(a=b+x_2\) y por lo tanto \(a+b+x_1=a+b+x_2\) y por la
+cancelación de la suma \(x_1=x_2\).</p>
+<h2 id="Cancelación-de-la-Multiplicación">Cancelación de la Multiplicación</h2>
+<p>Bajo un razonamiento similar podemos demostrar que la multiplicación se
+puede cancelar en los Naturales, esto es.
+\[a\cdot b=a\cdot c \quad\Rightarrow\quad b=c\] Otra vez negamos y
+buscamos llegar a una contradicción, si \(b\neq c\), y vemos que existe un
+\(x\) Natural tal que \(b=c+x\) o \(b+x=c\), estaves solo demostraremos el
+segundo caso ya que la idea es la misma, si \(a\cot b =a\cdot c\) y
+\(b+x=c\) entonces \(a\cdot b=a\cdot(b+c)=a\cdot b+a\cdot c\) y por lo tanto
+\(a\cdot b>a\cdot b\) lo cual es una contradicción.</p>
+<h2 id="Divisibilidad">Divisibilidad</h2>
+<p>Un concepto análogo al orden de los Naturales es la divisibilidad,
+decimos que un número es dibisible a otro, \(a|b\), en los Naturales si
+existe un natural \(x\), talque \(b=a\cdot x\).
+\[\forall a,b\in \mathbb{N}\quad a\mid b \iff \exists x\in \mathbb{N} \,|\, a\cdot x=b\]
+y de esto deducimos que \(x\) es único para los Naturales por la
+cancelación de la multiplicación. El orden y la divisibilidad son
+conceptos claves para construir los números Enteros, como Racionales
+respectivamente.</p>
+<h2 id="Máximo-común-divisor">Máximo común divisor</h2>
+<p>Sabemos que 1 divide a cualquier número, por lo tanto todo número tiene
+por lo menos un divisor, pero un concepto clave es el Máximo comun
+divisor de 2 números, este se define de la siguiente forma.
+\[c|a\quad\textrm{ y }\quad c|b \quad\Rightarrow\quad c|\textrm{MCD}\{a,b\}\]
+\[\forall a,b \in \mathbb{N}' \quad a\mid b \quad\iff\quad \exists x\in \mathbb{N}' \,|\, a\cdot x=b\]</p>
+<p>La diferencia fundamental entre la divisibilidad en \(\mathbb{N}\) y \(\mathbb{N}'\), es que
+si 0 divide a un número, \(0|b\), entonces \(b=0\). De esto seguimos que
+cero divide a cero, \(0|0\), esto significa que \(0=0\cdot x\) y por
+definición de la multiplicación en \(\mathbb{N}'\) esto lo cumple todo x en \(\mathbb{N}'\).</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

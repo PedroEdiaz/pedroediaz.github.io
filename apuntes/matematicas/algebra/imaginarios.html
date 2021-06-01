@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre los Imaginarios</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="l primer tema que vemos al empezar álgebra en la universidad, son los números complejos, ya que el objetivo es entender las herramientas que nos ayudan a resolver todo tipo de sistemas algebráicos y es inegable que los imáginarios ayudan a resolver sistemas ya que expande nuestro concepto de número. ">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-los-Imaginarios">Sobre los Imaginarios</h1>
+<p>01 de enero del 2021.
+</p></center>
+<p>El primer tema que vemos al empezar álgebra en la universidad, son los números complejos, ya que el objetivo es entender las herramientas que nos ayudan a resolver todo tipo de sistemas algebráicos y es inegable que los imáginarios ayudan a resolver sistemas ya que expande nuestro concepto de número. </p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#El-concepto">El concepto</a></li>
+<li><a href="#Elementos-inversos">Elementos inversos</a></li>
+<ul>
+<li><a href="#Suma">Suma</a></li>
+<li><a href="#Multiplicación">Multiplicación</a></li>
+</ul>
+<li><a href="#Raiz-Cuadrada">Raiz Cuadrada</a></li>
+</ul></div>
+<h2
+<h2 id="El-concepto">El concepto</h2>
+<p>En la prepa nos enseñaban cuanto vale \(i\), y con esto nos enseñaban a multiplicar y sumar este número, pero no entendiamos la teoría que hay detras. Para abstraer más el concepto vamos a definir un par ordenado de números Reales \((a,b)\) como un número. Ahora si es un número lo debemos saber sumar y multiplicar. y aqui nos podemos poner creativos y dependiendo de como lo definamos vamos a tener unas propiedades u otras. en nuestro caso.
+\[(a,b)+(c,d)=(a+c,b+d)\]
+\[(a,b)\cdot(c,d)=(ac-bd,ad+bc)\]</p>
+<p>De estas definiciones podemos demostrar las propiedades que cumplen este número, lo más fácil es mostrar que la suma cumple todas las propiedades de la suma de números reales, también podemos probar con un poquito más de complejidad las propiedades de la multiplicación, sin embargo quizá la propiedad más compleja es la existencia de elementos inversos.</p>
+<h2 id="Elementos-inversos">Elementos inversos</h2>
+<h3 id="Suma">Suma</h3>
+<p>Para la suma es bástante fácil, por definición un elemento inverso es aquel número \((x,y)\) talque su suma con otro sea el elemento neutro, y el elemento neutro de la suma es \((0,0)\) ya que aplicando la definición nos da el mismo. por lo que.
+\[(a,b)+(x,y)=(0,0)\]
+por la definición de suma el brazo izquierdo de la igualdad es \((a+x,b+y)\) y por el otro lado sabemos que dos pares ordenados son iguales si cada parte es igual a la otra, por lo que nos queda el siguiente sistema,
+\[a+x=0\qquad b+y=0\]
+despejando cada uno nos queda que el elmento inverso del número \((a,b)\) es \((-a,-b)\) ahora con elemento inverso podemos definir una resta, ya sabemos que se cumple.
+\[(a,b)+(-a,-b)=(0,0)\]
+por lo que podemos definir la resta de un número imaginario como la suma del elemento inverso, que es único por que la forma de conseguirlo es bastante determinista.</p>
+<h3 id="Multiplicación">Multiplicación</h3>
+<p>Por otro lado tenemos el Inverso de la multiplicación, de la misma forma debemos encontrar primero el elemento neutro, este es el número \((x,y)\) talque 
+\[(a,b)\cdot(x,y)=(a,b)\]
+aplicando la definición de la multiplicación y aplicando la igualdad entre pares ordenados nos queda el siguiente sistema.
+\[ax-by=a\qquad ay+bx=b\]
+por lo que nos queda que \(x\) debe ser forzosamente 1 y \(y\) forzosamente \(0\), ya con esto podemos hayar el elemento inverso, que por definición nos debe dar el elemento neutro, esto es \((x,y)\) talque.
+\[(a,b)\cdot(x,y)=(1,0)\] </p>
+<p>Aplicamos la definición de multiplicación e igualando parte a parte de los pares ordenados nos quedaría el siguiente sistema.
+\[ax-by=1\qquad ay+bx=0\]</p>
+<p>Ahora este sistema no sale tan inmediato como el pasado sin embargo como \(x,y\) son nuestras incognitas tenemos un sistema de 2x2 que podemos resolver.
+\[-abx+b^2y=-b\qquad a^2y+abx=0\quad\Rightarrow\quad (a^2+b^2)y=-b\]
+y por el otro lado tenemos 
+\[a^2x-aby=a\qquad aby+b^2x=0 \quad\Rightarrow\quad (a^2+b^2)x=a\]
+por lo que ya podemos despejar \(x,y\) para dar nuestro resultado del elemento inverso. y por lo tanto definir la división como la multiplicación del elemento inverso.</p>
+<h2 id="Raiz-Cuadrada">Raiz Cuadrada</h2>
+<p>Bajo un mismo artificio podemos definir la raiz cuadrada de un imaginario como el número que al elevarlo al cuadrado te da otro. esto es.
+\[(x,y)^2=(x,y)(x,y)=(x^2-y^2,2xy)=(a,b)\]
+de esto podemos igualar parte a parte del par ordenado para tener el sistema
+\[x^2-y^2=a\qquad 2xy=b\]
+elevamos al cuadrado ambas partes y las sumamos para tener.
+\[(x^2+y^2)^2=a^2+b^2\]
+por lo que sacando la raiz cuadrada, ahora de números reales nos quedan los siguientes dos sistemas.
+\[x^2+y^2=\sqrt{a^2+b^2}\]
+\[x^2-y^2=a\]</p>
+<p>Notamos que esta raiz cuadrada solo puede dar números positivos ya que da una suma de cuadrados. ahora le sumamos y restamos \(a\) para poder despejar \(x\) y \(y\).
+\[x^2=\frac{\sqrt{a^2+b^2}+a}{2}\]
+\[y^2=\frac{\sqrt{a^2+b^2}-a}{2}\]</p>
+<p>Por último debemos saber si \(x\) y \(y\) son positivos o no, para eso vemos el valor de \(b\) ya que es igual a \(2xy\) por lo que si b es positivos \(x,y\) tienen el mismo signo y si no es positivo \(x,y\) tienen diferente signo.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

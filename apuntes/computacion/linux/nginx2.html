@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Servidor web con Nginx. (2)</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="n esta página veremos algunos trucos para personalizar aún más nuestra página web con Nginx, veremos certificados SSL, sincronizar los archivos, y ver directorios para compartir archivos.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Servidor-web-con-Nginx.-(2)">Servidor web con Nginx. (2)</h1>
+<p>22 de abril del 2021.
+</p></center>
+<p>En esta página veremos algunos trucos para personalizar aún más nuestra página web con Nginx, veremos certificados SSL, sincronizar los archivos, y ver directorios para compartir archivos.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Certificado-SSL">Certificado SSL</a></li>
+<li><a href="#Ver-directorios">Ver directorios</a></li>
+<li><a href="#Sincronizar-con-rsync">Sincronizar con rsync</a></li>
+</ul></div>
+<h2
+<h2 id="Certificado-SSL">Certificado SSL</h2>
+<p>Para que nuestra página web use https en lugar de http, osea, que la información esté encriptada necesitamos un domino que esté casado con la página, despues instalamos certbot y python3-cerbot-nginx. Y corremos el comando para que se configure automáticamente los certificados.</p>
+<pre><code>
+<p>apt install certbot python3-certbot-nginx
+certbot --nginx
+</code></p></pre>
+<p>Al ejecutar el segundo comando le ponemos que estamos de acuerdo con las condiciones y que no queremos dar la información de nuestro correo, después ponemos enter a los demás para ponerle el certificado a todas las páginas que tengamos y reiniciamos nginx otra vez.</p>
+<pre><code>
+<p>nginx -t
+systemctl reload nginx
+</code></p></pre>
+<h2 id="Ver-directorios">Ver directorios</h2>
+<p>Cómo vimos en nuestra articulo introduciendo a nginx, todas nuestras páginas web tienen una página de configuración en 
+<code>/etc/nginx/sites-available</code> y estas están linkeadas a la carpeta <code>sites-enabled</code> si queremos usarlas. Ahora nuestra configuración normal se verá así.</p>
+<pre><code>
+<p>server {
+        listen 80;
+        listen [::]:80;
+		
+        server_name files.nuestro-dominio.com;</p>
+        root /var/www/archive;
+        location / {
+                try_files $uri $uri.html $uri/ =404;
+        }
+}
+</code></pre>
+<p>Ahora, todo lo que haremos será en la sección 
+<code>location / {...}</code> que es básicamente la configuración de la raíz y le ponemos la linea <code>autoindex on;</code> de la siguiente manera.</p>
+<pre><code>
+<p>location / {
+    autoindex on;
+	try_files $uri $uri.php $uri.html $uri/ =404;
+}
+</code></p></pre>
+<p>Ya con esto podemos actualizar nginx y ver un directorio, sin embargo podemos llegar a tener problemas si un directorio tiene acentos, además de que tenemos más libertades que solo esas. La configuración que yo uso en mi archivo se ve exactamente así, al menos en la sección location. </p>
+<pre><code>
+<p>location / {
+    add_before_body /.header.html;
+    add_after_body /.footer.html;
+    charset UTF-8;
+    autoindex on;
+    autoindex_exact_size off;
+    autoindex_format html;
+	try_files $uri $uri.html $uri/ =404;
+}
+</code></p></pre>
+<p>Hablaremos primero de la sección de en medio, la primer linea 
+<code>charset UTF-8;</code> nos ayuda a arreglar los acentos, ya que cambia los caracteres a unicode. El autoindex ya lo hablamos, ahora, si nosotros ponemos <code>autoindex_exact_size off;</code>  el peso de los archivos tendrá unidades, por ultimo <code>autoindex_format html;</code> le dice que quieres el índice en html, también puedes poner json o xml.</p>
+<p>Si le queremos dar estilo a este directorio usaremos el comando 
+<code>add_before_body</code> y <code>add_after_body</code> este básicamente agrega texto a todas las páginas de la raíz, tanto antes como después. Cómo recomendación les dejo las etiquetas que uso</p>
+<h2 id="Sincronizar-con-rsync">Sincronizar con rsync</h2>
+<p>ya con esto podemos tener una carpeta en nuestra computadora y tenerla sincronizada con la carpeta de nuestra página en el servidor con rsync, así que instalamos el paquete en nuestra computadora y el servidor, si la carpeta del servidor es '/var/www/webpage' creamos una carpeta en nuestra computadora que se llame 'webpage/' y las sincronizamos con el siguiente comando.</p>
+<pre><code>
+<p>rsync -crv --delete ~/webpage root@nuestra-ip:/var/www/
+</code></p></pre>
+<p>Básicamente este comando manda todos los archivos que sean diferentes, de forma recursiva y dándonos información, despues borra los archivos que no estén en nuestra carpeta local y los manda vía ssh a la carpeta /var/www de nuestro servidor.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

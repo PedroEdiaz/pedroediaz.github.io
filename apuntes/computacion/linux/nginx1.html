@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Servidor web con Nginx. (1)</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="a con nuestro servidor configurado, o con nuestra computadora, vamos a  le vamos a instalar Nginx para poner una página web, que esté configurada exactamente cómo queremos, claro explicaremos los temas pertinentes antes hablando un poco de protocolos web.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Servidor-web-con-Nginx.-(1)">Servidor web con Nginx. (1)</h1>
+<p>22 de abril del 2021.
+</p></center>
+<p>Ya con nuestro servidor configurado, o con nuestra computadora, vamos a  le vamos a instalar Nginx para poner una página web, que esté configurada exactamente cómo queremos, claro explicaremos los temas pertinentes antes hablando un poco de protocolos web.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#¿Dónde-se-Hospeda-una-página-web?">¿Dónde se Hospeda una página web?</a></li>
+<li><a href="#Instalar-Nginx">Instalar Nginx</a></li>
+<li><a href="#Configurar-Nginx">Configurar Nginx</a></li>
+<li><a href="#Activar-Página">Activar Página</a></li>
+<li><a href="#Archivos-html">Archivos html</a></li>
+</ul></div>
+<h2
+<h2 id="¿Dónde-se-Hospeda-una-página-web?">¿Dónde se Hospeda una página web?</h2>
+<p>Nosotros sabemos que todo servidor es una computadora, como la que estás usando en este momento y sabemos que cada computadora tiene un nombre en internet, este nombre es la IP, Ahora, cuando una computadora se quiere llamar a si misma lo hace con la IP 127.0.0.1 o con la palabra localhost. Así que nuestro objetivo es poder ver nuestro html cuando pongamos la ip de nuestro servidor, o el localhost si lo hacemos localmente.</p>
+<h2 id="Instalar-Nginx">Instalar Nginx</h2>
+<p>Si nosotros ponemos en nuestro navegador 'Localhost' nos sale un error vemos que no se puede acceder al sitio web esto es por que no tenemos ningún servidor web instalado en nuestra computadora. Usaremos Nginx, por lo que la instalamos con el siguiente comando en Ubuntu o Debian. (todos los comandos son con 
+<code>sudo</code> o root)</p>
+<pre><code>
+<p>apt install nginx
+</code></p></pre>
+<p>Ya con esto si ejecutamos 
+<code>nginx</code> y volvemos a abrir el localhost nos va a salir una página web de bienvenida por lo que ya podemos configurar Nginx para que apunte a una carpeta con nuestra página web. A la hora de ejecutar nginx este se queda de fondo, para pararlo podemos ejecutar en cualquier momento.</p>
+<pre><code>
+<p>systemctl stop nginx
+</code></p></pre>
+<h2 id="Configurar-Nginx">Configurar Nginx</h2>
+<p>Para configurar Nginx debemos conocer dos carpetas, 
+<code>/etc/nginx/sites-available</code> y <code>/etc/nginx/sites-enable</code> en el primero pondremos las configuraciones de nuestras páginas web, cómo una base de datos, y en el segundo podremos las configuraciones que queremos que se ejecuten. En ambas carpetas ya hay un archivo que quitaremos que es la plantilla y la página de bienvenida.</p>
+<pre><code>
+<p>unlink /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-available/default
+</code></p></pre>
+<p>Crearemos un archivo nuevo en la primer carpeta, que será nuestra primer página web, el nombre no importa nada así que lo llamaremos 
+<code>webpage</code> y le pondremos el siguiente texto.</p>
+<pre><code>
+<p>server {
+	listen 80 defaul_server;
+	listen [::]:80 default_server;
+	
+	server_name www.my-dominio.com my-dominio.com;
+	root /var/www/webpage;
+	
+	index index.html;
+	error_page 404 /404.html;
+	
+	location / {
+		try_files $uri $uri.html $uri/ =404;
+	}
+}
+</code></p></pre>
+<p>Listen básicamente le dice a Nginx en que puerto estará nuestro servidor, 80 es el puerto que siempre revisará nuestro navegador y 
+<code>default_server</code> le dice que ese será el servidor principal sólo podemos tener un sitio con ese texto, la linea de abajo es lo mismo pero para ipv6.</p>
+<p>Si estamos en una red local no importa mucho que pongamos en 
+<code>server_name</code> pero es para configurar el dominio y subdominio que está casado con la página.  Ademas nos dice que la carpeta  <code>/var/www/webpage</code> es la raíz de nuestra página web, donde debe haber al menos dos archivos, <code>index.html</code> y <code>404.html</code> el primero es tu página principal y el segundo es la página para el error 404. También podemos crear un <code>error_page</code> para el código 403 que es igual común.</p>
+<p>Por último en 
+<code>try_files</code> le está diciendo al servidor que cada que se ponga un url, vea si es válido, si no es válido intenté agregarle '.html' al final a ver si es una página, si no checa si al agregarle '/' al final es una carpeta y si al final ninguno de estos intentos es mandará error 404. </p>
+<h2 id="Activar-Página">Activar Página</h2>
+<p>Para activarla debemos tener el mismo archivo en la segunda carpeta, para no tener errores usaremos algo llamado 'Link simbólico' que básicamente nos deja tener un mismo archivo en varios lugares. Recordemos que nuestra configuración se llama 'webpage' por lo que usamos el comando.</p>
+<pre><code>
+<p>ln -s /etc/nginx/sites-available/webpage /etc/nginx/sites-enable/
+</code></p></pre>
+<p>Esto le dice a linux que simule el archivo 
+<code>webpage</code> en la carpeta que necesitamos. Ya con esto podemos salir de nuestro editor de texto y pondremos los dos comandos siguientes, el primero es para ver si la sintaxis es correcta y la segunda para guardar los cambios.</p>
+<pre><code>
+<p>nginx -t
+systemctl reload nginx
+</code></p></pre>
+<p>Ahora si ponemos localhost en nuestro navegador, si lo hacemos localmente o nuestra ip o dominio si ya lo configuramos en nuestro navegador web nos sale la misma página, esto es porque no hemos activado la página.</p>
+<h2 id="Archivos-html">Archivos html</h2>
+<p>Como ya dijimos decidimos tener nuestra página en 
+<code>/var/www/webpage</code>. Pero esto no importa, es el estándar alojar las páginas web ahí, pero si por cuestiones de comodidad la queremos poner en otro lado la podemos poner sin problema, así que nos vamos a esa carpeta y creamos nuestra página <code>index.html</code> y <code>404.html</code> para terminas si queremos parar el servicio solo basta poner.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Collatz conjecture, Algebra and Notation</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="n this paper we, the readers and me, try to make an axiomátic aprroch to the collatz conjecture such that we can make algebra with it, and get some results that meke us underst better the Collatz conjecture..">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Collatz-conjecture,-Algebra-and-Notation">Collatz conjecture, Algebra and Notation</h1>
+</center>
+<p>On this paper we, the readers and me, try to make an axiomátic aprroch to the collatz conjecture such that we can make algebra with it, and get some results that meke us underst better the Collatz conjecture..</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Definitions">Definitions</a></li>
+<li><a href="#Corolaries">Corolaries</a></li>
+<li><a href="#Theorems">Theorems</a></li>
+<ul>
+<li><a href="#corolaries">corolaries</a></li>
+</ul>
+<li><a href="#About-c">About c</a></li>
+<li><a href="#Determinant">Determinant</a></li>
+<ul>
+<li><a href="#Corolaries">Corolaries</a></li>
+</ul>
+<li><a href="#Cycles">Cycles</a></li>
+<ul>
+<li><a href="#Corolaries">Corolaries</a></li>
+</ul>
+</ul></div>
+<h2
+<h2 id="Definitions">Definitions</h2>
+<p>We say that the Sucesor of a Natural number \(x\), diferent from \(0\),
+\(S(x)\), is defined by the Collatz's function. \(\)S(x)=\begin{cases}
+            3x+1\quad \textrm{if}\quad [x]_2=1\\
+            x/2\qquad \textrm{if}\quad [x]_2=0\\
+        \end{cases}\(\) This definition also proof that \(S(x)\) is unique
+for all \(x\)</p>
+<p>We say that a number \(x\) goes to \(x'\) (\(x\mapsto x'\)) if \(x=x'\) or
+\(S(x)\) goes to \(x'\)
+\[(x\mapsto x'):=\quad (x=x')\quad\textrm{ or }\quad (S(x)\mapsto x')\]</p>
+<p>We say that a number \(n\) is betwen \(x\) and \(x'\) if \(x\mapsto n\) and
+\(n \mapsto x'\). We also say than \(n\) is properly between \(x\) and \(x'\) If
+\(n\) is between \(x\) and \(x'\) just as \(n\) is not equal to \(x\) or \(x'\)</p>
+<h2 id="Corolaries">Corolaries</h2>
+\[x\mapsto x\] By definition \(x\) goes to \(x\) if \(x=x\) which is true.
+\[x\neq S(x)\] If \([x]_2=0\) then implies that \(x=0\) wich is a
+<p>contradiction, if \([x]_2=1\) then it implies that \(x=0.5\) that is another
+contradiction \[x\mapsto S(x)\] By definition \(x\) goes to \(S(x)\) if
+\(x=S(x)\) or \(S(x)\) goes to \(S(x)\) the first option is imposible and the
+second is always true.</p>
+<h2 id="Theorems">Theorems</h2>
+<p>If \(x\neq x'\) and \(S(x)\neq x'\) then it always exist \(n\) such that \(n\)
+is properly between \(x\) and \(x'\)</p>
+<p>Proof. If \(x\mapsto x'\) and \(x\neq x'\) then \(S(x)\mapsto x'\) since
+\(x\mapsto S(x)\) we could choose \(n=S(x)\) hence \(x\neq S(x)\) and by out
+hipótesis \(S(x)\neq x'\). Q.E.D</p>
+<p>If \(x\) goes to \(x'\) and if a predicate, \(P(n)\), is true for \(P(x)\) and
+\(P(n)\) implies \(P(S(n))\) then \(P(n)\) is true for all \(n\) between \(x\) and
+\(x'\).</p>
+<p>Proof. Since \(x\mapsto x'\) then \(x=x'\) or \(S(x) \mapsto x'\), for the
+first case if \(P(x)\) is true then our hipotesis is true since \(x\) is
+between it's self. for the second case we asume that \(P(x)\) is true and
+since \(x\neq x'\) then \(S(x)\mapsto x'\) since \(S(x)\) is between \(x\) and
+\(x'\) and \(P(x)\) implies \(P(S(x))\) we can conclude that inducion is a
+valid tool. Q.E.D</p>
+<p>if \(x\mapsto x'\) and \(x\neq x'\) it always exists \(P(x')\) such that
+\(x\mapsto P(x')\) and \(S(P(x')=x'\)</p>
+<p>Proof. We apply induction over \(x'\), if \(x=x'\), and we assume it
+exists \(P(x')\) then it must be true that \(x\mapsto P(x')\) but \(x\) only
+goes to it self, \(x'\), then \(P(x')=x'\) and there for \(x'=S(x')\) which is
+a contradiction. now we asume its true for \(x'\) and we check for
+\(S(x')\). since \(x\mapsto x'\) by our hipótesis and \(S(x')=S(x')\) then we
+can conclude that it exists \(P(S(x'))\) is equal to \(x'\). Q.E.D</p>
+<p>If \(x\) goes to \(x'\) then it exists \(a,b,c \in \mathbb{N}\) such that
+\[x'=\frac{3^ax+c}{2^b}\]</p>
+<p>Proof. We apply induction over \(x'\) and we see that for \(x=x'\) is true
+since \(x=\frac{3^0x+0}{2^0}\), now we supose that is true for \(x'\) and we
+check if is true for the succesor of \(x'\), \(x'=\frac{3^ax+c}{3^b}\). If
+\([x']_2=0\) then \(S(x')=\frac{3^ax+c}{2^{b+1}}\) otherwise
+\(S(x')=\frac{3^{a+1}x+3c+2^b}{2^{b}}\). Q.E.D</p>
+<h3 id="corolaries">corolaries</h3>
+\(\)x'=\frac{3^ax+c}{2^b}\qquad S(x')=\begin{cases}
+        \frac{3^{a+1}x+3c+2^b}{2^b}\quad \textrm{if}\quad [x']_2=1\\
+        \frac{3^ax+c}{2^{b+1}}\qquad\quad \textrm{if}\quad [x']_2=0\\
+        \end{cases}\(\)
+<ul>
+<li>  \(a\) describe how many odd numbers are strictly between \(x\) and \(x'\)</li>
+    since \(a\) incrise by one every time \(S(x)=3x+1\).
+<li>  \(b\) describe how many even numbers are strictly between \(x\) and \(x'\)</li>
+    since \(b\) incrise by one every time \(S(x)=x/2\).
+<li>  if \(a=0\) then \(x=2^b x'\) since there no odd numbers between \(x\) and</li>
+    \(x'\).
+<li>  if \(a=0\) then \(c=0\). if \(a=0\) then \(2^bx'=x+c\) since \(2^bx'=x\) we</li>
+    can say \(c=0\).
+<li>  if \(a\neq 0\) then it must exists at least one \(n\) between \(x\) and</li>
+    \(x'\) such that \([n]_2=1\). by description of \(a\).
+<li>  if \(a=0\) and \(x\neq x'\) then \(x>x'\), if \(a=0\) then \(2^bx'=x\) wich</li>
+    implies that \(x\geq x\), since \(x\neq x'\) then \(x>x'\).
+</ul>
+<h2 id="About-c">About c</h2>
+<p>If \(a\geq 1\) then we can describe \(c\), of \(x'\), as above. Were \(B\) is
+the set of values that \(b\) gets when \(a\) increse.
+\[c=\sum_{n=0}^{a-1}3^n2^{b_n}\qquad b_{n+1}>b_n \quad \forall b_i\in B\]</p>
+<p>Proof. We start by induction under \(a\), If \(a=0\) then \(c=0\), which
+cannot be describe as a sum of powers. Now if \(a\neq 0\) it exists at
+least one odd number, \(x\), between \(x\) and \(x'\). since \(n\) is odd we can
+check that \(S(n)\) show us the behaivour of \(a+1\), now for
+\(b_i\in B_{x\mapsto n}\) Q.E.D</p>
+\(\)\begin{aligned}
+            c_{n+1} &=3(c)+2^b\\
+                &=3\left(\sum_{i=0}^{a-1} 3^i 2^{b_i} \right) + 2^b\\
+                &=\sum_{i=0}^{a-1} (3^{i+1}2^{b_i}) + 2^b\\
+        \end{aligned}\(\) Now we must make a set \(B_{x\mapsto n+1}\), thats
+<p>define by \(b_0=b\) and \(b_{i+1}=b'_i\) for all \(b'\in B_{x\mapsto n}\). Now
+because \(b\) always increase then we can argue that \(b_{i+1}>b_i\) for all
+\(b\in B\), and conclude the proof.
+\(\)\begin{aligned}
+            c_{n+1}&=\sum_{i=1}^{a} (3^i 2^{b_{i-1}})+ 3^0 2^{b_0}\\
+                &=\sum_{i=0}^{a} 3^i 2^{b_i}
+        \end{aligned}\(\) Since \(b_i\) does not reapeat it self and they are
+well ordered then we can encrypted on a númber that we are gonna call
+the determinant.</p>
+<h2 id="Determinant">Determinant</h2>
+<p>We call the Determinant of \(x\) to \(x'\) The number that is the sum of
+\(2^b\) for all \(b\in B_{x\mapsto x'}\).
+\[\textrm{det}_{x\mapsto x'}=\sum_{i=0}^{a-1} 2^{b_i}\quad \forall b_i\in B_{x\mapsto x'}\]</p>
+<h3 id="Corolaries">Corolaries</h3>
+<ul>
+<li>  If you know the determinant then tou can know all of \(b\in B\).</li>
+<li>  If you know all of \(b\in B\) then you can know \(c\)</li>
+<li>  If you know the determinant then you can know \(a\)</li>
+</ul>
+<h2 id="Cycles">Cycles</h2>
+<p>We say that two diferent numbers make a cycle if one number goes to the
+othen and vice versa.</p>
+<h3 id="Corolaries">Corolaries</h3>
+<ul>
+<li>  if \(S(x)\mapsto x\) then there's a cycle, since \(x\mapsto S(x)\) and</li>
+    \(x\neq S(x)\).
+<li>  A cycle must have an odd number in it. If there's no odd numbers</li>
+    between \(x\mapsto x'\) then \(x>x'\) if theres a cycle then
+    \(x' \mapsto x\) and \(x'>x\) which is a contradiction \((x>x)\).
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

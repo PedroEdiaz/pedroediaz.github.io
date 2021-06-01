@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Poniendo un servidor de Gemini</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="unday May 30, 2021">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Poniendo-un-servidor-de-Gemini">Poniendo un servidor de Gemini</h1>
+<p>Sunday May 30, 2021
+</p></center>
+<p>En este artículo voy a explicar el proceso para poner un servidor de gemini con agate, el proceso durará poco más de 5 minutos y lo pueden intentar en su computadora o en su red local.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Descargando-agate">Descargando agate</a></li>
+<li><a href="#Agregar-servicio-en-systemd">Agregar servicio en systemd</a></li>
+</ul></div>
+<h2
+<h2 id="Descargando-agate">Descargando agate</h2>
+<p>Primero descargamos el precomilado más reciente para nuestro sistema operativo en los release de github. Este precomilado no es más que un binario. </p>
+<ul>
+<li><a href="https://github.com/mbrubeck/agate/releases/">https://github.com/mbrubeck/agate/releases/</a>
+</ul>
+<p>Para eso la forma más fácil de hacerlo es con wget, en mi caso usé este comando para la última versión de linux. Y descomprimimos el archivo, esto con el comando gzip.</p>
+<pre><code>
+<p>wget https://github.com/mbrubeck/agate/releases/download/v3.0.3/agate.x86_64-unknown-linux-gnu.gz
+gzip -d agate.x86_64-unknown-linux-gnu.gz
+</code></p></pre>
+<p>Ya con esto movemos el archivo a los binarios, le damos permiso de ejecución y le cambiamos el nombre a uno más manejable. Para esto usamos chmod y mv.</p>
+<pre><code>
+<p>mv agate.x86_64-unknown-linux-gnu /usr/bin/agate
+chmod +x /usr/bin/agate
+</code></p></pre>
+<p>Y con esto ya podemos prender el servidor apuntando a una carpeta. Es obligatorio usar el protocolo gemini con encriptado de punto a punto. Es por eso que necesitamos un dominio, si no tenemos basta ponerle localhost, y podemos acceder desde el mismo. En todo caso no he probado ponerle de host la ip pública.</p>
+<pre><code>
+<p>agate --content /var/www/gemini \
+	--certs /var/.certificates/ \
+	--hostname my-domain.com \
+	--lang es-MX
+</code></p></pre>
+<p>Este comando es bastante explicativo básicamente le dice en que directorio está el contenido, los certificados para la encriptación, el hostname y el lenguaje, y con esto terminamos. Como nota los certificados están siempre en memoria, y queremos que esté en un sitio seguro.</p>
+<h2 id="Agregar-servicio-en-systemd">Agregar servicio en systemd</h2>
+<p>Si pasa algo queremos que se active solo, el servidor, para eso vamos a crear un servicio en systemd. Nuestro servicio será /etc/systemd/system/agate.service así que lo creamos con nuestro editor favorito, en mi caso vim.y el archivo se verá algo así.</p>
+<pre><code>
+[Unit]
+<p>Description=agate
+After=network.target</p>
+[Service]
+<p>User=gemini
+Type=simple
+ExecStart=agate --content /var/www/gemini --certs /var/.certificates/ --hostname my-domain.com --lang es-MX</p>
+[Install]
+<p>WantedBy=default.target
+</code></p></pre>
+<p>Básicamente le ponemos una descripción al servicio, queremos que se ejecute después del internet y ejecute el comando que ya explicamos. Queremos que este comando lo ejecute un usuario con el mínimo de permisos posibles, por seguridad, así que creamos el usuario gemini y arrancamos el servicio.</p>
+<pre><code>
+<p>useradd gemini
+systemctl enable agate
+systemctl start agate
+</code></p></pre>
+<p>Y ya con esto siempre estará nuestro servidor gemini encendido siempre que nuestra computadora que lo aloje esté prendida y tenga internet.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Script: Escuchar música de youtube desde la terminal (1)</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="uestro objetivo con este proyecto es hacer un script para administrar nuestras playlist desde la linea de comandos, para eso hablaremos un poco de los visualizadores de archivos multimedia, ya sean audio, fotos y vídeo, y de un programa muy controversial llamado youtube-dl.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Script:-Escuchar-música-de-youtube-desde-la-terminal-(1)">Script: Escuchar música de youtube desde la terminal (1)</h1>
+<p>29 de abril del 2021
+</p></center>
+<p>Nuestro objetivo con este proyecto es hacer un script para administrar nuestras playlist desde la linea de comandos, para eso hablaremos un poco de los visualizadores de archivos multimedia, ya sean audio, fotos y vídeo, y de un programa muy controversial llamado youtube-dl.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Sobre-los-visualizadores">Sobre los visualizadores</a></li>
+<ul>
+<li><a href="#Mpv-+-youtube-dl">Mpv + youtube-dl</a></li>
+</ul>
+<li><a href="#El-concepto">El concepto</a></li>
+<ul>
+<li><a href="#Archivo-original">Archivo original</a></li>
+<li><a href="#Archivo-procesado">Archivo procesado</a></li>
+</ul>
+<li><a href="#Crear-el-script.">Crear el script.</a></li>
+<li><a href="#Darle-formato-a-las-playlist">Darle formato a las playlist</a></li>
+<li><a href="#Reproducir-las-playlist">Reproducir las playlist</a></li>
+<li><a href="#Script">Script</a></li>
+</ul></div>
+<h2
+<h2 id="Sobre-los-visualizadores">Sobre los visualizadores</h2>
+<p>En todo sistema operativo hay aplicaciones para visualizar distintos tipos de archivos, por ejemplo adobe para ver pdfs, o los que vienen en el sistema para ver fotos y vídeos. Pongamos de ejemplo feh, este es un visualizador de imágenes. Si quiero ver mi última captura de pantalla pondría el siguiente comando.</p>
+<pre><code>
+<p>feh media/04-29-2021-13-35.png
+</code></p></pre>
+<p>Si quisiera ver 3 fotos, pondría la dirección de esas 3 fotos, y si quisiera ver todas las fotos de una carpeta, pondría de argumento la dirección de la carpeta, en este caso media/. Además podemos decirle a los visualizadores que abra archivos del internet usando distintos protocolos, ftp, ssh y lo que nos interesa hoy, http.</p>
+<h3 id="Mpv-+-youtube-dl">Mpv + youtube-dl</h3>
+<p>Mpv, es un reproductor de vídeo muy modular, reproduce una gran variedad de formatos, y puede incluir subtítulos, cómo su página oficial dice, mpv es tan libre como la libertad. Si tienes instalado youtube-dl, un programa para descargar vídeos de youtube, mpv puede reproducir vídeos directamente de youtube, sin anuncios, sin registrarte.</p>
+<h2 id="El-concepto">El concepto</h2>
+<p>nuestro objetivo es a partir de un archivo de texto con palabras clave, localizar automáticamente las url del primer resultado de youtube, de preferencia haremos esto youtube-dl y ya que tengamos la url, lo escriba antes de la palabra clave en el mismo archivo. De modo que pase el siguiente proceso.</p>
+<h3 id="Archivo-original">Archivo original</h3>
+<pre><code>
+<p>No Buses - With or Without it
+No Buses - Ill Humor
+No Buses - Imagine Siblings
+No Buses - Pretty Old Man
+Last Dinosaurs - Bass God
+Last Dinosaurs - Zoom
+Last Dinosaurs - Flying
+</code></p></pre>
+<h3 id="Archivo-procesado">Archivo procesado</h3>
+<pre><code>
+<p>https://www.youtube.com/watch?v=DAWZruRHO-8 #No Buses - With or Without it
+https://www.youtube.com/watch?v=WJZx6p_2MNU #No Buses - Ill Humor
+https://www.youtube.com/watch?v=qupjI2glv_Y #No Buses - Imagine Siblings
+https://www.youtube.com/watch?v=xtn_SmyT87s #No Buses - Pretty Old Man
+https://www.youtube.com/watch?v=XBlIDOMj-ss #Last Dinosaurs - Bass God
+https://www.youtube.com/watch?v=A0Ws3rB5eg0 #Last Dinosaurs - Zoom
+https://www.youtube.com/watch?v=EBh71q-0BNI #Last Dinosaurs - Flying
+</code></p></pre>
+<p>Por último para reproducir esto desde mpv, vamos a mandarle de entrada a mpv nada mas las url de este archivo ordenadas de forma aleatoria, terminaremos este script con un sistema para descargar archivos y escucharlos localmente.</p>
+<h2 id="Crear-el-script.">Crear el script.</h2>
+<p>Nuestro script se va a llamar mplay por que es difícil eso de ser original, así que lo creamos y lo hacemos ejecutable con los siguientes comandos.</p>
+<pre><code>
+<p>touch mplay
+chmod +x mplay
+</code></pre>
+ya con esto podemos abrir nuestro archivo con nuestro editor de texto favorito, o con una ide, si es que usamos; hasta arriba vamos a poner 
+<code>#!/bin/sh</code> para decirle a la computadora que este archivo se abre con la shell.</p>
+<p>Ahora, queremos que cuando alguien ejecute 
+<code>mplay get "palabras clave"</code> devuelva la url del primer vídeo de youtube que salga al buscar esa palabra clave. Sabemos que el primer argumento en el script es la variable $1 por lo que nuestro script se vería así.</p>
+<pre><code>
+##!/bin/sh
+<p>if [ $1 = get ]
+then
+	...
+fi
+</code></p></pre>
+<p>Para conseguir la url del vídeo usaremos le diremos a yotube-dl que simule una descarga del primer vídeo que salga al buscar nuestro segundo argumento y la palabra audio. para eso usaremos el siguiente comando.</p>
+<pre><code>
+<p>youtube-dl --skip-download --default-search 'ytsearch' "$2 audio"
+</code></p></pre>
+<p>Si buscamos la palabra hello y audio nos imprime lo siguiente.</p>
+<pre><code>
+ ~ > youtube-dl --skip-download --default-search 'ytsearch' "hello audio"
+ 
+[download] Downloading playlist: hello audio
+[youtube:search] query "hello audio": Downloading page 1
+[youtube:search] playlist hello audio: Downloading 1 videos
+[download] Downloading video 1 of 1
+[youtube] a9IbmRb1KEc: Downloading webpage
+[youtube] a9IbmRb1KEc: Downloading MPD manifest
+[download] Finished downloading playlist: hello audio
+</code></pre>
+<p>Vemos que al lado de 
+<code>[youtube]</code> nos sale un código <code>(a9IbmRb1KEc)</code> si ponemos esté código en la siguient url "https://www.youtube.com/watch?v=codigo" vemos que nos sale la canción "Hello" de Adele. Para extraer este código mandaremos la salida de este programa, a la entrada de grep con los pipes '|' de forma que si ponemos. <code>youtuve-dl ... |grep '\[youtube\]'</code> solo nos imprime las lineas que tengan este patrón. Para tener la primera linea usaremos el comando head, para tener la segunda columna usaremos awk y para quitar los dos puntos del final usaremos sed por lo que juntando todo tenemos.</p>
+<pre><code>
+ ~ > youtube-dl ...|grep '\[youtube\]'|head -n1|awk '{print $2}'|sed 's/:$//'
+<p>a9IbmRb1KEc
+</code></p></pre>
+<p>para guardar este resultado en la variable ID ponemos el comando ente 
+<code>$(..)</code> y la igualamos a la variable. para partir esta linea este comando en dos lineas pondremos '\' para pasar de linea. Además ya podemos darle el formato de url. esto quedaría.</p>
+<pre><code>
+<p>if [ $1 = get ]
+then
+	ID=`youtube-dl --skip-download --default-search 'ytsearch' "$2 audio" |\
+		grep '\[youtube\]'|head -n1|awk '{print $2}'|sed 's/:$//'`
+	echo "https://www.youtube.com/watch?v=$ID"
+fi
+</code></p></pre>
+<p>Y con esto ya terminamos la primer parte del script, lo podemos ejecutar para ver cómo funciona.</p>
+<pre><code>
+~ > ./mplay get hello
+<p>https://www.youtube.com/watch?v=a9IbmRb1KEc
+</code></p></pre>
+<h2 id="Darle-formato-a-las-playlist">Darle formato a las playlist</h2>
+<p>Como ya expusimos en el concepto ya sabemos cómo queremos el formato de nuestras playlist, para eso creamos un archivo de prueba y ponemos nuestras palabras clave, author y canción. Ahora queremos que cuano se ejecute mplay gen playlist le de el formato que queremos a nuestra playlist, para eso ponemos en nuestro script una condicional para cuando el primer argumento es 'gen'.</p>
+<pre><code>
+<p>if [ $1 = gen ]
+then
+	...
+fi
+</code></p></pre>
+<p>Para leer linea por linea del archivo playlist (nuestro segundo argumento), usaremos el siguiente loop.</p>
+<pre><code>
+<p>while read -r line; do
+	...
+done 
+< $2
+</code></p></pre>
+<p>En este vamos leyendo linea por linea, y cada linea la guarda en la variable $line ahora si la linea no comienza con 'https' entonces la empezamos a procesar. Para eso usamos la siguiente condicional.</p>
+<pre><code>
+<p>if [ "${line%%:*}" != https ]
+then
+	...
+fi
+</code></p></pre>
+<p>Este le dice al shell que compare la cadena del inicio hasta el primer ':' y si es distinto a http, entonces lo va a procesar. y para procesarla usamos el programa sed y se vería algo así lo que queremos.</p>
+<pre><code>
+<p>sed -i "/^$line/ a $($0 get "$line") #$line" $2
+sed -i "/^$line/d" $2
+</code></p></pre>
+<p>Donde 
+<code>sed -i "..." $2</code> le dice a sed que va a editar el archivo <code>$2</code>, que es nuestro segundo argumento, y lo va a editar de acuerdo a las comillas. <code>/^$line/ a $0 get "$line" #$line</code> esta parte le dice a sed, que la lineas que empiecen con $line le va a agregar una linea con la salida de <code>$0 get "$line"</code> osea, la salida de la primer función que programamos, osea, la salida del link de youtube y además va a escribir otra vez la linea con un '#' antes; ya que lo procesa, va a borrar la linea original. Por lo que nuestro código se vería.</p>
+<pre><code>
+<p>if [ $1 = gen ]
+then
+	while read -r line; do
+		if [ "${line%%:*}" != https ]
+		then
+			sed -i "/^$line/ a $($0 get "$line") #$line" $2
+			sed -i "/^$line/d" $2
+		fi
+	done 
+< $2
+fi
+</code></p></pre>
+<p>Si ejecutamos este programa en nuestra playlist osea 
+<code>./mplay gen playlist</code> y abrimos el archivo playlist, vemos que tenemos el formato que buscábamos, y con esto termina nuestra segunda parte del script.</p>
+<h2 id="Reproducir-las-playlist">Reproducir las playlist</h2>
+<p>Por último ponemos una tercera condicional para cuando pongamos 
+<code>./mplay web playlist</code> esta va a reproducir la playlist desde la web, usaremos awk para tener la primer columna, shuf para revolver los links y xargs para pasar cada linea cómo argumento a mpv, a mpv le pondremos la bandera <code>--no-video</code> para que sólo reproduzca el audio y no los vídeos. y nos quedaría así.</p>
+<pre><code>
+[ $1 = web ] && awk '{print $1}' $2|shuf |xargs mpv --no-video
+</code></pre>
+<p>Como nota 
+<code>[ $1 = web] &&</code> es una forma de poner condicionales a una linea, en la segunda parte de este artículo agregaremos funciones para descargar playlist y reproducirlas localmente.</p>
+<h2 id="Script">Script</h2>
+<pre><code>
+##!/bin/sh
+<p>if [ $1 = get ]
+then
+	ID=`youtube-dl --skip-download --default-search 'ytsearch' "$2 audio" |\
+		grep '\[youtube\]'|head -n1|awk '{print $2}'|sed 's/:$//'`
+	echo "https://www.youtube.com/watch?v=$ID"
+fi
+ 
+if [ $1 = gen ]
+then
+	while read -r line; do
+		if [ "${line%%:*}" != https ]
+		then
+			sed -i "/^$line/ a $($0 get "$line") #$line" $2
+			sed -i "/^$line/d" $2
+		fi
+	done 
+< $2
+fi</p>
+[ $1 = web ] && awk '{print $1}' $2|shuf |xargs mpv --no-video
+</code></pre>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

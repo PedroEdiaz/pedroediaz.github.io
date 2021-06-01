@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre las raíces negativas</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="uando trabajamos con raíces cuadradas, en la secundaria nos dicen que la raíz cuadrada de un número da dos valores, uno positivo y otro negativo. En la universidad que solo da valores Reales, pero, ¿Qué sería correcto?">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-las-raíces-negativas">Sobre las raíces negativas</h1>
+</center>
+<p>Cuando trabajamos con raíces cuadradas, en la secundaria nos dicen que la raíz cuadrada de un número da dos valores, uno positivo y otro negativo. En la universidad que solo da valores Reales, pero, ¿Qué sería correcto?</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#El-problema">El problema</a></li>
+<li><a href="#El-artificio">El artificio</a></li>
+<li><a href="#La-solución">La solución</a></li>
+</ul></div>
+<h2
+<h2 id="El-problema">El problema</h2>
+<p>Pensemos en el siguiente problema, ¿Cuáles son los valores de \(x\) que
+cumplen está ecuación?
+\[\sqrt{x-3}-\sqrt{2x+2}=2\]</p>
+<p>Como las dos veces que aprese nuestra incógnita esta está dentro de una
+raíz cuadrada, así que nos tomamos la libertad de elevar al cuadrado
+ambos brazos de la ecuación y desarrollar.
+\(\)\begin{aligned}
+\sqrt{x-3}-\sqrt{2x+2}&=2\\
+\sqrt{x-3}&=2+\sqrt{2x+2}\\
+x-3&=4+4\sqrt{2x+2}+2x+2\\
+0&=9+x+4\sqrt{2x+2}\\
+\end{aligned}\(\)</p>
+<p>Ahora hacemos una variable \(w=\sqrt{2x+2}\) para tener una ecuación de
+segundo grado.
+\(\)\begin{aligned}
+0&=9+\frac{w^2-2}{2}+4w\\
+0&=w^2+8w+16\\
+\end{aligned}\(\)</p>
+<p>Y por último igualamos el valor de \(w\) con el de su definición.
+\(\)\begin{aligned}
+w&=-4\\
+w&=\sqrt{2x+2}
+\end{aligned}\(\)
+\[-4 =\sqrt{2x+2}\]</p>
+<p>Ahora solo falta despejar \(x\), así que elevamos al cuadrado ambos
+brazos.
+\(\)\begin{aligned}
+\sqrt{2x+2}&=-4\\
+2x+2&=16\\
+x+1&=8\\
+x&=7\\
+\end{aligned}\(\)</p>
+<p>Y sustituimos en nuestra ecuación inicial para comprobar.
+\(\)\begin{aligned}
+\sqrt{x-3}-\sqrt{2x+2}&=2\\
+\sqrt{7-3}-\sqrt{2(7)+2}&=2\\
+\sqrt{4}-\sqrt{16}&=2\\
+2-4&=2\\
+-2&=2
+\end{aligned}\(\)</p>
+<p>Vemos que llegamos a un contradicción, entonces ¿Dónde está el error?</p>
+<p>Nuestra intuición matemática nos dice que elevar a cuadrado
+\(-4=\sqrt{2x+2}\) podría ser el error, ya que borramos información de la
+ecuación que no podemos recuperar. Entonces, ¿Qué hacer?</p>
+<h2 id="El-artificio">El artificio</h2>
+<p>Si algo aprendimos de los imaginarios es que si tu sistema de ecuaciones
+no basta, intenta crear un artificio que pueda resolver el problema, por
+eso haremos una constante \(p\) que cumpla la siguiente propiedad.
+\[\sqrt{p}=-1\quad\Rightarrow\quad p=1\]</p>
+<p>Con esta nueva regla podemos asegurar lo siguiente para \(a>0\).
+\(\)\begin{aligned}
+a&=\sqrt{a^2}\\
+-a&=\sqrt{a^2p}
+\end{aligned}\(\)</p>
+<p>De forma que una raíz cuadrada siempre dará un valor positivo, al menos
+que tenga la constante \(p\) en ella y solo cancelaremos una raíz cuadrada
+sí está en ambos brazos de la ecuación.
+\(\)\begin{aligned}
+-a&=\sqrt{x}\\
+\sqrt{a^2p}&=\sqrt{x}\\
+a^2p&=x
+\end{aligned}\(\)
+y vemos que para \(a=\sqrt{x}\) esté método implica \(x=a^2\) haciendo este
+sistema consistente al anillo de los reales con el que hemos estado
+trabajando.</p>
+<h2 id="La-solución">La solución</h2>
+<p>Ya con esto podemos reanudar el problema donde lo habíamos dejado,
+calcular el valor de \(x\) en \(-4=\sqrt{2x+2}\) usando nuestro nuevo
+artificio. \(\)\begin{aligned}
+\sqrt{2x+2}&=-4\\
+\sqrt{2x+2}&=\sqrt{16p}\\
+2x+2&=16p\\
+x+1&=8p\\
+x&=8p-1\\
+\end{aligned}\(\)</p>
+<p>Ahora, si en nuestra ecuación original al sustituir \(x\), por \(8p-1\) y
+despejamos \(p\) nos sale que \(p=1\) entonces sabremos que nuestro
+resultado es correcto.
+\(\)\begin{aligned}
+\sqrt{x-3}-\sqrt{2x+2}&=2\\
+\sqrt{8p-4}-\sqrt{16p}&=2\\
+\sqrt{8p-4}+4&=2\\
+\sqrt{8p-4}&=-2\\
+\sqrt{8p-4}&=\sqrt{4p}\\
+8p-4&=4p\\
+4p&=4\\
+p&=1\\
+\end{aligned}\(\)</p>
+<p>Este artificio nos da un método para saber cuando una raíz es negativa y
+cuando es positiva, así como resolver igualdades, ampliando nuestro
+sistema numérico.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre el Movimiento</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="l movimiento es, quizá, uno de los temas más fáciles de estudiar de la física solo basta conocer el concepto de derivada y definir conceptos básicos, es por eso que no nos sorprende encontrarlo en los primeros temas de un curso de física.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-el-Movimiento">Sobre el Movimiento</h1>
+</center>
+<p>El movimiento es, quizá, uno de los temas más fáciles de estudiar de la física solo basta conocer el concepto de derivada y definir conceptos básicos, es por eso que no nos sorprende encontrarlo en los primeros temas de un curso de física.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Desplazamiento">Desplazamiento</a></li>
+<li><a href="#Velocidad">Velocidad</a></li>
+<li><a href="#Aceleración">Aceleración</a></li>
+</ul></div>
+<h2
+<h2 id="Desplazamiento">Desplazamiento</h2>
+<p>Podemos pensar que los objetos Físicos tienen cualidades con los que lo
+podemos describir, por ejemplo, su posición a lo largo del tiempo, en
+términos matemáticos la función \(s(t)\) describe la posición de un
+objeto. Este al tener 3 componentes, o dimensiones, se puede pensar como
+un vector.
+\(\)s(t)=\begin{bmatrix}
+x(t)\\
+y(t)\\
+z(t)\\
+\end{bmatrix}\(\)</p>
+<h2 id="Velocidad">Velocidad</h2>
+<p>Ahora podemos pensar en otro concepto conocido, la velocidad, que
+describe cuanto se desplaza un objeto en cierto tiempo a partir de un
+punto específico, i. e.
+\[v=\frac{\Delta s}{\Delta t}\]</p>
+<p>Para calcular cuanto cambia su desplazamiento empezamos a contar desde
+un tiempo \(t\) y terminamos de contar cuando pase \(\Delta t\). y definimos
+\(\Delta s\) como posición final menos inicial.
+\[\Delta s=s(t+\Delta t)-s(t)\]</p>
+<p>Juntamos todo y tenemos nuestra formula, que concuerda con nuestra
+definición ya que usa todo los elementos que se requieren.
+\[v=\frac{s(t+\Delta t)-s(t)}{\Delta t}\]</p>
+<p>Pero esta es una velocidad promedio ya que se calcula durante un plazo
+de tiempo, si nosotros queremos calcular la velocidad en un instante
+bastaría sacar el Límite cuando \(\Delta t\) tiende a 0.
+\[v(t)=\lim_{\Delta t \rightarrow 0}\frac{s(t+\Delta t)-s(t)}{\Delta t}=s'(t)\]</p>
+<p>Como la derivada se distribuye en los componentes de un vector podemos
+ver que la velocidad tiene sus propios componentes.
+\(\)v(t)=s'(t)=\begin{bmatrix}
+x'(t)\\
+y'(t)\\
+z'(t)\\
+\end{bmatrix}=\begin{bmatrix}
+v_x(t)\\
+v_y(t)\\
+v_z(t)\\
+\end{bmatrix}\(\)</p>
+<h2 id="Aceleración">Aceleración</h2>
+<p>De forma similar podemos pensar la aceleración como el cambio de la
+velocidad respecto al tiempo.
+\[a=\frac{\Delta v}{\Delta t}\]
+y para calcular la aceleración en cada instante volvemos ha hacer que
+\(\Delta t\) tienda a 0.
+\[a(t)=v'(t)=s''(t)\]</p>
+<p>En términos de sus componentes esto es.
+\(\)s''(t)=\begin{bmatrix}
+x''(t)\\
+y''(t)\\
+z''(t)\\
+\end{bmatrix}=v'=\begin{bmatrix}
+v'_x(t)\\
+v'_y(t)\\
+v'_z(t)\\
+\end{bmatrix}=a=\begin{bmatrix}
+a_x(t)\\
+a_y(t)\\
+a_z(t)\\
+\end{bmatrix}\(\)</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

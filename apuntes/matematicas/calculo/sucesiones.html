@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre las Sucesiones</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="na Sucesión es una función que va de (mathbb{N}) a (mathbb{R}). Esto significa que">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-las-Sucesiones">Sobre las Sucesiones</h1>
+</center>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Definición">Definición</a></li>
+<li><a href="#Representaciones">Representaciones</a></li>
+<li><a href="#Operaciones">Operaciones</a></li>
+</ul></div>
+<h2
+<h2 id="Definición">Definición</h2>
+<p>Una Sucesión es una función que va de \(\mathbb{N}\) a \(\mathbb{R}\). Esto significa que
+a cada Natural se le asigna un valor único. Una sucesión puede ser
+representada Con una letra mayúscula, y sus elementos con minúsculas de
+forma. \[X=(x_1, x_2, x_3, \cdots)\] \[(x_n)\] \[(x_n:\, n\in\mathbb{N})\]</p>
+<p>Nosotros usaremos principalmente la primera opción aunque también es
+común usar \((x_n)\) para la sucesión y \(x_n\) para un elemento específico
+de la misma.</p>
+<h2 id="Representaciones">Representaciones</h2>
+<p>Podemos representar una sucesión de 3 maneras distintas, la primera es
+la más simple y ya la usamos, esta se basa en representar una parte de
+la lista. \[(41, 43, 47, 53, \cdots )\]</p>
+<p>Pero está notación tiene muchas ambigüedades y generalmente no debemos
+analizar como va el patrón sino que nos dan una formula, por ejemplo en
+el caso anterior. \[x_n=n^2-n+41\]</p>
+<p>Ya con esto podemos representar casi todas las sucesiones, pero esto no
+es suficiente, así que podemos representar sucesiones de manera
+inductiva, o recursiva. \[x_{n+2}=x_{n+1}+x_n\]</p>
+<p>En estas definiciones necesitamos un inició, por ejemplo \(x_0=x_1=1\) de
+forma que podemos calcular \(x_2\) sumando \(x_0\) y \(x_1\) y luego \(x_3\) con
+las dos anteriores de forma que. \[X=(1,1,2,3,5,8,13,\cdots)\]</p>
+<p>Esta sucesión es llamada Serie de Fibonacci. También podemos
+preguntarnos cuando dos sucesiones son iguales, y la solución más fácil
+es diciendo que cuando todos sus elementos son iguales.
+\[a_n=b_n\quad \forall n\in\mathbb{N}\]</p>
+<p>Y nos nace una pregunta</p>
+<h2 id="Operaciones">Operaciones</h2>
+<p>Como todos los elementos de una sucesión están bien definidos se puede
+definir la suma y multiplicación de una sucesión.
+\[X=\{x_n\}\qquad Y=\{y_n\}\] \[X+Y=\{x_n+y_n\}\]
+\[X\cdot Y=\{x_n\cdot y_n\}\]</p>
+<p>Podemos extender estos conceptos de suma y multiplicación a sus
+operaciones inversas, como ya hemos hecho con los números, para esto
+definimos dos sucesiones. \[-X=\{-x_n\}\qquad \overline{X}=\{1/x_n\}\]</p>
+<p>Estas nuevas sucesiones las podemos operar para tener un concepta de
+suma y resta, de modo que.
+\[X-Y:=X+(-Y)=\{x_n-y_n\}\] \[X/Y:=X\cdot\overline{Y}=\{x_n/y_n\}\]</p>
+<p>Es importante notar, por nuestra definición de Sucesión, que si existe
+alguna elemento en \(X\) igual a 0 entonces existe un elemento que no esta
+bien definido en \(\overline{X}\) y por lo tanto no es sucesión y por lo
+tanto no lo podemos multiplicar.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

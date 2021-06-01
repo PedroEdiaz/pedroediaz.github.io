@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre Los Conjuntos</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="uy seguramente el primer tema en un libro de Análisis es La ’Teoría de Conjuntos’, en particular la versión Naive de esta teoría ya que nos da una base y un lenguaje matemático para expresar las ideas de funciones, además de formalizar temas de Álgebra así como diversas aplicaciones más.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-Los-Conjuntos">Sobre Los Conjuntos</h1>
+</center>
+<p>Muy seguramente el primer tema en un libro de Análisis es La ’Teoría de Conjuntos’, en particular la versión Naive de esta teoría ya que nos da una base y un lenguaje matemático para expresar las ideas de funciones, además de formalizar temas de Álgebra así como diversas aplicaciones más.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Conjunto">Conjunto</a></li>
+<li><a href="#Lógica">Lógica</a></li>
+<ul>
+<li><a href="#Subconjuntos">Subconjuntos</a></li>
+<li><a href="#Equivalencia">Equivalencia</a></li>
+<li><a href="#Operaciones">Operaciones</a></li>
+</ul>
+<li><a href="#Propiedades">Propiedades</a></li>
+<li><a href="#Representaciones">Representaciones</a></li>
+<ul>
+<li><a href="#Por-extensión">Por extensión</a></li>
+<li><a href="#Por-comprensión">Por comprensión</a></li>
+</ul>
+<li><a href="#Ejercicios">Ejercicios</a></li>
+</ul></div>
+<h2
+<h2 id="Conjunto">Conjunto</h2>
+<p>Como hicimos con la lógica, debemos asumir que existe un objeto
+matemático con la propiedad de agrupar otros objetos. Este objeto lo
+llamaremos Conjunto que representaremos por letras mayúsculas la
+mayoría de las veces. A los objetos que contiene les llamaremos
+elementos. Para representar que un elemento \(x\) pertenece al conjunto
+\(A\) escribimos.
+\[x\in A\]</p>
+<p>Es fácil ver que \(x\in A\) puede ser una oración verdadera o falsa, y por
+lo tanto es una proposición, y por definición su negación, \(x\) no
+pertenece a \(A\), también es una proposición.
+\[x\notin A\quad:=\qquad \neg(x\in A)\]</p>
+<h2 id="Lógica">Lógica</h2>
+<p>Al ser una proposición Lógica nuestra intuición matemática nos hace
+preguntarnos, ¿Qué representan las relaciones y operaciones lógicas en
+los conjuntos? Verdaderamente es una buena pregunta ya que podemos
+definir nuevos objetos con ella.</p>
+<h3 id="Subconjuntos">Subconjuntos</h3>
+<p>Podemos empezar con la implicación, \(x\in A\) implica \(x\in B\) Esto
+podemos entenderlo como, \"Todos los elementos de \(A\) están en \(B\)\" y
+por lo tanto \(A\) es un subconjunto de \(B\) que representaremos por
+\(A\subseteq B\).
+\[A\subseteq B\quad:= \quad x\in A \Rightarrow x\in B\]</p>
+<h3 id="Equivalencia">Equivalencia</h3>
+<p>Así mismo si \(x\in A\) es equivalente a \(x\in B\) puede ser interpretado
+como \(A\) y \(B\) tienen los mismos elementos y por lo tanto son
+equivalentes \(A\equiv B\). \[A\equiv B\quad:=\quad x\in B \equiv x\in B\]</p>
+<p>Nosotros sabemos que la equivalencia lógica puede ser separada en 2
+implicaciones, y esas implicaciones en conjuntos sabemos como
+expresarlas.
+\[A\equiv B\quad\iff\quad A\subseteq B \textrm{ y } B\subseteq A\]</p>
+<h3 id="Operaciones">Operaciones</h3>
+<p>Si un elemento \(x\) pertenece a dos conjuntos, \(A\) y \(B\), a la vez
+podemos decir que este elemento \(x\) pertenece a su intersección
+(\(\cap\)) modo qué.
+\[x\in A\cap B\quad\iff\quad x\in A\textrm{ y } x\in B\]</p>
+<p>De la misma forma si un elemento \(x\) pertenece a uno de dos conjunto,
+\(A\) o \(B\), entonces este elemento pertenece a la unión de estos
+conjuntos (\(\cup\)).
+\[x\in A\cup B\quad\iff\quad x\in A\textrm{ o } x\in B\]</p>
+<p>Por ultimo volvemos a donde iniciamos, a la negación de \(x\in A\) pero
+con un nuevo enfoque, para eso definiremos un conjunto, \(A\)
+complemento (\(A^c\)) que tenga la propiedad.
+\[x\in A^c\quad\iff\quad x\notin A\]</p>
+<h2 id="Propiedades">Propiedades</h2>
+<p>Por esta Analogía entre la Lógica simbólica y la teoría de conjuntos
+podemos extrapolar las propiedades de una a otra, de una forma directa,
+por ejemplo la ley de Morgan.
+\(\)\begin{aligned}
+x\in (A\cup B)^c &\iff \neg(x\in A\cup B)\\
+        &\iff \neg(x\in A\textrm{ o } x\in B)\\
+        &\iff \neg (x\in A)\textrm{ y } \neg (x\in B)\\
+        &\iff x\in A^c\textrm{ y } x\in B^c\\
+        &\iff x\in A^c\cap B^c\\
+\end{aligned}\(\)</p>
+<p>Por transitividad \(x\in (A\cup B)^c\,\iff\,x\in A^c\cap B^c\), pero como
+el Si y solo si es otra forma de decir que son equivalentes podemos
+asegurar.
+\[(A\cup B)^c \equiv A^c\cap B^c\]</p>
+<p>De esta forma se hacen demostraciones con conjuntos, si en un paso usas
+implicación entonces solo puedes demostrar que uno es un subconjunto de
+otro.</p>
+<h2 id="Representaciones">Representaciones</h2>
+<p>Hasta ahora hemos representado los conjuntos en términos de lógica de
+primer orden, agregando algunos símbolos y significados pero si
+recordamos cuando vimos conjuntos en la preparatoria recordamos que hay
+otras notaciones.</p>
+<h3 id="Por-extensión">Por extensión</h3>
+<p>La forma más simple es mostrando todos los elementos que hay en este
+conjunto, si son finitos, por ejemplo los colores del arcoíris.
+\[\{\,\textrm{rojo, naranja, amarillo, verde, cian, azul y violeta}\,\}\]</p>
+<p>Cuando el conjunto tiene un patrón predecible y es demasiado grande como
+para escribirlo, o infinito, podemos usar puntos suspensivos, por
+ejemplo los números del 1 al 100.
+\[\{\,1,2,3,\cdots,98,99,100\,\}\]</p>
+<p>Podemos \"guardar\" estos conjuntos podemos declararlos con una letra o
+símbolo, como los Naturales.
+\[\mathbb{N}=\{1,2,3,4,5,\cdots \}\]</p>
+<h3 id="Por-comprensión">Por comprensión</h3>
+<p>La otra gran forma de representar conjuntos es por compresión. Esta
+forma es fácilmente reconocible por que sigue la misma estructura.
+\[A=\{\,x\in S\,:\,P(x)\}\]</p>
+<p>Donde \(x\) y \(A\) cumplen los mismos roles, una de variable y otro de
+conjunto, \(S\) es un conjunto al que debe pertenecen nuestros elementos,</p>
+<p>De este conjunto \(x\in A\) si \(P(x)\) es verdadero, en otras palabras.
+\[(x\in S)\textrm{ y } P(x)\Rightarrow x\in A\]</p>
+<p>Podemos aplicar la ley de simplificación para demostrar que
+\(A\subseteq S\). Ademas podemos reescribir conjuntos bajo está Notación,
+como la diferencia de conjuntos.
+\[A/B=\{\,x\in A\,:\, x\notin B\}\]</p>
+<h2 id="Ejercicios">Ejercicios</h2>
+<ul>
+<li>  Demuestra \((A\cup B)\cap C\equiv (A\cap C)\cup (B\cap C)\).</li>
+<li>  Redefine la diferencia de conjuntos usando notación lógica.</li>
+<li>  Redefine las operaciones de conjuntos usando notación de</li>
+    comprensión.
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

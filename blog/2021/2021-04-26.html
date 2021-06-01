@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Resumen de la semana</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="orpresa, ya tenemos índices en los artículos otra vez. Además esta semana me enfoque a dos cosas, probar cosas relacionadas al internet en linux, a nivel de serividor y computadora, así cómo probar un administrador de ventanas nuevo.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Resumen-de-la-semana">Resumen de la semana</h1>
+<p>26 de abril del 2021
+</p></center>
+<p>Sorpresa, ya tenemos índices en los artículos otra vez. Además esta semana me enfoque a dos cosas, probar cosas relacionadas al internet en linux, a nivel de serividor y computadora, así cómo probar un administrador de ventanas nuevo.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Índices-en-los-artículos">Índices en los artículos</a></li>
+<li><a href="#Administradores-de-Ventanas">Administradores de Ventanas</a></li>
+<li><a href="#Servidor-VPN">Servidor VPN</a></li>
+<li><a href="#Servidor-DNS">Servidor DNS</a></li>
+</ul></div>
+<h2
+<h2 id="Índices-en-los-artículos">Índices en los artículos</h2>
+<p>Modifique el script que genera los archivos HTML, para que genere los índices de las páginas automáticamente, por lo que ya tengo un script autosuficiente y dudo que tenga la necesidad de modificarlo, quizá hable de cómo funciona después. Además el generador de rss tenía unas fallas, y ya las corregí. </p>
+<h2 id="Administradores-de-Ventanas">Administradores de Ventanas</h2>
+<p>Por otro lado en mi computadora, quería probar el protocolo Wayland, que para el que no sepa, la forma en que un sistema operativo linux pasa de ser todo texto a algo gráfico es con un servidor Xorg, pero existe la alternativa Wayland, entonces la decidí probar.  Busque un administrador de ventanas que funcione bajo este protocolo y probé principalmente DWL y River. el primero está inspirado en dwm, y tiene exactamente la misma configuración, sin embargo no supe como configurarlo en dos monitores. el segundo river, tenía un sistema integrado de monitores, le pude poner el teclado que necesitaba, y funcionaba bien, en general.</p>
+<p>ya que tenía algo funcional empecé a investigar los procesos que usaba, y usaba el doble de cpu que mi administrador de ventanas de siempre, que en el fondo es una tontería, uso en promedio 0.7% de mi cpu cuando no tiene nada abierto y el doble de eso 1.7% no es nada. pero me molestaba, además encendía varios procesos que no consideraba necesarios. así que decidí seguir con bspwm que está configurado exactamente como me gusta.</p>
+<h2 id="Servidor-VPN">Servidor VPN</h2>
+<p>Cómo ya explique uno puede acceder al internet desde otra computadora con un servidor VPN, así que instale wireguard en el servidor de mi página, que está en gringolandia, y mi computadora, también descargué el cliente del celular, funcionó de maravilla el VPN en mi celular, pero en mi computadora tuve varias complicaciones.</p>
+<h2 id="Servidor-DNS">Servidor DNS</h2>
+<p>También cuando a una computadora le das un URL, este no sabe a donde ir, así que le pregunta a un servidor con una base de datos guardadas, y este le da la ip que necesita. Ahora, si conoces la URL de un anuncio, le puedes decir a tu computadora linux que no le pregunte al servidor, que vaya a una ip donde no hay nada, y así puedes bloquear anuncios o páginas web localmente, esto lo haces agregando links al archivo 
+<code>/etc/hosts</code> o instalando Pi-hole. Así que eso hice. y funcionó bien, bloqueaba anuncios de páginas de noticias y demás, pero no de redes sociales que bueno, es lo que más uso.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

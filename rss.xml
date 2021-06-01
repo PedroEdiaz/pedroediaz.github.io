@@ -1,0 +1,639 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+<title>Pedro E. Díaz C.</title>
+<description>feed de PedroEdiaz</description>
+<language>es-mx</language>
+<link>https://pedroediaz.xyz/rss.xml</link>
+<atom:link href="https://pedroediaz.xyz/rss.xml" rel="self" type="application/rss+xml"/>
+<image>
+<title>Pedro E. Díaz C.</title>
+<url>https://pedroediaz.xyz/assets/images/blog.webp</url>
+<link>https://pedroediaz.xyz/rss.xml</link>
+</image>
+<item>
+<title>Mantente informado con los feeds de RSS</title>
+<link>https://pedroediaz.xyz/apuntes/computacion/free/rss.html</link>
+<guid>https://pedroediaz.xyz/apuntes/computacion/free/rss.html</guid>
+<pubDate>Mon, 31 May 2021 17:03:41 -0500</pubDate>
+<description><![CDATA[
+<p>onday May 31, 2021</p>
+<center>
+<h1 id="Mantente-informado-con-los-feeds-de-RSS">Mantente informado con los feeds de RSS</h1>
+<p>Monday May 31, 2021
+</p></center>
+<p>Este es el primero de varios artículos hablando sobre cómo depender menos de los grandes onopilios de internet, en este vamos a hablar cómo estar informado de publicaciones de youtube, Reddit y otras páginas independientes a partir de feeds de RSS.</p>
+<h2 id="Qué-es-un-feed-de-RSS">Qué es un feed de RSS</h2>
+<p>Un feed de RSS es una archivo en formato xml, la ventaja de esto es que en un client vas poniendo la dirección de los feeds que quieres seguir y ya no tienes que ir página a página buscando actualizaciones. un ejemplo de feed es el de esta página.</p>
+<ul>
+<li><a href="https://pedroediaz.xyz/rss.xml">RSS de la página</a>
+<li><a href="https://based.cooking/rss.xml">RSS de recetas de cocina</a>
+</ul>
+<p>De clientes busquen el que más se adapten a sus necesidades, en lo particular uso newsboat, por que es de terminal y le puedo decir con que aplicación me abra los links.</p>
+<h2 id="Seguir-Canales-de-Youtube">Seguir Canales de Youtube</h2>
+<p>Para seguir un canal de youtube debemos encontrar la id de su canal, básicamente entramos a un canal, actualizamos la página y la url va a términar en una clave, copiamos la clave. ahora el feed de RSS asociado a ese canal es el siguiente:</p>
+<pre><code>
+<p>https://www.youtube.com/feeds/videos.xml?channel_id=
+<clave>
+</code></p></pre>
+<p>con esto hacemos una lista de canales que deberas valen la pena seguir.</p>
+<h2 id="Seguir-Subreddits">Seguir Subreddits</h2>
+<p>Para seguir un subreddit es básicamente el mismo procedimiento básicamente el feed de rss, de un subreddit. por ejemplo el rss para el subreddit de commandline es el siguiente.</p>
+<pre><code>
+<p>https://www.reddit.com/r/commandline.rss
+</code></p></pre>
+<h2 id="Seguir-Cambios-en-proyectos-de-Github.">Seguir Cambios en proyectos de Github.</h2>
+<p>Para seguir un proyecto básicamente debemos saber el usuario que lo mantiene, el nombre del proyecto y la rama que queremos seguir, casi siempre la que nos interesa es master. y el link sería el siguiente.</p>
+<pre><code>
+<p>https://github.com/
+<user>/<proyect>/commits/master.atom
+</code></p></pre>
+<h2 id="Feeds-interesantes.">Feeds interesantes.</h2>
+<p>Básicamente las páginas de noticias, revistas y podcast son las que suelen tener feeds de rss. así que si siguen un noticiero les recomiendo busquen el feed y ya no entran a leer puro anuncio. por otro lado aquí hay una humilde lista de feeds interesantes.</p>
+<h3 id="Interesantes">Interesantes</h3>
+<ul>
+<li><a href="https://based.cooking/rss.xml">Recetas de cocina</a>
+</ul>
+<h3 id="Tecnología">Tecnología</h3>
+<ul>
+<li><a href="https://lukesmith.xyz/rss.xml">Luke Smith</a>
+<li><a href="https://rss.hexdsl.co.uk/tt-rss/public.php?op=rss&id=-2&is_cat=0&q=&key=9cvsto60a00a71ee60b">Hexdsl</a>
+</ul>
+<h3 id="Podcasts">Podcasts</h3>
+<ul>
+<li><a href="https://feeds.megaphone.fm/YMRT7068253588">You must remember this</a>
+</ul>
+]]></description></item>
+<item>
+<title>Poniendo un servidor de Gemini</title>
+<link>https://pedroediaz.xyz/apuntes/computacion/linux/agate.html</link>
+<guid>https://pedroediaz.xyz/apuntes/computacion/linux/agate.html</guid>
+<pubDate>Sun, 30 May 2021 23:10:11 -0500</pubDate>
+<description><![CDATA[
+<p>unday May 30, 2021</p>
+<center>
+<h1 id="Poniendo-un-servidor-de-Gemini">Poniendo un servidor de Gemini</h1>
+<p>Sunday May 30, 2021
+</p></center>
+<p>En este artículo voy a explicar el proceso para poner un servidor de gemini con agate, el proceso durará poco más de 5 minutos y lo pueden intentar en su computadora o en su red local.</p>
+<h2 id="Descargando-agate">Descargando agate</h2>
+<p>Primero descargamos el precomilado más reciente para nuestro sistema operativo en los release de github. Este precomilado no es más que un binario. 
+ =>  https://github.com/mbrubeck/agate/releases/</p>
+ Para eso la forma más fácil de hacerlo es con wget, en mi caso usé este comando para la última versión de linux. Y descomprimimos el archivo, esto con el comando gzip.
+ 
+<pre><code>
+ wget https://github.com/mbrubeck/agate/releases/download/v3.0.3/agate.x86_64-unknown-linux-gnu.gz
+<p>gzip -d agate.x86_64-unknown-linux-gnu.gz
+ </code></p></pre>
+ Ya con esto movemos el archivo a los binarios, le damos permiso de ejecución y le cambiamos el nombre a uno más manejable. Para esto usamos chmod y mv.
+ 
+<pre><code>
+ mv agate.x86_64-unknown-linux-gnu /usr/bin/agate
+ chmod +x /usr/bin/agate
+ </code></pre>
+ Y con esto ya podemos prender el servidor apuntando a una carpeta. Es obligatorio usar el protocolo gemini con encriptado de punto a punto. Es por eso que necesitamos un dominio, si no tenemos basta ponerle localhost, y podemos acceder desde el mismo. En todo caso no he probado ponerle de host la ip pública.
+ 
+<pre><code>
+ agate --content /var/www/gemini \
+ 	--certs /var/.certificates/ \
+ 	--hostname my-domain.com \
+ 	--lang es-MX
+ </code></pre>
+ Este comando es bastante explicativo básicamente le dice en que directorio está el contenido, los certificados para la encriptación, el hostname y el lenguaje, y con esto terminamos. Como nota los certificados están siempre en memoria, y queremos que esté en un sitio seguro.
+ ## Agregar servicio en systemd
+ Si pasa algo queremos que se active solo, el servidor, para eso vamos a crear un servicio en systemd. Nuestro servicio será /etc/systemd/system/agate.service así que lo creamos con nuestro editor favorito, en mi caso vim.y el archivo se verá algo así.
+ 
+<pre><code>
+[Unit]
+<p>Description=agate
+After=network.target</p>
+[Service]
+<p>User=gemini
+Type=simple
+ExecStart=agate --content /var/www/gemini --certs /var/.certificates/ --hostname my-domain.com --lang es-MX</p>
+[Install]
+<p>WantedBy=default.target
+ </code></p></pre>
+ Básicamente le ponemos una descripción al servicio, queremos que se ejecute después del internet y ejecute el comando que ya explicamos. Queremos que este comando lo ejecute un usuario con el mínimo de permisos posibles, por seguridad, así que creamos el usuario gemini y arrancamos el servicio.
+<pre><code>
+<p>useradd gemini
+systemctl enable agate
+systemctl start agate
+</code></p></pre>
+<p>Y ya con esto siempre estará nuestro servidor gemini encendido siempre que nuestra computadora que lo aloje esté prendida y tenga internet.</p>
+]]></description></item>
+<item>
+<title>De como murió mi utopía retro-futurista</title>
+<link>https://pedroediaz.xyz/blog/2021/2021-05-29.html</link>
+<guid>https://pedroediaz.xyz/blog/2021/2021-05-29.html</guid>
+<pubDate>Sat, 29 May 2021 15:00:38 -0500</pubDate>
+<description><![CDATA[
+<p>Siempre he buscado regresar a cuando las computadoras eran simples, a un minimalismo digital, he aprendido sobre servidores, de como las computadoras se comunican entre sí, de como funciona una computadora y simplificar sus procesos para usar sólo los que necesito.</p>
+<h1 id="De-lo-simple-del-internet">De lo simple del internet</h1>
+<p>Partimos de lo simple, una computadora es un dispositivo que almacena y modifica archivos, estos archivos se pueden visualizar bajo ciertas reglas, lo que diferencia un archivo mp3 y un opus.Y el internet comunica a las computadoras entre si, para ver estos archivos de forma remota. </p>
+<p>La forma más simple de internet es poner un archivo en un puerto con un socket, esto lo podemos hacer con netcat, básicamente el socket espera a que alguien lea lo que hay en el, y ya que no haya información que mandar, se cierra. Los servidores web, automatizan esto, le ponen un header para decir las especificaciones del archivo, el cache, y hace que no se cierre el socket.</p>
+<h1 id="El-problema-del-nuevo-internet">El problema del nuevo internet</h1>
+<p>Aquí voy a hablar de mi experiencia con un servidor, básicamente quería transmitir películas en vivo, ya hay un protocolo para hacer esto, rtmp, un puerto asociado a este protocolo y varias aplicaciones que administran el protocolo, si yo mando el video a un link, cualquier persona con ese link puede ver el video, y cualquier reproductor multimedia conoce el protocolo. y con una configuración mínima, puedo mandar el vídeo encriptado de punto a punto. </p>
+<p>Para ver el vídeo en internet, ya se puede, pero en un navegador web no, para eso el servidor web debe pasar el video de rtmp a hls, que solo se puede ver en dispositivos apple, y de ahí a un programa de javascript, para que todos los navegadores lo puedan ver, y si le quieres agregar un chat, mi forma de hacerlo fue con irc, y con otro programa de javascript hacerlo accesible desde el navegador. Además de su configuración mínima para la encriptación punto a punto.</p>
+<p>Con javascript nuestros navegadores web se convirtieron en un sistema operativo propio, vemos el correo desde el navegador, vemos vídeos, nos comunicamos. Y desarrollamos nuestra vida digital en el. La aplicación de escritorio de discord, no deja de ser un navegador que abre la página de discord. Un correo electrónico originalmente era para mandar correos de un usuario a otro en una misma computadora, excepto que ahora la computadora no es nuestra y que miedo dejar mis archivos y fotos en una computadora que no controlo.</p>
+<h1 id="Protocolos-que-vuelven-a-lo-simple">Protocolos que vuelven a lo simple</h1>
+<p>Cuando hubo preocupación por la seguridad de los mensajes web, por Whatsapp, se hablarón de varias alternativas, sin embargo la más interesante de todas fue matrix. Ya que era un protocolo, que hacía las cosas bien, ya que también tenían programado un servidor que puedes hospedar tu mismo, y varios clientes, por lo que funcionaba como discord. La ventaja del protocolo es que está ideado para mandar mensaje entre varios usuarios que pertenecen a distintos servidores. En otras palabras, descentraliza.</p>
+<p>Gemini por otro lado busca ser lo que era alguna vez http, un protocolo para leer archivos de texto con un formato simple, y que tenga links a otras páginas haciendo una red de información, además claro, de que estos links pueden ser archivos que puedes ver en reproductores multimedia o links con otros protocolos, para ver en clientes de estos. </p>
+<h2 id="Nota">Nota</h2>
+<p>Ahora volver a cuándo el internet era simple implica que los anuncios, y la forma de ganar dinero en este ya no sería sostenible, la alternativa sería modelos cómo twitch o donarle a los creadores de contenido.</p>
+<h1 id="Planes-para-este-mes">Planes para este mes</h1>
+<p>Hoy me descargué un cliente de gemini para la terminal, llamado amfora, y estuve navegando un poco, conociendo el cliente y conociendo las páginas, y está bonito ver la página de las personas y como escriben de lo que les interesa, lo adornan con puro texto y como ya tiene hasta buscadores propios, y posiblemente hasta php, es por eso que voy a hospedar mi página en gemini, para apoyar el concepto que me gusta e invitar a más gente a usarlo, y quizá para optimizar espació haga que mi página convierta markdown a html, con php, y no tener dos copias de lo mismo.</p>
+]]></description></item>
+<item>
+<title>Primeras impresiones de Voidlinux</title>
+<link>https://pedroediaz.xyz/blog/2021/2021-05-25.html</link>
+<guid>https://pedroediaz.xyz/blog/2021/2021-05-25.html</guid>
+<pubDate>Tue, 25 May 2021 14:42:06 -0500</pubDate>
+<description><![CDATA[
+<p>Estos son dos artículos que en facebook mientras cambiaba de sistema operativo, cómo nota void ya no usa i tiene soporte para libressl.</p>
+<h1 id="Instalación-de-Void">Instalación de Void</h1>
+<p>Terminé mis responsabilidades inmediatas de la semana, y ya instalé void linux, la instalación es bastante rápida, y debes hacer todo de golpe por que se guarda la configuración en el cache y luego si la quieres cambiar causa problemas. lluego, para installar el driver del internet igual, sin ningún problema, todo muy fácil. </p>
+<p>Ahora,  ahi acabó lo fácil, es importante saber exactamente las dependencias que tienen los programas que usas, por ejemplo, instalando los programas de xorg que ocupaba en arch no bastaba ya que necesitaba una librería para detectar el teclado y mouse. luego vi que hay un paquete llamado xorg-mininal, y ya así no iba una a una viendo si ya funcionaba en conjunto. Para alacritty la terminal necesité mesa-dri, para poder usar aceleración por hardware, y para terminar, le puse variables de entorno para que las aplicaciones sepan que uso xorg y no wayland. </p>
+<p>Intenté usar chromium pero era imposible, se colgaba a cada rato, al parecer no se podía conectar a dbus. así que muy a mi pesar instalé firefox. firefox está bien, te crea carpetas nuevas y no me gusta, pero bueno, no crashea, usar spotify en el navegador es imposible tanto en chromium o firefox. y al parecer microsoft teams no te permite usarlo en firefox. por último, para usar el microfono en firefox necesitas dbus. en general no se necesita dbus en un void y sin embargo en arch es necesario para usar xorg.</p>
+<p>Los problemas con los navegadores web es por que void intenta no usar software que le pertenezca a una empreza, pero puedes ponerle la opción de que lo haga y yo creo que eso lo soluciona. por último, transferir las llaves ssh fue fácil, nada más le cambias los permisos y ya puedes acceder a los servidores pariados. xd, así que voy a pasar estos escritos largos al blog en el fin de semana.</p>
+<h1 id="Usando-qutebrowser">Usando qutebrowser</h1>
+<p>Después de estar probando navegadores web para mi nuevo setup y ver que ninguna me gustaba dije, pues ya que estamos vamos por lo más minmalista posible, y empecé a usar qutebrowser, este navegador sigue la filosofía de vim, que es una de mis aplicaciones favoritas. Vim, el predecesor de vi, es un programa para editar texto desde la terminal su filosofía, dice, bueno, si quieres estar escribiendo texto lo que menos necesitas es alejar tus manos de el, entonces ideó un sistema para haces esto. varios programas de linux usan sus mismos mapeos de teclas.</p>
+<p>Puede sonar muy desafiante usar este navegador sin el mouse, pero habiendo usando vim antes es bastante intuitivio, para copiar y pegar texto se hace exactamente lo mismo que en el editor. además con f, te sale todo lo que puedes clickear, y que teclas debes presionar para hacer click como en la imágen de abajo. también es muy extendible, con un comando en la configuracion, puedes hacer que te abra las imágenes, videos y pdfs, en tus aplicaciones locales, y no desde el navegador, cosa que nunca pude lograr con los otros. por último le puse a los demás programas los keybindings de vim para que la forma de navegar sea la misma en todo el sistema.</p>
+<p>Con esto mi computadora ya no depende de un mouse en si, si no que puedo ser más eficiente con la computadora, sin mover casi nada mis manos. cosa que me emociona, xd.</p>
+]]></description></item>
+<item>
+<title>Script: Escuchar música de youtube desde la terminal (1)</title>
+<link>https://pedroediaz.xyz/apuntes/computacion/linux/youtube-1.html</link>
+<guid>https://pedroediaz.xyz/apuntes/computacion/linux/youtube-1.html</guid>
+<pubDate>Mon, 24 May 2021 20:27:28 -0500</pubDate>
+<description><![CDATA[
+<p>Nuestro objetivo con este proyecto es hacer un script para administrar nuestras playlist desde la linea de comandos, para eso hablaremos un poco de los visualizadores de archivos multimedia, ya sean audio, fotos y vídeo, y de un programa muy controversial llamado youtube-dl.</p>
+<h1 id="Sobre-los-visualizadores">Sobre los visualizadores</h1>
+<p>En todo sistema operativo hay aplicaciones para visualizar distintos tipos de archivos, por ejemplo adobe para ver pdfs, o los que vienen en el sistema para ver fotos y vídeos. Pongamos de ejemplo feh, este es un visualizador de imágenes. Si quiero ver mi última captura de pantalla pondría el siguiente comando.</p>
+<pre><code  >
+<p>feh media/04-29-2021-13-35.png
+</code></pre></p>
+<p>Si quisiera ver 3 fotos, pondría la dirección de esas 3 fotos, y si quisiera ver todas las fotos de una carpeta, pondría de argumento la dirección de la carpeta, en este caso media/. Además podemos decirle a los visualizadores que abra archivos del internet usando distintos protocolos, ftp, ssh y lo que nos interesa hoy, http.</p>
+<h2 id="Mpv-+-youtube-dl">Mpv + youtube-dl</h2>
+<p>Mpv, es un reproductor de vídeo muy modular, reproduce una gran variedad de formatos, y puede incluir subtítulos, cómo su página oficial dice, mpv es tan libre como la libertad. Si tienes instalado youtube-dl, un programa para descargar vídeos de youtube, mpv puede reproducir vídeos directamente de youtube, sin anuncios, sin registrarte.</p>
+<h1 id="El-concepto">El concepto</h1>
+<p>nuestro objetivo es a partir de un archivo de texto con palabras clave, localizar automáticamente las url del primer resultado de youtube, de preferencia haremos esto youtube-dl y ya que tengamos la url, lo escriba antes de la palabra clave en el mismo archivo. De modo que pase el siguiente proceso.</p>
+<h2 id="Archivo-original">Archivo original</h2>
+<pre><code  >
+<p>No Buses - With or Without it
+No Buses - Ill Humor
+No Buses - Imagine Siblings
+No Buses - Pretty Old Man
+Last Dinosaurs - Bass God
+Last Dinosaurs - Zoom
+Last Dinosaurs - Flying
+</code></pre></p>
+<h2 id="Archivo-procesado">Archivo procesado</h2>
+<pre><code  >
+<p>https://www.youtube.com/watch?v=DAWZruRHO-8 #No Buses - With or Without it
+https://www.youtube.com/watch?v=WJZx6p_2MNU #No Buses - Ill Humor
+https://www.youtube.com/watch?v=qupjI2glv_Y #No Buses - Imagine Siblings
+https://www.youtube.com/watch?v=xtn_SmyT87s #No Buses - Pretty Old Man
+https://www.youtube.com/watch?v=XBlIDOMj-ss #Last Dinosaurs - Bass God
+https://www.youtube.com/watch?v=A0Ws3rB5eg0 #Last Dinosaurs - Zoom
+https://www.youtube.com/watch?v=EBh71q-0BNI #Last Dinosaurs - Flying
+</code></pre></p>
+<p>Por último para reproducir esto desde mpv, vamos a mandarle de entrada a mpv nada mas las url de este archivo ordenadas de forma aleatoria, terminaremos este script con un sistema para descargar archivos y escucharlos localmente.</p>
+<h1 id="Crear-el-script.">Crear el script.</h1>
+<p>Nuestro script se va a llamar mplay por que es difícil eso de ser original, así que lo creamos y lo hacemos ejecutable con los siguientes comandos.</p>
+<pre><code  >
+<p>touch mplay
+chmod +x mplay
+</code></pre>
+ya con esto podemos abrir nuestro archivo con nuestro editor de texto favorito, o con una ide, si es que usamos; hasta arriba vamos a poner 
+<code>#!/bin/sh</code> para decirle a la computadora que este archivo se abre con la shell.</p>
+<p>Ahora, queremos que cuando alguien ejecute 
+<code>mplay get "palabras clave"</code> devuelva la url del primer vídeo de youtube que salga al buscar esa palabra clave. Sabemos que el primer argumento en el script es la variable $1 por lo que nuestro script se vería así.</p>
+<pre><code  >
+#!/bin/sh
+<p>if [ $1 = get ]
+then
+	...
+fi
+</code></pre></p>
+<p>Para conseguir la url del vídeo usaremos le diremos a yotube-dl que simule una descarga del primer vídeo que salga al buscar nuestro segundo argumento y la palabra audio. para eso usaremos el siguiente comando.</p>
+<pre><code  >
+<p>youtube-dl --skip-download --default-search 'ytsearch' "$2 audio"
+</code></pre></p>
+<p>Si buscamos la palabra hello y audio nos imprime lo siguiente.</p>
+<pre><code  >
+ ~ > youtube-dl --skip-download --default-search 'ytsearch' "hello audio"
+ 
+[download] Downloading playlist: hello audio
+[youtube:search] query "hello audio": Downloading page 1
+[youtube:search] playlist hello audio: Downloading 1 videos
+[download] Downloading video 1 of 1
+[youtube] a9IbmRb1KEc: Downloading webpage
+[youtube] a9IbmRb1KEc: Downloading MPD manifest
+[download] Finished downloading playlist: hello audio
+</code></pre>
+<p>Vemos que al lado de 
+<code>[youtube]</code> nos sale un código <code>(a9IbmRb1KEc)</code> si ponemos esté código en la siguient url "https://www.youtube.com/watch?v=codigo" vemos que nos sale la canción "Hello" de Adele. Para extraer este código mandaremos la salida de este programa, a la entrada de grep con los pipes '|' de forma que si ponemos. <code>youtuve-dl ... |grep '\[youtube\]'</code> solo nos imprime las lineas que tengan este patrón. Para tener la primera linea usaremos el comando head, para tener la segunda columna usaremos awk y para quitar los dos puntos del final usaremos sed por lo que juntando todo tenemos.</p>
+<pre><code  >
+ ~ > youtube-dl ...|grep '\[youtube\]'|head -n1|awk '{print $2}'|sed 's/:$//'
+<p>a9IbmRb1KEc
+</code></pre></p>
+<p>para guardar este resultado en la variable ID ponemos el comando ente 
+<code>$(..)</code> y la igualamos a la variable. para partir esta linea este comando en dos lineas pondremos '\' para pasar de linea. Además ya podemos darle el formato de url. esto quedaría.</p>
+<pre><code  >
+<p>if [ $1 = get ]
+then
+	ID=`youtube-dl --skip-download --default-search 'ytsearch' "$2 audio" |\
+		grep '\[youtube\]'|head -n1|awk '{print $2}'|sed 's/:$//'`
+	echo "https://www.youtube.com/watch?v=$ID"
+fi
+</code></pre></p>
+<p>Y con esto ya terminamos la primer parte del script, lo podemos ejecutar para ver cómo funciona.</p>
+<pre><code  >
+~ > ./mplay get hello
+<p>https://www.youtube.com/watch?v=a9IbmRb1KEc
+</code></pre></p>
+<h1 id="Darle-formato-a-las-playlist">Darle formato a las playlist</h1>
+<p>Como ya expusimos en el concepto ya sabemos cómo queremos el formato de nuestras playlist, para eso creamos un archivo de prueba y ponemos nuestras palabras clave, author y canción. Ahora queremos que cuano se ejecute mplay gen playlist le de el formato que queremos a nuestra playlist, para eso ponemos en nuestro script una condicional para cuando el primer argumento es 'gen'.</p>
+<pre><code  >
+<p>if [ $1 = gen ]
+then
+	...
+fi
+</code></pre></p>
+<p>Para leer linea por linea del archivo playlist (nuestro segundo argumento), usaremos el siguiente loop.</p>
+<pre><code  >
+<p>while read -r line; do
+	...
+done 
+< $2
+</code></pre></p>
+<p>En este vamos leyendo linea por linea, y cada linea la guarda en la variable $line ahora si la linea no comienza con 'https' entonces la empezamos a procesar. Para eso usamos la siguiente condicional.</p>
+<pre><code  >
+<p>if [ "${line%%:*}" != https ]
+then
+	...
+fi
+</code></pre></p>
+<p>Este le dice al shell que compare la cadena del inicio hasta el primer ':' y si es distinto a http, entonces lo va a procesar. y para procesarla usamos el programa sed y se vería algo así lo que queremos.</p>
+<pre><code  >
+<p>sed -i "/^$line/ a $($0 get "$line") #$line" $2
+sed -i "/^$line/d" $2
+</code></pre></p>
+<p>Donde 
+<code>sed -i "..." $2</code> le dice a sed que va a editar el archivo <code>$2</code>, que es nuestro segundo argumento, y lo va a editar de acuerdo a las comillas. <code>/^$line/ a $0 get "$line" #$line</code> esta parte le dice a sed, que la lineas que empiecen con $line le va a agregar una linea con la salida de <code>$0 get "$line"</code> osea, la salida de la primer función que programamos, osea, la salida del link de youtube y además va a escribir otra vez la linea con un '#' antes; ya que lo procesa, va a borrar la linea original. Por lo que nuestro código se vería.</p>
+<pre><code  >
+<p>if [ $1 = gen ]
+then
+	while read -r line; do
+		if [ "${line%%:*}" != https ]
+		then
+			sed -i "/^$line/ a $($0 get "$line") #$line" $2
+			sed -i "/^$line/d" $2
+		fi
+	done 
+< $2
+fi
+</code></pre></p>
+<p>Si ejecutamos este programa en nuestra playlist osea 
+<code>./mplay gen playlist</code> y abrimos el archivo playlist, vemos que tenemos el formato que buscábamos, y con esto termina nuestra segunda parte del script.</p>
+<h1 id="Reproducir-las-playlist">Reproducir las playlist</h1>
+<p>Por último ponemos una tercera condicional para cuando pongamos 
+<code>./mplay web playlist</code> esta va a reproducir la playlist desde la web, usaremos awk para tener la primer columna, shuf para revolver los links y xargs para pasar cada linea cómo argumento a mpv, a mpv le pondremos la bandera <code>--no-video</code> para que sólo reproduzca el audio y no los vídeos. y nos quedaría así.</p>
+<pre><code  >
+[ $1 = web ] && awk '{print $1}' $2|shuf |xargs mpv --no-video
+</code></pre>
+<p>Como nota 
+<code>[ $1 = web] &&</code> es una forma de poner condicionales a una linea, en la segunda parte de este artículo agregaremos funciones para descargar playlist y reproducirlas localmente.</p>
+<h1 id="Script">Script</h1>
+<pre><code  >
+#!/bin/sh
+<p>if [ $1 = get ]
+then
+	ID=`youtube-dl --skip-download --default-search 'ytsearch' "$2 audio" |\
+		grep '\[youtube\]'|head -n1|awk '{print $2}'|sed 's/:$//'`
+	echo "https://www.youtube.com/watch?v=$ID"
+fi
+ 
+if [ $1 = gen ]
+then
+	while read -r line; do
+		if [ "${line%%:*}" != https ]
+		then
+			sed -i "/^$line/ a $($0 get "$line") #$line" $2
+			sed -i "/^$line/d" $2
+		fi
+	done 
+< $2
+fi</p>
+[ $1 = web ] && awk '{print $1}' $2|shuf |xargs mpv --no-video
+</code></pre>
+]]></description></item>
+<item>
+<title>Ahorcado</title>
+<link>https://pedroediaz.xyz/blog/2021/2021-05-11.html</link>
+<guid>https://pedroediaz.xyz/blog/2021/2021-05-11.html</guid>
+<pubDate>Mon, 24 May 2021 20:27:04 -0500</pubDate>
+<description><![CDATA[
+<p>El fin de semana estaba de responsable con mis cuentas, borrado las que no usaba y actualizando contraseñas viejas y en una de esas páginas de programación me encontré este ahorcado que hice.</p>
+<h1 id="Juego">Juego</h1>
+<center>
+<iframe src='https://editor.p5js.org/PEDC/present/8zHpgsWZy' style='border:none' ></iframe><br/>
+<a href="https://editor.p5js.org/PEDC/present/8zHpgsWZy">Juega en pantalla completa</a>
+</center>
+<h1 id="Historia">Historia</h1>
+<p>En mi último año de la prepa tuve un curso de programación con proyectos interesantes, en el proyecto final hicimos un invernadero en arduino, este fue mi primer repositorio de gitub. y antes de este hicimos un ahorcado para windows en visual basic.</p>
+<p>Cuando empezó la pandemia decidí reescribir el programa en javascript con una librería llamada p5 esta es útil para aprender js, hacciendo un lienzo donde es fácil poner figuras, colores, imágenes y texto, así que traducí mi código, usando los assets que tenía.</p>
+]]></description></item>
+<item>
+<title>Pensamientos sobre Estética</title>
+<link>https://pedroediaz.xyz/blog/2021/2021-05-05.html</link>
+<guid>https://pedroediaz.xyz/blog/2021/2021-05-05.html</guid>
+<pubDate>Mon, 24 May 2021 20:27:02 -0500</pubDate>
+<description><![CDATA[
+<p>Quizá una de mis ramas favoritas de la filosófica es la estética, pero es difícil llegar a un concepto claro de ella, y es fácil confundirla con el estilo, o diseño es por eso que quiero hacer esta artículo, sobre estética para matemáticos. (portada por @er.anfisa)</p>
+<style>figure {float:right;width:min(90%, 3in);} figure img{width:100%;}</style>
+<h1 id="Definición-de-Estética">Definición de Estética</h1>
+<p>Empezamos por lo básico, la etimología, viene del griego y significa lo relativo a las percepciones sensoriales, esto ya nos da un acercamiento al tema, podemos decir que un juicio estético es un juicio de estas percepciones, algo es feo o hermoso, y la máxima expresión fe estas percepciones sensoriales hechas por el hombre son las artes. Ahora, pensar que hace al arte arte, es una pregunta que le compete a la estética.
+Cuando decimos que queremos hacer algo estético, en realidad queremos decir que queremos hacer algo hermoso, y es importante hacernos dos preguntas, es necesario hacer cosas hermosas y que hace a algo hermoso. Como matemáticas lo primer pregunta no nos importa y para la segunda daremos la respuesta más aburrida posible. Diremos que algo es bello si todas sus partes se comportan bajo las mismas reglas simples.</p>
+<figure>
+<img src="https://images.pexels.com/photos/3697742/pexels-photo-3697742.jpeg?auto=compress" alt="Ena Marinkovic"/>
+<figcaption>Ena Marinkovic<figcaption>
+</figure>
+<p>Esta definición nos garantiza que el universo, las matemáticas, cualquier tipo de expresión del arte, la música, las pinturas y hasta el arte grotesco son hermosos, pero son hermosas de distinta manera porque siguen distintas reglas. </p>
+<h1 id="Diseñando-una-Estética">Diseñando una Estética</h1>
+ A estas reglas en términos matemáticos son llamados axiomas, y diseñar una estética se reduce a escoger unos axiomas con los que nos sintamos cómodos y a partir de ellos ir sacando conclusiones (esto es el método deductivo, ir de lo particular a lo general.) Ahora el hecho de que nuestra estética siga reglas lógicas ya nos implica una primera regla. 
+<em>Nuestras reglas estéticas deben ser coherentes</em>. Ahoraconsidero que si algo no es bueno no puede ser bello, por lo que nuestra estética se rige por principios morales, y la última regla es que algo solo puede ser bello si todas sus partes son bellas, por lo que la belleza es recursiva.
+<ul>
+<li>Las reglas estéticas son coherentes.</li>
+<li>Las reglas estéticas son correctas.</li>
+<li>Las reglas estéticas son recursivas.</li>
+</ul>
+<p>Una conclusión inmediata de estas reglas es el minimalismo, esto lo podemos demostrar por contradicción, si tenemos algo que es bello por sus propias reglas estéticas y tiene una parte que le sobra, i.e. una parte que no cumple las reglas estéticas, entonces esto contradice nuestra definición y por lo tanto no puede ser bella.</p>
+<h1 id="Sobre-la-moral">Sobre la moral</h1>
+<figure>
+<img src="https://images.pexels.com/photos/1230656/pexels-photo-1230656.jpeg?auto=compress" alt="@adishnaya_tvar"/>
+<figcaption>@adishnaya_tvar<figcaption>
+</figure>
+<p>Este tema de la estética surgió por que ya iba siendo hora de tener una identidad para vestirme y no quería usar solo negro o azul sin ninguna razón, entonces dije, bueno, no me agrada la idea de que se haga ropa deshechable y de baja calidad usando varios litros de agua, a.k.a fast fashion, por lo que hay una verdadera razón para usar ropa de bazar, además está bien perrón decir que no consumir productos Nestle es parte de tu estética.</p>
+<h1 id="Aplicaciones">Aplicaciones</h1>
+<p>El lugar donde más aplico unos principios estéticos es en mi computadora, dije, quiero que no este ejecutando procesos inútiles, que no tenga aplicaciones que no uso, que no tenga dos aplicaciones que hagan la misma cosa y que sea lo más limpio posible, entonces para no usar una barra con información, puse que mi terminal mostrara el dia y la hora. además de una regla básica para los colores, que nadamás use 4 colores y que cada tono del rgb se exprese solo con 1 de 4 bits.</p>
+]]></description></item>
+<item>
+<title>Resumen de la semana</title>
+<link>https://pedroediaz.xyz/blog/2021/2021-04-26.html</link>
+<guid>https://pedroediaz.xyz/blog/2021/2021-04-26.html</guid>
+<pubDate>Mon, 26 Apr 2021 12:47:44 -0500</pubDate>
+<description><![CDATA[
+<p>Sorpresa, ya tenemos índices en los artículos otra vez. Además esta semana me enfoque a dos cosas, probar cosas relacionadas al internet en linux, a nivel de serividor y computadora, así cómo probar un administrador de ventanas nuevo.</p>
+<h1 id="Índices-en-los-artículos">
+<p>Índices en los artículos</h1></p>
+<p>Modifique el script que genera los archivos HTML, para que genere los índices de las páginas automáticamente, por lo que ya tengo un script autosuficiente y dudo que tenga la necesidad de modificarlo, quizá hable de cómo funciona después. Además el generador de rss tenía unas fallas, y ya las corregí. </p>
+<h1 id="Administradores-de-Ventanas">
+<p>Administradores de Ventanas</h1></p>
+<p>Por otro lado en mi computadora, quería probar el protocolo Wayland, que para el que no sepa, la forma en que un sistema operativo linux pasa de ser todo texto a algo gráfico es con un servidor Xorg, pero existe la alternativa Wayland, entonces la decidí probar.  Busque un administrador de ventanas que funcione bajo este protocolo y probé principalmente DWL y River. el primero está inspirado en dwm, y tiene exactamente la misma configuración, sin embargo no supe como configurarlo en dos monitores. el segundo river, tenía un sistema integrado de monitores, le pude poner el teclado que necesitaba, y funcionaba bien, en general.</p>
+<p>ya que tenía algo funcional empecé a investigar los procesos que usaba, y usaba el doble de cpu que mi administrador de ventanas de siempre, que en el fondo es una tontería, uso en promedio 0.7% de mi cpu cuando no tiene nada abierto y el doble de eso 1.7% no es nada. pero me molestaba, además encendía varios procesos que no consideraba necesarios. así que decidí seguir con bspwm que está configurado exactamente como me gusta.</p>
+<h1 id="Servidor-VPN">
+<p>Servidor VPN</h1></p>
+<p>Cómo ya explique uno puede acceder al internet desde otra computadora con un servidor VPN, así que instale wireguard en el servidor de mi página, que está en gringolandia, y mi computadora, también descargué el cliente del celular, funcionó de maravilla el VPN en mi celular, pero en mi computadora tuve varias complicaciones.</p>
+<h1 id="Servidor-DNS">
+<p>Servidor DNS</h1></p>
+<p>También cuando a una computadora le das un URL, este no sabe a donde ir, así que le pregunta a un servidor con una base de datos guardadas, y este le da la ip que necesita. Ahora, si conoces la URL de un anuncio, le puedes decir a tu computadora linux que no le pregunte al servidor, que vaya a una ip donde no hay nada, y así puedes bloquear anuncios o páginas web localmente, esto lo haces agregando links al archivo 
+<code>/etc/hosts</code> o instalando Pi-hole. Así que eso hice. y funcionó bien, bloqueaba anuncios de páginas de noticias y demás, pero no de redes sociales que bueno, es lo que más uso.</p>
+]]></description></item>
+<item>
+<title>Configurar un servidor Debian</title>
+<link>https://pedroediaz.xyz/apuntes/computacion/linux/vps.html</link>
+<guid>https://pedroediaz.xyz/apuntes/computacion/linux/vps.html</guid>
+<pubDate>Thu, 22 Apr 2021 18:41:30 -0500</pubDate>
+<description><![CDATA[
+<p>Cómo algunos de ustedes saben este servidos en realidad es un servidor virtual privado o también llamado VPS, esta es una opción barata para tener tu propio servidor, las limitaciones importan poco para los tipos de servicios que usaremos en particular, servidor web, servidor de DNS para bloquear anuncios y servidor de VPN, para ver el Netflix gringo.</p>
+<h1>Sobre los VPS</h1>
+<p>Cómo ya mencionamos un VPS es un servidor virtual, esto significa que no rentas una computadora completa sino una parte de esta, el plan que estoy usando da 25G de memoria SSD, un núcleo de procesador y 1T de Ancho de banda; escogemos el sistema operativo, en nuestro caso Debian y de localización el más cercano a nosotros, en mi caso Texas.</p>
+<h1>Consigue tu VPS (apoyando este blog)</h1>
+<p>Puedes apoyar el blog usando el servicio de VPS que yo uso y por lo tanto recomiendo, 
+<a href="https://vultr.com">Vultr</a> todos sus servidores usan memorias SSD, y sus servicios empiezan desde los 2 dolares, sin embargo para una página web necesites <code>ipv4</code> por lo que sube a 5 dolares en Texas. </p>
+<p>Puedes recibir 100 dolares de créditos para gastar el primer mes, y si decides gastar en en Vultr, me dan crédito, esto con el siguiente link, 
+<a href="https://www.vultr.com/?ref=8806163-6G">https://www.vultr.com/?ref=8806163-6G</a></p>
+<h1>Primera configuración</h1>
+<p>Entramos vía SSH a nuestro servidor, posiblemente necesitamos openSSH o un paquete similar, con el comando 
+<code>ssh root@nuestra-ip</code> y ponemos la contraseña que nos dan. Lo primero que hacemos es actualizar el sistema operativo y paquetes; esto para las actualizaciones de seguridad y tener los paquetes más nuevos.</p>
+<pre><code  >
+<p>apt update && apt upgrade
+</code></pre></p>
+<p>Después desinsatalamos los servicios que no usaremos, como apache2 ya que usaremos nginx, así cómo exim4 ya que no nos enfocaremos en los servidores mail y por último ntp, que básicamente sincroniza los relojes entre servidores, pero no le veo sentido que se ejecute de fondo siempre.</p>
+<pre><code  >
+<p>apt remove apache2 exim4-base ntp
+apt autoremove
+</code></pre></p>
+<p>Si notamos que las flechas no se comportan como debería, ni el botón borrar, ponemos el siguiente comando 
+<code>TERM=xterm-88color && export TERM=xterm-88color >> .bashrc</code>. Por último le ponemos el horario de México al servidor con los siguientes comandos.</p>
+<pre><code  >
+<p>unlink /etc/localtime
+ln -s /usr/share/zoneinfo/America/Mexico_City /etc/localtime
+</code></pre></p>
+<h1>Seguridad vía ssh</h1>
+<p>Nuestro siguiente paso es mejorar la seguridad vía ssh, lo que yo hago es generar una llave ssh con passphrase, osea con contraseña, y hacer que ssh sólo permita acceder con la llave ssh que tengo. </p>
+<h2>Ventajas</h2>
+<p>Esto a nivel de seguridad garantiza que no se puede acceder por fuerza bruta, y en caso que alguien tenga tus llaves que es difícil si no tiene acceso físico a tu computadora, todavía necesite este passphrase. </p>
+<h2>Desventaja</h2>
+<p>Si pierdes las llaves ssh, pierdes el acceso al servidor, por lo que estaría bien guardar una copia, en un lugar que nadie excepto tú puedas acceder; en caso de perder la llave, reinstalas el sistema operativo y se borra lo que tenga el servidor.</p>
+<h2>Llaves ssh</h2>
+<p>Dejamos abierta la conexión ssh, y en nuestra computadora generamos las llaves ssh, para eso usamos el comando 
+<code>ssh-keygen</code> y con poner las opciones de por defecto basta i.e. Archivo de la llave <code>.ssh/id_rsa</code>, passphrase la contraseña que nos haga sentir cómodos y los bits de información es que tan segura es esta llave, pero la que propones es suficiente. </p>
+<p>Lo siguiente es darle al servidor tu llave pública, esta sería 
+<code>.ssh/id_rsa.pub</code> para eso usaremos el siguiente comando.  <code>ssh-copy-id -i ~/.ssh/id_rsa.pub root@nuestra-ip</code> ponemos la contraseña que nos dan una última vez, y si todo esta bien te preguntará si aceptas la huella digital, le decimos que sí, esto hace que si algo está raro en nuestra configuración nos avise. Si nosotros le cambiamos a la conexión basta borrar el archivo <code>.ssh/known_hosts</code> para guardar la nueva huella digital.</p>
+<p>Si todo está bien entramos en otra terminal al servidor ssh, sin salirnos del que dejamos abierto, si todo lo hicimos bien sólo nos pedirá el passphrase de la llave, sin embargo también se puede acceder por la contraseña. Ahora dejamos una sesión abierta y para sólo entrar por llave nos vamos a la configuración de ssh que esta se encuentra en el archivo 
+<code>/etc/ssh/sshd_config</code> y cambiamos las siguientes lineas.</p>
+<pre><code  >
+<p>PasswordAuthentication no
+ChallengeResponseAuthentication no
+UsePAM no
+</code></pre></p>
+<p>Estas lineas quitan cualquier protocolo de acceso que no sean las llaves, para actualizar los cambios reiniciamos el servicio de ssh con 
+<code>systemctl reload sshd</code> para comprobar que hicimos todo bien abrimos otra terminal e intentamos acceder al servidor, si lo logramos está todo bien.</p>
+<p>Si vas a actualizar tus llaves, cambia el 'no' por el 'yes' en estas lineas, actualiza el servicio, y cuándo estés listo, vuelve a configurarlo para que sólo use llaves.</p>
+<h1>Automatizar actualizaciones</h1>
+<p>Por último automatizamos las actualizaciones de seguridad del sistema, para que nuestro servidor esté a la vanguardia, para eso instalamos el programa que hace esto, este programa también actualiza el kernel.</p>
+<pre><code  >
+<p>apt install unattended-upgrades
+</code></pre></p>
+<p>Es probable que ya venga en el sistema y lo reconfiguramos. 
+<code>dpkg-reconfigure -plow unattended-upgrades</code> y marcamos yes; editamos el archivo de configuración, que es, <code>/etc/apt/apt.conf.d/50unattended-upgrades</code> y modificamos las siguientes lineas.</p>
+<pre><code  >
+<p>Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::Automatic-Reboot "true";
+Unattended-Upgrade::Automatic-Reboot-Time "05:00";
+</code></pre></p>
+<p>Básicamente quita las dependencias y kernels que no usamos, y cuando se actualiza el kernel hará un reboot a las 5 de la mañana, horario del servidor, por último probamos la configuración con el siguiente comando,</p>
+<pre><code  >
+<p>unattended-upgrade --dry-run
+</code></pre></p>
+<p>También le podemos poner que nos mande un correo con las actualizaciones pero eso si tenemos un servidor de mail, ya con esto tenemos un servidor seguro y automatizado, lo siguiente sería ponerle una página web con Nginx.</p>
+]]></description></item>
+<item>
+<title>Servidor web con Nginx. (2)</title>
+<link>https://pedroediaz.xyz/apuntes/computacion/linux/nginx2.html</link>
+<guid>https://pedroediaz.xyz/apuntes/computacion/linux/nginx2.html</guid>
+<pubDate>Thu, 22 Apr 2021 18:40:43 -0500</pubDate>
+<description><![CDATA[
+<p>En esta página veremos algunos trucos para personalizar aún más nuestra página web con Nginx, veremos certificados SSL, sincronizar los archivos, y ver directorios para compartir archivos.</p>
+<h1>Certificado SSL</h1>
+<p>Para que nuestra página web use https en lugar de http, osea, que la información esté encriptada necesitamos un domino que esté casado con la página, despues instalamos certbot y python3-cerbot-nginx. Y corremos el comando para que se configure automáticamente los certificados.</p>
+<pre><code  >
+<p>apt install certbot python3-certbot-nginx
+certbot --nginx
+</code></pre></p>
+<p>Al ejecutar el segundo comando le ponemos que estamos de acuerdo con las condiciones y que no queremos dar la información de nuestro correo, después ponemos enter a los demás para ponerle el certificado a todas las páginas que tengamos y reiniciamos nginx otra vez.</p>
+<pre><code  >
+<p>nginx -t
+systemctl reload nginx
+</code></pre></p>
+<h1>Ver directorios</h1>
+<p>Cómo vimos en nuestra articulo introduciendo a nginx, todas nuestras páginas web tienen una página de configuración en 
+<code>/etc/nginx/sites-available</code> y estas están linkeadas a la carpeta <code>sites-enabled</code> si queremos usarlas. Ahora nuestra configuración normal se verá así.
+<pre><code  >
+server {
+        listen 80;
+        listen [::]:80;
+        server_name files.nuestro-dominio.com;</p>
+        root /var/www/archive;
+        location / {
+                try_files \(uri \)uri.html $uri/ =404;
+        }
+}
+</code></pre>
+<p>Ahora, todo lo que haremos será en la sección 
+<code>location / {...}</code> que es básicamente la configuración de la raíz y le ponemos la linea <code>autoindex on;</code> de la siguiente manera.</p>
+<pre><code  >
+<p>location / {
+    autoindex on;
+	try_files \(uri \)uri.php \(uri.html \)uri/ =404;
+}
+</code></pre></p>
+<p>Ya con esto podemos actualizar nginx y ver un directorio, sin embargo podemos llegar a tener problemas si un directorio tiene acentos, además de que tenemos más libertades que solo esas. La configuración que yo uso en mi archivo se ve exactamente así, al menos en la sección location. </p>
+<pre><code  >
+<p>location / {
+    add_before_body /.header.html;
+    add_after_body /.footer.html;
+    charset UTF-8;
+    autoindex on;
+    autoindex_exact_size off;
+    autoindex_format html;
+	try_files \(uri \)uri.html $uri/ =404;
+}
+</code></pre></p>
+<p>Hablaremos primero de la sección de en medio, la primer linea 
+<code>charset UTF-8;</code> nos ayuda a arreglar los acentos, ya que cambia los caracteres a unicode. El autoindex ya lo hablamos, ahora, si nosotros ponemos <code>autoindex_exact_size off;</code>  el peso de los archivos tendrá unidades, por ultimo <code>autoindex_format html;</code> le dice que quieres el índice en html, también puedes poner json o xml.</p>
+<p>Si le queremos dar estilo a este directorio usaremos el comando 
+<code>add_before_body</code> y <code>add_after_body</code> este básicamente agrega texto a todas las páginas de la raíz, tanto antes como después. Cómo recomendación les dejo las etiquetas que uso</p>
+<h1>Sincronizar con rsync</h1>
+<p>ya con esto podemos tener una carpeta en nuestra computadora y tenerla sincronizada con la carpeta de nuestra página en el servidor con rsync, así que instalamos el paquete en nuestra computadora y el servidor, si la carpeta del servidor es '/var/www/webpage' creamos una carpeta en nuestra computadora que se llame 'webpage/' y las sincronizamos con el siguiente comando.</p>
+<pre><code  >
+<p>rsync -crv --delete ~/webpage root@nuestra-ip:/var/www/
+</code></pre></p>
+<p>Básicamente este comando manda todos los archivos que sean diferentes, de forma recursiva y dándonos información, despues borra los archivos que no estén en nuestra carpeta local y los manda vía ssh a la carpeta /var/www de nuestro servidor.</p>
+]]></description></item>
+<item>
+<title>Servidor web con Nginx. (1)</title>
+<link>https://pedroediaz.xyz/apuntes/computacion/linux/nginx1.html</link>
+<guid>https://pedroediaz.xyz/apuntes/computacion/linux/nginx1.html</guid>
+<pubDate>Thu, 22 Apr 2021 18:40:41 -0500</pubDate>
+<description><![CDATA[
+<p>Ya con nuestro servidor configurado, o con nuestra computadora, vamos a  le vamos a instalar Nginx para poner una página web, que esté configurada exactamente cómo queremos, claro explicaremos los temas pertinentes antes hablando un poco de protocolos web.</p>
+<h1>¿Dónde se Hospeda una página web?</h1>
+<p>Nosotros sabemos que todo servidor es una computadora, como la que estás usando en este momento y sabemos que cada computadora tiene un nombre en internet, este nombre es la IP, Ahora, cuando una computadora se quiere llamar a si misma lo hace con la IP 127.0.0.1 o con la palabra localhost. Así que nuestro objetivo es poder ver nuestro html cuando pongamos la ip de nuestro servidor, o el localhost si lo hacemos localmente.</p>
+<h1>Instalar Nginx</h1>
+<p>Si nosotros ponemos en nuestro navegador 'Localhost' nos sale un error vemos que no se puede acceder al sitio web esto es por que no tenemos ningún servidor web instalado en nuestra computadora. Usaremos Nginx, por lo que la instalamos con el siguiente comando en Ubuntu o Debian. (todos los comandos son con 
+<code>sudo</code> o root)</p>
+<pre><code .bash >
+<p>apt install nginx
+</code></pre></p>
+<p>Ya con esto si ejecutamos 
+<code>nginx</code> y volvemos a abrir el localhost nos va a salir una página web de bienvenida por lo que ya podemos configurar Nginx para que apunte a una carpeta con nuestra página web. A la hora de ejecutar nginx este se queda de fondo, para pararlo podemos ejecutar en cualquier momento.</p>
+<pre><code  >
+<p>systemstl stop nginx
+</code></pre></p>
+<h1>Configurar Nginx</h1>
+<p>Para configurar Nginx debemos conocer dos carpetas, 
+<code>/etc/nginx/sites-available</code> y <code>/etc/nginx/sites-enable</code> en el primero pondremos las configuraciones de nuestras páginas web, cómo una base de datos, y en el segundo podremos las configuraciones que queremos que se ejecuten. En ambas carpetas ya hay un archivo que quitaremos que es la plantilla y la página de bienvenida.</p>
+<pre><code  >
+<p>unlink /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-available/default
+</code></pre></p>
+<p>Crearemos un archivo nuevo en la primer carpeta, que será nuestra primer página web, el nombre no importa nada así que lo llamaremos 
+<code>webpage</code> y le pondremos el siguiente texto.</p>
+<pre><code  >
+<p>server {
+	listen 80 defaul_server;
+	listen [::]:80 default_server;
+	server_name www.my-dominio.com my-dominio.com;
+	root /var/www/webpage;
+	index index.html;
+	error_page 404 /404.html;
+	location / {
+		try_files \(uri \)uri.html $uri/ =404;
+	}
+}
+</code></pre></p>
+<p>Listen básicamente le dice a Nginx en que puerto estará nuestro servidor, 80 es el puerto que siempre revisará nuestro navegador y 
+<code>default_server</code> le dice que ese será el servidor principal sólo podemos tener un sitio con ese texto, la linea de abajo es lo mismo pero para ipv6.</p>
+<p>Si estamos en una red local no importa mucho que pongamos en 
+<code>server_name</code> pero es para configurar el dominio y subdominio que está casado con la página.  Ademas nos dice que la carpeta  <code>/var/www/webpage</code> es la raíz de nuestra página web, donde debe haber al menos dos archivos, <code>index.html</code> y <code>404.html</code> el primero es tu página principal y el segundo es la página para el error 404. También podemos crear un <code>error_page</code> para el código 403 que es igual común.</p>
+<p>Por último en 
+<code>try_files</code> le está diciendo al servidor que cada que se ponga un url, vea si es válido, si no es válido intenté agregarle '.html' al final a ver si es una página, si no checa si al agregarle '/' al final es una carpeta y si al final ninguno de estos intentos es mandará error 404. </p>
+<h1>Activar Página</h1>
+<p>Para activarla debemos tener el mismo archivo en la segunda carpeta, para no tener errores usaremos algo llamado 'Link simbólico' que básicamente nos deja tener un mismo archivo en varios lugares. Recordemos que nuestra configuración se llama 'webpage' por lo que usamos el comando.</p>
+<pre><code  >
+<p>ln -s /etc/nginx/sites-available/webpage /etc/nginx/sites-enable/
+</code></pre></p>
+<p>Esto le dice a linux que simule el archivo 
+<code>webpage</code> en la carpeta que necesitamos. Ya con esto podemos salir de nuestro editor de texto y pondremos los dos comandos siguientes, el primero es para ver si la sintaxis es correcta y la segunda para guardar los cambios.</p>
+<pre><code  >
+<p>nginx -t
+systemctl reload nginx
+</code></pre></p>
+<p>Ahora si ponemos localhost en nuestro navegador, si lo hacemos localmente o nuestra ip o dominio si ya lo configuramos en nuestro navegador web nos sale la misma página, esto es porque no hemos activado la página.</p>
+<h1>Archivos html</h1>
+<p>Como ya dijimos decidimos tener nuestra página en 
+<code>/var/www/webpage</code>. Pero esto no importa, es el estándar alojar las páginas web ahí, pero si por cuestiones de comodidad la queremos poner en otro lado la podemos poner sin problema, así que nos vamos a esa carpeta y creamos nuestra página <code>index.html</code> y <code>404.html</code> para terminas si queremos parar el servicio solo basta poner.</p>
+]]></description></item>
+<item>
+<title>Carta de amor a las matemáticas</title>
+<link>https://pedroediaz.xyz/blog/2021/2021-04-21.html</link>
+<guid>https://pedroediaz.xyz/blog/2021/2021-04-21.html</guid>
+<pubDate>Wed, 21 Apr 2021 22:50:35 -0500</pubDate>
+<description><![CDATA[
+<p>Este es un vídeo para un evento del día del niño organizado por el STEAM club de la UAM Iztapalapa, el propósito del evento es divulgar las carreras de ciencia en los niños. Cómo siempre he pensado que la matemática no se divulga lo suficiente decidí participar con el siguiente corto.</p>
+<h1>Vídeo</h1>
+<video width=100% controls>
+<source src="/assets/media/carta.webm" type="video/webm">
+</video>
+<h1>Sobre Alicia y otras películas</h1>
+<p>Alicia en el país de las maravillas siempre será el mejor libro de divulgación matemática, principalmente por que no es un libro de divulgación, es un libro que invita a imaginar cosas que parecen imposible y es natural que el libro sea así, en el fondo lo escribió un lógico, Lewis Carol. </p>
+<p>Para mí es importante esta película porque mi padre la había descargado en la computadora de la casa, no sabía leer pero podía poner esta y otras dos películas de Disney, Fantasía y Donald en el mundo de las matemáticas, esta última es una de las películas educativas más vistas con varias referencias a Alicia, empezando por el nombre.</p>
+<p>Siempre me pregunto que tanto marcaron mi personalidad estas tres películas, en el fondo terminé estudiando matemáticas, pero no me dije a mi mismo que me gustaban hasta mi último año de secundaria, por lo menos 6 años después de verlas. </p>
+<h1>Sobre el Cortometraje</h1>
+<p>Una amiga me invitó a participar haciendo un vídeo para el STEAM club de la UAM, ya sabía de ellos por su evento pasado, el del día de la mujer. Y esta vez, con más tiempo decidí participar. Tenía clara la manualidad que iba a presentar, pero nada más, así que empecé el primer guión, terminé hablando de alicia, como no podía ser de otra forma, y le pasé el guión a mi hermana que era lingüista, un saludo a ella si es que lee esto. En el fondo no usé ese guion sino que lo adapté a las escenas. </p>
+<p>Para grabar las escenas puse una tabla de madera en el borde de la ventana de mi cuarto, y le puse una plancha de metal como contrapeso a mi celular, tomaba las fotos como un stopmotion normal, mandaba las fotos por drive, las descargaba en mi laptop y con un script de ffmpeg los convertía en vídeo, lo demás fue hacer edición con los audios escenas, pausas y todo lo necesario para que se vea bien.</p>
+<h1>Conclusiones</h1>
+<p>Pues a grandes rasgos es lo que puedo comentar de este vídeo, hay muchas cosas de las que se pueden hablar como editar vídeos desde la linea de comandos, más detalles del proceso de grabaciones, profundizar en las matemáticas del vídeo, pero bueno, no sé, me expreso mejor por texto que hablando. Si les gusto sean libres de compartir el vídeo que en el fondo es divulgación.</p>
+]]></description></item>
+<item>
+<title>Primer rss</title>
+<link>https://pedroediaz.xyz/Blog/2021/2021-04-06.html</link>
+<guid>https://pedroediaz.xyz/Blog/2021/2021-04-06.html</guid>
+<pubDate>Tue, 06 Apr 2021 18:00:00 -0500</pubDate>
+<description><![CDATA[
+<p>Había escuchado mucho sobre los feeds de rss, pero nunca me había dado el tiempo de usarlos hasta hoy, así que me descarqué un cliente y comencé a seguir canales de youtube y subreddits a partir de este protocolo, así como algunas páginas de tecnología y me encantó el concepto.</p>
+<h1>Sobre RSS</h1>
+<p>RSS, es un protocolo donde vas poniendo las actualizaciones de tu página, le pones titulo autor y fecha, un link a tu página donde hablas más del tema y una descripción, que puede ser una copia de la página misma, claro, con lo más básico. Con esto cualquiera puede seguir esta archivo con los cambios.</p>
+<p>Del lado del cliente puedes seguir los rss de las páginas que te gustan y así ya no tienes que checar varias páginas, sino desde tu cliente puedes ver todos loas archivos rss con los camios, además de marcarte cuales artículos, o cambios, ya viste.</p>
+<p>Este protocolo tiene como ventaja la privacidad, al ser estos datos publicos y accesibles para todos no hay necesidad de dar nada de información, y por lo mismo puedes suscribirte a subreddits y canales de youtube sin hacerte una cuenta.</p>
+<h1>Set up</h1>
+<p>En particular lo que yo hice fue descargarme el cliente Newsboat para la términal y le puse una configuración básica, titulos, etiquetas y colores. ya con esto y la lista de páginas que sigo pude empezar a leer artículos desde la términal. lo configuré para que me abra los videos de youtube por mpv. y configure mi entorno para que el video se quede en la pantalla.</p>
+<h1>Implementación</h1>
+<p>Despues de ver el potencial me dediqué a implementarlo en la página. investigué la syntaxis, vi un feed de referencia e ideade un modulo a mi programa para generar el feed de rss. este funciona poniendo los items en un archivo de texto y luego junta el header, los elementos y el footer para que esté completa.  Despues subí este archivo en mi página para que cualquiera, interesado pueda recibir actualizaciones a partir de rss.</p>
+<a href="https://pedroediaz.xyz/rss.xml">https://pedroediaz.xyz/rss.xml</a>
+]]></description></item>
+</channel></rss>

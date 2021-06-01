@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Primer rss</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="abía escuchado mucho sobre los feeds de rss, pero nunca me había dado el tiempo de usarlos hasta hoy, así que me descarqué un cliente y comencé a seguir canales de youtube y subreddits a partir de este protocolo, así como algunas páginas de tecnología y me encantó el concepto.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Primer-rss">Primer rss</h1>
+<p>06 de abril del 2021.
+</p></center>
+<p>Había escuchado mucho sobre los feeds de rss, pero nunca me había dado el tiempo de usarlos hasta hoy, así que me descarqué un cliente y comencé a seguir canales de youtube y subreddits a partir de este protocolo, así como algunas páginas de tecnología y me encantó el concepto.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Sobre-RSS">Sobre RSS</a></li>
+<li><a href="#Set-up">Set up</a></li>
+<li><a href="#Implementación">Implementación</a></li>
+</ul></div>
+<h2
+<h2 id="Sobre-RSS">Sobre RSS</h2>
+<p>RSS, es un protocolo donde vas poniendo las actualizaciones de tu página, le pones titulo autor y fecha, un link a tu página donde hablas más del tema y una descripción, que puede ser una copia de la página misma, claro, con lo más básico. Con esto cualquiera puede seguir esta archivo con los cambios.</p>
+<p>Del lado del cliente puedes seguir los rss de las páginas que te gustan y así ya no tienes que checar varias páginas, sino desde tu cliente puedes ver todos loas archivos rss con los camios, además de marcarte cuales artículos, o cambios, ya viste.</p>
+<p>Este protocolo tiene como ventaja la privacidad, al ser estos datos publicos y accesibles para todos no hay necesidad de dar nada de información, y por lo mismo puedes suscribirte a subreddits y canales de youtube sin hacerte una cuenta.</p>
+<h2 id="Set-up">Set up</h2>
+<p>En particular lo que yo hice fue descargarme el cliente Newsboat para la términal y le puse una configuración básica, titulos, etiquetas y colores. ya con esto y la lista de páginas que sigo pude empezar a leer artículos desde la términal. lo configuré para que me abra los videos de youtube por mpv. y configure mi entorno para que el video se quede en la pantalla.</p>
+<h2 id="Implementación">Implementación</h2>
+<p>Despues de ver el potencial me dediqué a implementarlo en la página. investigué la syntaxis, vi un feed de referencia e ideade un modulo a mi programa para generar el feed de rss. este funciona poniendo los items en un archivo de texto y luego junta el header, los elementos y el footer para que esté completa.  Despues subí este archivo en mi página para que cualquiera, interesado pueda recibir actualizaciones a partir de rss.</p>
+<ul>
+<li><a href="https://pedroediaz.xyz/rss.xml">https://pedroediaz.xyz/rss.xml</a>
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

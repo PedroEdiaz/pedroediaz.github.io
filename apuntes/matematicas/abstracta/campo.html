@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre el Campo </title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="n Conjunto (K) bajo dos operaciones, suma y multiplicación,">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-el-Campo-">Sobre el Campo </h1>
+</center>
+<p>Un Conjunto \(K\) bajo dos operaciones, suma y multiplicación,
+\((K,+,\cdot)\) es un Campo si cumple las siguientes propiedades</p>
+<ul>
+<li>  Es un Grupo Conmutativo con la Suma.</li>
+<li>  Es un Grupo Conmutativo con la Multiplicación (no consistente con 0)</li>
+<li>  La Multiplicación se distribuye en la Suma</li>
+</ul>
+<p>Esta definición nos está diciendo que la Suma y la Multiplicación tiene
+las mismas propiedades, las propiedades de grupo, además la suma y la
+multiplicación están relacionadas por la Ley distributiva, ahora, ¿Que
+es un Grupo?</p>
+<p>Un Conjunto \(K\) bajo una operación, suma por ejemplo, \((K,+)\) es un</p>
+<p>Grupo Conmutativo si cumple las siguientes propiedades</p>
+<p>P1
+:   \(a+b=b+a\)</p>
+<p>P2
+:   \((a+b)+c=a+(b+c)\)</p>
+<p>P3
+:   \(a+0=a\)</p>
+<p>P4
+:   \(a+(-a)=0\)</p>
+<p>Donde P1 es la ley conmutativa, P2 la ley distributiva, P3
+nos dice que hay un elemento neutro y P4 nos dice que todo elemento
+tiene un inverso que da el elemento neutro. También existe P0,</p>
+<p>Llamada Cerradura que nos dice que si \(a\) y \(b\) pertenecen a \(K\)
+entonces \(a+b\) pertenece a \(K\), si un Conjunto cumple todas menos P1
+entonces es un Grupo no Conmutativo.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Las-Propiedades">Las Propiedades</a></li>
+<ul>
+<li><a href="#Ley-distributiva">Ley distributiva</a></li>
+</ul>
+<li><a href="#Propiedades-de-la-igualdad">Propiedades de la igualdad</a></li>
+<li><a href="#Primeras-Demostraciones">Primeras Demostraciones</a></li>
+<li><a href="#La-no-consistencia-con-0">La no consistencia con 0</a></li>
+</ul></div>
+<h2
+<h2 id="Las-Propiedades">Las Propiedades</h2>
+<p>Juntando toda esta información podemos asegurar que los Reales, al ser
+un Campo con la suma y la multiplicación, cumplen las siguientes
+propiedades.</p>
+<h3 id="Ley-distributiva">Ley distributiva</h3>
+<p>LD
+:   \(a\cdot(b+c)=a\cdot b+a\cdot c\)</p>
+<h2 id="Propiedades-de-la-igualdad">Propiedades de la igualdad</h2>
+<p>Si nos queremos poner muy técnicos podemos agregar las propiedades de la
+igualdad para saber como funcionan.</p>
+<p>P1
+:   \(a=a\)</p>
+<p>P2
+:   Si \(a=b\) entonces \(b=a\)</p>
+<p>P3
+:   \(a=b\) y \(b=c\) entonces \(a=c\)</p>
+<p>Donde P1 es la Ley Reflexiva, P2 es la Ley Simétrica y P3 es
+llamad transitividad. Además ponemos 2 nuevas reglas para relacionar la</p>
+<p>Igualdad con la Suma y Multiplicación.</p>
+<p>P4
+:   Si \(a=b\) entonces \(a+c=b+c\)</p>
+<p>P5
+:   Si \(a=b\) entonces \(a\cdot c=b\cdot c\)</p>
+<h2 id="Primeras-Demostraciones">Primeras Demostraciones</h2>
+<p>Demuestra que \(\overline{(\overline{x})}=x\) \(\)\begin{aligned}
+x\cdot \overline{x} &=1  && \textrm{Inverso de }x\\
+\overline{x}\cdot \overline{(\overline{x})} &=1  && \textrm{Inverso de }\overline{x}\\ 
+x\cdot \overline {x}&=\overline{(\overline{x})}\cdot \overline{x}  && \textrm{Transitividad}\\ 
+(x\cdot \overline {x})\cdot x&=(\overline{(\overline{x})}\cdot \overline{x})\cdot x  && \textrm{Multiplicación de }x\\ 
+x\cdot (\overline {x}\cdot x)&=\overline{(\overline{x})}\cdot (\overline{x}\cdot x)  && \textrm{Transitividad}\\
+x\cdot 1&=\overline{(\overline{x})}\cdot 1  && \textrm{Elemento Inverso}\\
+x&=\overline{(\overline{x})} && \textrm{Elemento Neutro}\\\end{aligned}\(\)</p>
+<p>Si \(a=b\) y \(c=d\) entonces \(a+ c=b+ c\) \(\)\begin{aligned}
+a&=b && \textrm{Hipótesis}\\
+a+ c&= b+ c && \textrm{Suma de }c\\
+c&=d && \textrm{Hipótesis}\\
+c+ b&= d+ b && \textrm{Suma de }b\\
+b+ c&= b+ d && \textrm{Conmutación}\\
+a+ c&= b+ d && \textrm{Transitividad}\\\end{aligned}\(\)</p>
+<h2 id="La-no-consistencia-con-0">La no consistencia con 0</h2>
+<p>Ahora ya tenemos las herramientas para saber por que en un anillo La
+multiplicación no es un Grupo consistente. Por nuestra definición de</p>
+<p>Multiplicación con \(0\) sabemos.
+\[0\cdot x=0\]</p>
+<p>Esto implica que para 2 números cualesquiera \(a,b\) y suponiendo que es
+un Grupo consistente se cumple.
+\(\)\begin{aligned}
+0\cdot a &= 0 && \textrm{Definición}\\
+0\cdot b &= 0 && \textrm{Definición}\\
+0 &=0\cdot b && \textrm{Ley Reflexiva}\\
+0\cdot a &= 0\cdot b && \textrm{Transitividad}\\
+\overline{0}\cdot (0\cdot a) &= \overline{0}\cdot (0\cdot b) && \textrm{Multiplicación de }\overline{0}\\
+(\overline{0}\cdot 0)\cdot a &= (\overline{0}\cdot 0)\cdot b && \textrm{Asociatividad}\\
+1\cdot a &= 1\cdot b && \textrm{Elemento Inverso}\\
+a &=b && \textrm{Elemetno Neutro}\\\end{aligned}\(\)</p>
+<p>Lo que es una contradicción haciendo este sistema no consistente con 0.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

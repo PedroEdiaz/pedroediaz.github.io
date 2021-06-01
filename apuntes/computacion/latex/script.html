@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>El flujo de trabajo de mi blog.</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="aTeX siempre ha sido mi herramienta de trabajo por su versatilidad para escribir documentos matemáticos y la gran comunidad que hay detras para resolver dudas y problemas específicos, por eso no es raro querer pasar mis documentos en LaTeX a varios formatos.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="El-flujo-de-trabajo-de-mi-blog.">El flujo de trabajo de mi blog.</h1>
+</center>
+<p>LaTeX siempre ha sido mi herramienta de trabajo por su versatilidad para escribir documentos matemáticos y la gran comunidad que hay detras para resolver dudas y problemas específicos, por eso no es raro querer pasar mis documentos en LaTeX a varios formatos.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#El-Archivo">El Archivo</a></li>
+<ul>
+<li><a href="#La-plantilla">La plantilla</a></li>
+</ul>
+<li><a href="#La-página">La página</a></li>
+<ul>
+<li><a href="#La-plantilla">La plantilla</a></li>
+</ul>
+<li><a href="#Organización">Organización</a></li>
+</ul></div>
+<h2
+<h2 id="El-Archivo">El Archivo</h2>
+<p>Todo comienza en una carpeta donde tengo varios textos escritos en</p>
+<p>LaTeX organizados en carpetas, bajo un formato muy específico.</p>
+<pre><code>
+\title{Titulo}
+...
+</code></pre>
+<p>Donde 
+<code>title</code> es el comando clave, este da titulo al artículo o a la</p>
+<p>Página web, ademas de servir como comando 
+<code>chapter</code> si quiero usarlo
+como parte de un libro. a partir de ahí escrio el cuerpo del artículo.</p>
+<p>Ya con los artículos escritos y clasificados por carpetas ya puedo hacer
+un script para convertirlo a sus formatos deseados. La primer parte del
+script asigna variables.</p>
+<pre><code>
+<p>path="..."
+dir="${1%/*}"
+name="${1##*/}"
+name="${name%.tex}"
+</code></p></pre>
+<p>Este a partir de la entrada saca el nombre del archivo y la dirrección
+en la que se encuentra relativa al programa y 
+<code>path</code> es una dirreción
+fija a donde el programa puede mandar los archivos en sus formátos. ya
+con esto se puede generar el pdf a partir del archivo</p>
+<pre><code>
+<p>echo "\n$1\n"
+echo "PDF,\tMakeing..."
+    cat template.tex  > tmp.tex
+    sed -i "s/
+<date>/$date/g" tmp.tex 
+    sed -i "s|
+<++>|$1|g" tmp.tex
+    pdflatex tmp.tex > /dev/null
+</code></p></pre>
+<p>Primero imprime en la terminal la entrada que le dimos 
+<code>$1</code> y tambien
+nos da una bandera de que está haciendo. despues copia la plantilla a un
+archivo temporal y sustituye la fecha y la dirección para poder
+convertir el pdf.</p>
+<h3 id="La-plantilla">La plantilla</h3>
+<p>Es importante mostrar la plantilla para saber que esta sustitullendo el
+programa y por qué.</p>
+<pre><code>
+\newcommand{\path}{...}
+\documentclass[12pt]{article}
+\usepackage{lmodern}
+\usepackage[margin=3cm]{geometry}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\input{\path/package.tex}
+\newcommand{\title}[1]{\title{#1}\maketitle}
+\author{...}
+\begin{document}
+\input{
+<++>}
+\end{document}
+</code></pre>
+<p>Básicamente 
+<code>path</code> es una variable donde se encuentra los paquetes que
+usamos mucho y no hay motivo de ponerlo en cada archivo. las siguientes
+4 lineas son para darle estética al archivo, ya despues le damos al
+archivo los paquetes que usamos comunmente, luego un macro donde decimos
+como vamos a usar 
+<code>title</code> que en formáto de articulo da titulo y pone la
+portada, y lo demas son los datos del documento, para terminar con el
+cuerpo de documento, que es la entrada del script.</p>
+<h2 id="La-página">La página</h2>
+<p>Ya con el archivo escrito en un tex normal ya podemos convertir este
+formato a otro con pandoc, por lo que la siguiente parte de nuestro
+programa se vería así.</p>
+<pre><code>
+<p>echo "HTML,\tMakeing..."
+    pandoc -s --shift-heading-level-by=1 \ 
+        --template template.html \
+        --mathjax tmp.tex \
+        -o tmp.html 
+</code></pre>
+donde hay una bander con 
+<code>echo</code> además a pandoc le decimos que queremos
+la página con portada, moviendo los niveles y usando una plantilla
+especial que usará mathjax. que es una extensión para ver comandos
+de latex en la web.</p>
+<h3 id="La-plantilla">La plantilla</h3>
+<p>De la misma forma es importante saber como se ve nuestra plantilla para
+saber como se va a formar nuestra página web.</p>
+<pre><code>
+...
+&lt;div class="article"&gt;
+&lt;header-id="title-block-header"&gt;
+&lt;h1 class="title"&gt;$title$
+    &lt;a target=\"_blank\" href="
+<++>.pdf"&gt;
+        &lt;sub&gt;[PDF]&lt;/sub&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;p class="data"&gt;$author$&lt;/p&gt;
+&lt;p class="data"&gt;$date$&lt;/p&gt;
+&lt;/header&gt;
+$body$
+&lt;/div&gt;
+..
+</code></pre>
+<p>Donde arriba del código ponemos los metadatos de la página así como la
+barra de navegación y la página 
+<code>style.css</code> para darle estilo. y abajo
+lo necesarió para que esté completa la página. Pandoc pone
+automáticamente el titulo, autor y fecha del archivo 
+<code>.tex</code> pero
+nosotros le agregamos un link al pdf que hicimos.</p>
+<h2 id="Organización">Organización</h2>
+<p>La última parte del código es mandar los archivos formados a una carpeta
+donde se aloja nuestra página web así como borrar los archivos basura
+generados al hacer el pdf.</p>
+<pre><code>
+<p>echo "*,\tMoving..."
+    mkdir -p $path/Web/$dir
+    mv tmp.pdf $path/Web/$dir/$name.pdf
+    mv tmp.html $path/Web/$dir/$name.html
+echo "\tCleaning..."
+    rm tmp.*
+</code></p></pre>
+<p>Donde, se crea el directorio si no existe y mueve los archivos a esa
+carpeta cambiandosle el nombre, esto simula la estructura original de mi
+carpeta con todos los 
+<code>.tex</code> pero cambiandoslo por su versión web y pdf.
+además borra los archivos que no se usarán.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

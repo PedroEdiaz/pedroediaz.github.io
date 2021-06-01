@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre los Enteros</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="a clave para pensar en los enteros es pensar en un operación que no podemos resolver con los Naturales, este es el inverso de la suma que intentaremos definir a lo largo de este capitulo, para eso crearemos un objeto matemático de la forma tal que cumpla la siguiente equivalencia.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-los-Enteros">Sobre los Enteros</h1>
+</center>
+<p>La clave para pensar en los enteros es pensar en un operación que no podemos resolver con los Naturales, este es el inverso de la suma que intentaremos definir a lo largo de este capitulo, para eso crearemos un objeto matemático de la forma tal que cumpla la siguiente equivalencia.</p>
+\[(a,b)\sim (a',b')\iff a+b'=b+a'\] Ya que \(a-b=a'-b'\), ademas estos se
+<p>pueden operar bajo la suma y la multiplicación, como nosotros ya
+conocemos los enteros a posteriori sabemos que
+\((a-b)+(a'-b')=(a+a')-(b+b')\) y podemos hacer lo mismo con la
+multiplicación para definirlos en nuestra multiplicación:
+\(\)\begin{aligned}
+    (a,b)+(a',b') &= (a+a',b+b')\\
+    (a,b)\cdot (a',b') &= (a\cdot a'+b\cdot b',a\cdot b'+a'\cdot b)
+\end{aligned}\(\)</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#El-par-(0,0)">El par (0,0)</a></li>
+<li><a href="#El-par-(x,0)">El par (x,0)</a></li>
+<li><a href="#El-par-(0,x)">El par (0,x)</a></li>
+<li><a href="#La-forma-algebraica">La forma algebraica</a></li>
+<li><a href="#El-inverso-de-la-suma">El inverso de la suma</a></li>
+<li><a href="#Notación">Notación</a></li>
+<li><a href="#Elemento-inverso">Elemento inverso</a></li>
+<li><a href="#Orden-y-divisibilidad">Orden y divisibilidad</a></li>
+<li><a href="#Propiedades">Propiedades</a></li>
+<ul>
+<li><a href="#De-la-suma">De la suma</a></li>
+<li><a href="#De-la-multiplicación">De la multiplicación</a></li>
+<li><a href="#Ley-distributiva">Ley distributiva</a></li>
+</ul>
+</ul></div>
+<h2
+<h2 id="El-par-(0,0)">El par (0,0)</h2>
+<p>Podemos ver como se comporta este par a la hora de operarlo en \(\mathbb{Z}\) y es
+fácil comprobar que \((0,0)\in \mathbb{Z}\) es isomórifco a \(0\in \mathbb{N}'\) ya que se
+cumplen las siguientes propiedades. \[(a,b)+(0,0)=(a,b)\]
+\[(a,b)\cdot (0,0)=(0,0)\] Ademas podemos preguntarnos cuando un par de
+números \((a,b)\) es equivalente a 0, para eso aplicamos nuestra
+definición de equivalencia y concluimos que \(a=b\).
+\[(a,b)\sim(0,0) \quad\iff\quad a+0=b+0\quad\iff\quad a=b\] Une pregunta
+inmediata sería que pasa cuando \(a\) es diferente a \(b\), donde nace el
+teorema de tricotomía de forma natural, este nos da 2 casos.
+\[a=b+x \quad\iff\quad (a,b)=(b+x,b)\sim(x,0)\]
+\[a+x=b \quad\iff\quad (a,b)=(a,a+x)\sim(0,x)\]
+y concluimos que un número \((a,b)\in \mathbb{Z}\) es de una y solo una de las
+siguientes formas \((0,0)\) ó \((x,0)\) ó \((0,x)\), donde \(x\) pertenece a
+\(\mathbb{N}\)</p>
+<h2 id="El-par-(x,0)">El par (x,0)</h2>
+<p>De esto podemos analizar el conjunto \((x,0)\in \mathbb{Z}\) para todo \(x\) en
+\(\mathbb{N}\), y vemos que se cumple. \[(a,0)+(b,0)=(a+b,0)\]
+\[(a,0)\cdot (b,0)=(a\cdot b,0)\]</p>
+<p>Como \(a\textrm{ y } b\) son números Naturales entonces \((x,0)\in \mathbb{Z}\) es isomórfico
+a \(x\in \mathbb{N}\), ya que cumplen las mismas propiedades, y de esto se dice
+que \(\mathbb{N}'\subset \mathbb{Z}\). de esta forma el único subconjunto de \(\mathbb{Z}\) que no
+conocemos son los números de la forma \((0,x)\).</p>
+<h2 id="El-par-(0,x)">El par (0,x)</h2>
+<p>Como este tipo de números es el único que no sabemos exactamente como se
+comporta para esto vamos a operarlos con los números isomórficos a
+\(\mathbb{N}'\), que ya sabemos como se comportan y con los números de la forma
+\((0,x)\). y vemos que se cumple lo siguiente.
+\[(0,a)+(b,0)=(b,a)\] \[(0,a)+(0,b)=(0,a+b)\]
+\[(0,a)\cdot (b,0)=(0,a\cdot b)\] \[(0,a)\cdot (0,b)=(a\cdot b,0)\]</p>
+<h2 id="La-forma-algebraica">La forma algebraica</h2>
+<p>Por la definición de suma y multiplicación podemos comprobar fácilmente
+que se cumplen las siguientes propiedades. \[(a,b)=(a,0)+(0,b)\]
+\[(0,b)=(b,0)\cdot (0,1)\] Por lo tanto podemos decir que un número en
+\(\mathbb{Z}\) se puede expresar de la siguiente forma.
+\[(a,b)=(a,0)+(b,0)\cdot (0,1)\] ahora, como \((x,0)\in \mathbb{Z}\) es isómorfico
+a \(x\in\mathbb{N}'\), lo representaremos como un Natural, así mismo \((0,1)\) es
+una constante, que llamaremos \(n\), y por lo tanto.
+\[(a,b)\quad \simeq\quad a+b\cdot n\]</p>
+<h2 id="El-inverso-de-la-suma">El inverso de la suma</h2>
+<p>Para pensar esta operación inversa basta con relacionarla con la suma
+que ya conocemos y definimos el inverso de la suma, o resta de la
+siguiente forma. \[a-b=c\quad\iff\quad a=c+b\] Esto nos implica que si
+se cumple una condición se cumple las dos y sabemos que si \((a=c+b)\) y
+\((a-b=c)\) entonces \((c+b-b=c)\) y por la cancelación de la suma \((b-b=0)\)
+esta propiedad se parece a una que cumple nuestro objeto matemático,
+\((b,b)=(0,0)\), entonces demostramos si esta relación es cierta y vemos
+que en efecto, se cumple.
+\[(a=c+b)\quad\iff\quad (a,b)=(c+b,b)=(c,0)\] Juntando esto con la forma
+algebraica del capítulo anterior podemos ver.
+\[(a,b)\quad \simeq\quad a+b\cdot n\quad =\quad a-b\] Solo basta usar la
+cancelación de la suma en \(a\) y escoger un \(b\) apropiado, \(b=1\), para
+calcular el valor de \(n\).
+\[a+1\cdot n=a-1 \quad\Rightarrow\quad 1\cdot n=0-1 \quad\Rightarrow\quad n=0-1\]</p>
+<h2 id="Notación">Notación</h2>
+<p>Para simplificar las cosas usaremos P3 de la suma para simplificar
+nuestra notación, para los 3 casos de números enteros diremos.
+\[(x,0)\quad=\quad x-0\quad=\qquad x\]
+\[(0,0)\quad=\quad 0-0\quad=\qquad 0\]
+\[(0,x)\quad=\quad 0-x\quad=\quad-x\]</p>
+<h2 id="Elemento-inverso">Elemento inverso</h2>
+<p>Para cada par de números \((a,b)\) existe un elemento \((a',b')\), llamado
+elemento inverso, tal que. \[(a,b)+(a',b')=(0,0)\] para eso operamos y
+sacamos una equivalencia para concluir que \(b'\) debe valer \(a\) y \(a'\),
+\(b\). En otras palabras el inverso de la suma del par \((a,b)\) es \((b,a)\)
+y aplicándole la definición de resta decimos.
+\[(a,b)+(b,a)=(0,0)\quad\iff\quad (a,b)=(0,0)-(b,a)\] ahora por la
+notación que acabamos que describir podemos afirmar. \[(a,b)=-(b,a)\]</p>
+<h2 id="Orden-y-divisibilidad">Orden y divisibilidad</h2>
+<p>Podemos definir una relación de Orden, a partir de el orden de los</p>
+<p>Naturales que ya conocemos, para todo \(a,b,a',b'\in\mathbb{N}'\).
+\[(a,b)> (a',b') \quad\iff\quad a+b'> b+a'\] Por definición existe un
+\(x\) en \(\mathbb{N}\) tal que \(a+b'= b+a'+x=b+(a'+x)\) y por lo tanto
+\((a,b)=(a'+x,b')=(a',b')+(x,0)\) si pensamos los números enteros en su
+forma algebraica podemos extender nuestra definición de orden de los</p>
+<p>Naturales a los Enteros.
+\[\forall a,b \in \mathbb{Z} \quad a> b \quad\iff\quad \exists x\in \mathbb{N} \,|\, a=b+x\]</p>
+<p>Para la divisibilidad no cambio mucho de \(\mathbb{N}'\) a \(\mathbb{Z}\) solo basta con
+extender el dominio de \(a\) y \(b\) a los Enteros.
+\[\forall a,b \in \mathbb{Z} \quad a\mid b \quad\iff\quad \exists x\in \mathbb{Z} \,|\, a=b\cdot x\]</p>
+<h2 id="Propiedades">Propiedades</h2>
+<p>Ya con esta expansión de los Naturales, podemos agregar a nuestra lista
+de propiedades P4 el elemento inverso de la suma.</p>
+<h3 id="De-la-suma">De la suma</h3>
+<p>P1
+:   \(a+b=b+a\)</p>
+<p>P2
+:   \((a+b)+c=a+(b+c)\)</p>
+<p>P3
+:   \(a+0=a\)</p>
+<p>P4
+:   \(a+(-a)=0\)</p>
+<h3 id="De-la-multiplicación">De la multiplicación</h3>
+<p>P1
+:   \(a\cdot b=b\cdot a\)</p>
+<p>P2
+:   \((a\cdot b)\cdot c=a\cdot (b\cdot c)\)</p>
+<p>P3
+:   \(a\cdot 1=a\)</p>
+<h3 id="Ley-distributiva">Ley distributiva</h3>
+<p>LD
+:   \(a\cdot(b+c)=a\cdot b+a\cdot c\)</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

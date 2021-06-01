@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Mantente informado con los feeds de RSS</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="onday May 31, 2021">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Mantente-informado-con-los-feeds-de-RSS">Mantente informado con los feeds de RSS</h1>
+<p>Monday May 31, 2021
+</p></center>
+<p>Este es el primero de varios artículos hablando sobre cómo depender menos de los grandes onopilios de internet, en este vamos a hablar cómo estar informado de publicaciones de youtube, Reddit y otras páginas independientes a partir de feeds de RSS.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Qué-es-un-feed-de-RSS">Qué es un feed de RSS</a></li>
+<li><a href="#Seguir-Canales-de-Youtube">Seguir Canales de Youtube</a></li>
+<li><a href="#Seguir-Subreddits">Seguir Subreddits</a></li>
+<li><a href="#Seguir-Proyectos-de-Github.">Seguir Proyectos de Github.</a></li>
+<li><a href="#Feeds-interesantes.">Feeds interesantes.</a></li>
+<ul>
+<li><a href="#Interesantes">Interesantes</a></li>
+<li><a href="#Tecnología">Tecnología</a></li>
+<li><a href="#Podcasts">Podcasts</a></li>
+</ul>
+</ul></div>
+<h2
+<h2 id="Qué-es-un-feed-de-RSS">Qué es un feed de RSS</h2>
+<p>Un feed de RSS es una archivo en formato xml, la ventaja de esto es que en un client vas poniendo la dirección de los feeds que quieres seguir y ya no tienes que ir página a página buscando actualizaciones. un ejemplo de feed es el de esta página.</p>
+<ul>
+<li><a href="https://pedroediaz.xyz/rss.xml">https://pedroediaz.xyz/rss.xml</a>
+</ul>
+<p>De clientes busquen el que más se adapten a sus necesidades, en lo particular uso newsboat, por que es de terminal y le puedo decir con que aplicación me abra los links.</p>
+<h2 id="Seguir-Canales-de-Youtube">Seguir Canales de Youtube</h2>
+<p>Para seguir un canal de youtube debemos encontrar la id de su canal, básicamente entramos a un canal, actualizamos la página y la url va a términar en una clave, copiamos la clave. ahora el feed de RSS asociado a ese canal es el siguiente:</p>
+<pre><code>
+<p>https://www.youtube.com/feeds/videos.xml?channel_id=&lt;clave&gt;
+</code></p></pre>
+<h2 id="Seguir-Subreddits">Seguir Subreddits</h2>
+<p>Para seguir un subreddit es básicamente el mismo procedimiento básicamente el feed de rss, de un subreddit. por ejemplo el rss para el subreddit de commandline es el siguiente.</p>
+<pre><code>
+<p>https://www.reddit.com/r/commandline.rss
+</code></p></pre>
+<h2 id="Seguir-Proyectos-de-Github.">Seguir Proyectos de Github.</h2>
+<p>Para seguir un proyecto básicamente debemos saber el usuario que lo mantiene, el nombre del proyecto y la rama que queremos seguir, casi siempre la que nos interesa es master. y el link sería el siguiente.</p>
+<pre><code>
+<p>https://github.com/&lt;user&gt;/&lt;proyect&gt;/commits/master.atom
+</code></p></pre>
+<h2 id="Feeds-interesantes.">Feeds interesantes.</h2>
+<p>Básicamente las páginas de noticias, revistas y podcast son las que suelen tener feeds de rss. así que si siguen un noticiero les recomiendo busquen el feed y ya no entran a leer puro anuncio. por otro lado aquí hay una humilde lista de feeds interesantes.</p>
+<h3 id="Interesantes">Interesantes</h3>
+<ul>
+<li><a href="https://based.cooking/rss.xml">https://based.cooking/rss.xml</a>
+</ul>
+<h3 id="Tecnología">Tecnología</h3>
+<ul>
+<li><a href="https://lukesmith.xyz/rss.xml">https://lukesmith.xyz/rss.xml</a>
+<li><a href="https://rss.hexdsl.co.uk/tt-rss/public.php?op=rss&id=-2&is_cat=0&q=&key=9cvsto60a00a71ee60b">hexDSL</a>
+</ul>
+<h3 id="Podcasts">Podcasts</h3>
+<ul>
+<li><a href="https://feeds.megaphone.fm/YMRT7068253588">You Must remember this</a>
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre los Racionales</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="e la misma forma en que definir los enteros nos ayudó a definir el inverso de la suma, usaremos a los racionales para definir el inverso de la multiplicación, bajo un artificio similar.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-los-Racionales">Sobre los Racionales</h1>
+</center>
+<p>De la misma forma en que definir los enteros nos ayudó a definir el inverso de la suma, usaremos a los racionales para definir el inverso de la multiplicación, bajo un artificio similar.
+\[(a,b)\sim(a',b')\quad\iff\quad a\cdot b'=b\cdot a'\] y tendrá sus
+operaciones únicas bajo suma y multiplicación.
+\(\)\begin{aligned}
+(a,b)+(a',b')&=(b'\cdot a+b\cdot a',b\cdot b')\\
+(a,b)\cdot(a',b')&=(a\cdot a',b\cdot b')
+    \end{aligned}\(\)</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#El-problema-de-las-equivalencias">El problema de las equivalencias</a></li>
+<li><a href="#Irreducibilidad">Irreducibilidad</a></li>
+<li><a href="#El-par-(0,x)">El par (0,x)</a></li>
+<li><a href="#El-par-(x,1)">El par (x,1)</a></li>
+<li><a href="#El-par-(1,1)">El par (1,1)</a></li>
+<li><a href="#El-inverso-de-la-multiplicación">El inverso de la multiplicación</a></li>
+<li><a href="#El-elemento-inverso">El elemento inverso</a></li>
+<li><a href="#La-forma-algebraica">La forma algebraica</a></li>
+<li><a href="#Orden-y-divisibilidad">Orden y divisibilidad</a></li>
+<li><a href="#Propiedades">Propiedades</a></li>
+<ul>
+<li><a href="#De-la-suma">De la suma</a></li>
+<li><a href="#De-la-multiplicación">De la multiplicación</a></li>
+<li><a href="#Ley-distributiva">Ley distributiva</a></li>
+</ul>
+</ul></div>
+<h2
+<h2 id="El-problema-de-las-equivalencias">El problema de las equivalencias</h2>
+<p>Por definición la relación de equivalencia debe ser transitivo, de forma
+que si. \((a\sim b)\textrm{ y }(b\sim c)\to(a\sim c)\), en nuestro caso esta
+equivalencia no se cumple ya que.
+\[(a,b)\sim(0,0)\quad\textrm{ y }\quad(0,0)\sim(a',b')\quad\not\Rightarrow\quad (a,b)\sim(a',b')\]</p>
+<p>Para evadir este problema redefiniremos el conjunto de los Racionales,
+quitándole el par que causa este problema, \((0,0)\notin\mathbb{Q}\).
+\[\mathbb{Q}=(\mathbb{Z}\times\mathbb{Z})/\{\,(0,0)\,\}\]</p>
+<p>El segundo problema es que queremos que \(\mathbb{Q}\) sea cerrado en la suma como
+en la multiplicación, de esto sale un segundo problema ya que,
+\((a,0)\in\mathbb{Q}\) y \((0,b)\in \mathbb{Q}\), pero \((a,0)\cdot(0,b)=(0,0)\) y
+\((0,0)\notin\mathbb{Q}\), de esto. \[\mathbb{Q}=\mathbb{Z}\times(\mathbb{Z}/\{\,0\,\})\]</p>
+<h2 id="Irreducibilidad">Irreducibilidad</h2>
+<p>Un concepto importante para reducir \(\mathbb{Q}\) a sus equivalencias como
+hicimos con \(\mathbb{Z}\) es la irreducibilidad de un número. Decimos que \((a,b)\)
+es irreducible si \(a\) es coprimo con \(b\) y lo representaremos por
+\([(a,b)]\), por definición ni \(a\) ni \(b\) valen 0, pero esto no nos
+importa mucho ya que si \(b=0\) entonces este número no pertenece a \(\mathbb{Q}\),
+después veremos el caso de \(a=0\).
+\[[(a,b)] \quad\iff\quad \textrm{MCD}(a,b)=1\]</p>
+<p>Podemos preguntarnos si todo número \((a,b)\in\mathbb{Q}\) es equivalente a un
+número Irreducible, para eso suponemos que \(a\) y \(b\) no son coprimos,
+\(\textrm{MCD}(a,b)=x\), y por lo tanto \((a=a'\cdot x)\) y \((b=b'\cdot x)\), además
+es fácil demostrar.
+\[(a,b)\sim(a',b')\qquad \textrm{MCD}(a',b')=1\]</p>
+<h2 id="El-par-(0,x)">El par (0,x)</h2>
+<p>Por último solo basta ver las equivalencias de el par \((0,x)\), de esto
+vemos que número en \(\mathbb{Q}\) cumple esta equivalencia.
+\[(0,x)\sim(a',b')\quad\iff\quad 0\cdot b'=x\cdot a'=0\] Podemos deducir
+de esto que \(x=0\) o \(a'=0\), pero \(x\) no puede valer 0 ya que si no no
+sería un Racional y contradice nuestra hipótesis, por esto decimos
+\(a'=0\) y podemos escoger cualquier constante para \(b'\) que queramos,
+\(b'=1\).
+\[(0,b)\sim(0,1)\]</p>
+<p>Ademas si \(a\neq 0\) y es irreducible es imposible que \(a'=0\) y por lo
+tanto juntando estos casos aislados creemos las *Clases de equivalencia
+de los reales*.</p>
+<h2 id="El-par-(x,1)">El par (x,1)</h2>
+<p>Podemos preguntarnos como se comporta este número con otros racionales a
+la hora de operarlo y podemos ver fácilmente que se cumple lo siguiente.
+\(\)\begin{aligned}
+(a,b)+(0,1)&=(a,b)\\
+        (a,b)\cdot(0,1)&=(0,b)\sim(0,1)
+    \end{aligned}\(\)</p>
+<p>Esto demuestra que el par \((0,1)\in\mathbb{Q}\) es isomórfico a \(0\in \mathbb{Z}\) y
+podemos preguntarnos si podemos generalizar esta idea, para eso nos
+hacemos una hipótesis. \[(x,1)\in\mathbb{Q}\quad\simeq \quad x\in\mathbb{Z}?\] entonces
+averiguamos exactamente como se comporta este subconjunto de \(\mathbb{Q}\)
+consigo mismo. \(\)\begin{aligned}
+(a,1)+(b,1)&=(a+b,1)\\
+(a,1)\cdot(b,1)&=(a\cdot b,1)
+    \end{aligned}\(\)</p>
+<p>Esto demuestra nuestra hipótesis \((x,1)\in\mathbb{Q}\) es isomórfico a \(x\in\mathbb{Z}\) y
+por lo tanto \(\mathbb{Z}\subset\mathbb{Q}\). Ademas, por definición este subconjunto es
+irreducible.</p>
+<h2 id="El-par-(1,1)">El par (1,1)</h2>
+<p>Por lo anterior es innegable que \((1,1)\in\mathbb{Q}\) es isomórfico a \(1\in\mathbb{Z}\) y
+podemos preguntarnos cuando un par ordenado es igual a este número.
+\[(1,1)\sim(a'b')\quad\iff\quad b'\cdot 1=a'\cdot 1\] y por el elemento
+neutro en \(\mathbb{Z}\) concluimos que \(a'=b'\) y esto demuestra que la analógica
+entre los enteros y la suma, con los racionales y la multiplicación se
+mantiene ya que \((x,x)\in\mathbb{Z}\) es el elemento neutro de la suma y
+\((x,x)\in\mathbb{Q}\) es el elemento neutro de la multiplicación.</p>
+<h2 id="El-inverso-de-la-multiplicación">El inverso de la multiplicación</h2>
+<p>De la misma forma en que definimos una operación inversa de la suma
+hacemos una operación inversa a la Multiplicación y definimos el
+inverso, o división, de la siguiente forma.
+\[a/b=c\quad\iff\quad a=c\cdot b\] de la misma forma si se cumple uno,
+se cumplen ambos, y por lo tanto si se cumple \((a/b=c)\) y \((a=c\cdot b)\)
+entonces tenemos \((a=a\cdot b/b)\) y por la cancelación de la
+multiplicación \(1=b/b\) y esto nos recuerda a la siguiente afirmación
+\((1,1)\sim(b,b)\) y nos preguntamos si hay una relación entre esta
+operación y el par que definimos. y en efecto.
+\[a=c\cdot b \quad\iff\quad  (a,b)=(c\cdot b,b)\sim(c,1)\]</p>
+<h2 id="El-elemento-inverso">El elemento inverso</h2>
+<p>De la misma forma podemos preguntarnos si para todo par \((a,b)\in\mathbb{Q}\)
+existe un elemento \((a',b')\in\mathbb{Q}\) tal que. \[(a,b)\cdot(a',b')=(1,1)\]</p>
+<p>Para eso operamos y vemos la equivalencia y concluimos que
+\((a,b)\cdot(b,a)=(1,1)\), el elemento inverso de \(a\in\mathbb{Q}\) lo denotaremos
+por \(\overline{a}\). Aplicamos la definición de división.
+\[a\cdot\overline{a}=1\quad\iff\quad \overline{a}=1/a\]</p>
+<h2 id="La-forma-algebraica">La forma algebraica</h2>
+<p>Con esto podemos simplificar nuestra notación ya qué se cumplen las
+siguientes propiedades. \[(a,b)=(a,1)\cdot(1,b)\]
+\[(a,b)=(a,1)\cdot\overline{(b,1)}\] Ahora, como \((x,1)\in\mathbb{Q}\) es
+isomórfico a \(x\in\mathbb{Z}\) lo escribiremos solamente como enteros, o como una
+división. \[(a,b)=a\cdot\overline{b}=a/b\] y si \(a\) o \(b\) valen 1 los
+podemos omitir por la propiedad P3 en la multiplicación.</p>
+<h2 id="Orden-y-divisibilidad">Orden y divisibilidad</h2>
+<p>De la misma forma en que definimos el orden en \(\mathbb{Z}\) con el orden de los</p>
+<p>Naturales definiremos el orden en \(\mathbb{Q}\) con el orden de los enteros. Esto
+es, para todo \(a,b,a',b'\in\mathbb{Z}\).
+\[(a,b)\geq(a',b')\quad\iff\quad a\cdot b'\geq a'\cdot b'\]</p>
+<p>Ahora la divisibilidad en \(\mathbb{Q}\), no tiene sentido ya que siempre existe
+un \(x\in\mathbb{Q}\) talque \(a=b\cdot x\), para todo \(a,b\in\mathbb{Q}\),pero la
+divisibilidad de los enteros toma un rol importantísimo en las clases de
+equivalencias de \(\mathbb{Q}\), ya que se define el Máximo común divisor de el.</p>
+<h2 id="Propiedades">Propiedades</h2>
+<p>Ya con esta nueva extensión, ahora de los Enteros, podemos agregar a
+nuestra lista de propiedades P4 en la multiplicación, el elemento
+inverso.
+\[\exists \,\overline{x}:\quad x\cdot \overline{x}=1\] Anexando esta
+última propiedad tenemos un Cuerpo de números que cumple las
+siguientes propiedades.</p>
+<h3 id="De-la-suma">De la suma</h3>
+<p>P1
+:   \(a+b=b+a\)</p>
+<p>P2
+:   \((a+b)+c=a+(b+c)\)</p>
+<p>P3
+:   \(a+0=a\)</p>
+<p>P4
+:   \(a+(-a)=0\)</p>
+<h3 id="De-la-multiplicación">De la multiplicación</h3>
+<p>P1
+:   \(a\cdot b=b\cdot a\)</p>
+<p>P2
+:   \((a\cdot b)\cdot c=a\cdot (b\cdot c)\)</p>
+<p>P3
+:   \(a\cdot 1=a\)</p>
+<p>P4
+:   \(a\cdot (\overline{a})=1\)</p>
+<h3 id="Ley-distributiva">Ley distributiva</h3>
+<p>LD
+:   \(a\cdot(b+c)=a\cdot b+a\cdot c\)</p>
+<p>Esto hace que el conjunto de los Racionales sea ideal para trabajar con
+ellos ademas de tener un orden interno nos da un sistema muy completo de
+números</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

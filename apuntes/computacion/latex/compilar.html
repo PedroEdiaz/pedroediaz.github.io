@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Compilar Archivos .tex</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="aTeX es un programa de Hypertexto, esto significa que lo usamos para dar formato a nuestros textos, de la misma forma que HTML le da formato a las páginas Web. La ventaja que tiene aprender usar este programa es que fue pensado desde un inició para escribir documentos matemáticos, así mismo todo el diseño puede ser modificado.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Compilar-Archivos-.tex">Compilar Archivos .tex</h1>
+</center>
+<p>LaTeX es un programa de Hypertexto, esto significa que lo usamos para dar formato a nuestros textos, de la misma forma que HTML le da formato a las páginas Web. La ventaja que tiene aprender usar este programa es que fue pensado desde un inició para escribir documentos matemáticos, así mismo todo el diseño puede ser modificado.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Compilado">Compilado</a></li>
+<li><a href="#Primer-PDF">Primer PDF</a></li>
+<ul>
+<li><a href="#Código-extra">Código extra</a></li>
+</ul>
+<li><a href="#Resumen">Resumen</a></li>
+<li><a href="#Ejercicio">Ejercicio</a></li>
+</ul></div>
+<h2
+<h2 id="Compilado">Compilado</h2>
+<p>Los documentos de LaTeX son de formato .tex. Es necesario instalar el
+compilador de Latex, en mi caso yo tengo instalado texlive que viene
+con varios paquetes esenciales. Ahora, para trabajar escribes en un
+archivo .tex el código y lo compilas en la terminal.</p>
+<pre><code>
+<p>pdflatex file.tex
+</code></p></pre>
+<p>Esto creará un archivo llamado 
+<code>file.pdf</code> donde se verá plasmado todos
+los comandos que pusimos, si no estamos acostumbrados a trabajar en la
+terminal podemos instalar una IDE de LaTeX como Texmaker que trabaja
+casi igual a una IDE de programación, aprietas un boton y se crea el
+pdf, también puedes usar una IDE en linea como Overleaf si no
+estás interesado en descargar programas.</p>
+<h2 id="Primer-PDF">Primer PDF</h2>
+<p>Ahora que ya sabemos como pasar de 
+<code>tex</code> a <code>pdf</code> ya podemos empezar a
+escribir código y compilarlo para ver si funciona, Entonces, creamos
+nuestro documento, escribimos algo '
+<code>...</code>' Compilamos y vemos que nos
+salé un error, esto es por que debes poner en LaTeX explícitamente donde
+empieza tu documento y donde termina para eso ponemos este código.</p>
+<pre><code>
+\begin{document}
+...
+\end{document}
+</code></pre>
+<p>vemos que nos sale una advertencia pero ya tenemos un PDF con texto
+escrito en el, esta advertencia nos salé por que LaTeX no sabe que tipo
+de documento quieres, para eso agregamos la siguiente linea de código</p>
+<pre><code>
+\documentclass{article}
+</code></pre>
+<p>Con esta linea le decimos a LaTeX que queremos escribir un articulo,
+formato que es más que necesario para escribir apuntes y tareas. además
+podemos darle opciones, entre llaves, al documento, por ejemplo poner la
+letra a 12 puntos y que el documento sea de 2 columnas.</p>
+<pre><code>
+\documentclass[12pt,twocolumn]{article}
+</code></pre>
+<h3 id="Código-extra">Código extra</h3>
+<p>Ya con esto tenemos todo para empezar a escribir lo que va adentro de
+nuestro documento, pero yo agregó dos lineas de código más.</p>
+<pre><code>
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+</code></pre>
+<p>Estas lineas de código le dicen a LaTeX que a parte de todo el código
+interno que tiene le agregue el código de babel con la opción
+spanish para que el documento esté en español, y traduzca algunos
+títulos que pone LaTeX automáticamente y de inptenc. la opción de
+utf8 para que codifique el documento en este estándar.</p>
+<h2 id="Resumen">Resumen</h2>
+<p>Ya con esto tenemos nuestra primer plantilla con las lineas de código
+necesarias para compilar nuestros textos. Notamos que los comandos para</p>
+<p>LaTeX comienzan con una '\\' y en los puntos suspensivos el texto que
+queremos que aparezca en nuestro pdf.</p>
+<pre><code>
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\begin{document}
+...
+\end{document}
+</code></pre>
+<p>Además podemos compilar nuestro archivo 
+<code>foo.tex</code>, donde foo es el
+nombre que tiene nuestro archivo, con la terminal en la carpeta del
+archivo, y ejecutando el siguiente comando podemos compilar nuesto
+archivo LaTeX en un pdf.</p>
+<pre><code>
+<p>pdflatex foo.tex
+</code></p></pre>
+<h2 id="Ejercicio">Ejercicio</h2>
+<ul>
+<li>  Compila un pdf que diga \"hola mundo\".</li>
+<li>  Juega con las opciones del documento probando opciones como \"landscape\".</li>
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre los Naturales</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ara empezar a demostrar las propiedades de los Naturales debemos empezar con una base, no podemos definir lo que es un Natural per se, pero podemos decir que propiedades o reglas debe cumplir un conjunto cualquiera para ser considerado el conjunto de los Naturales. Estas reglas son llamadas ’axiomas de Peano’.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-los-Naturales">Sobre los Naturales</h1>
+</center>
+<p>Para empezar a demostrar las propiedades de los Naturales debemos empezar con una base, no podemos definir lo que es un Natural per se, pero podemos decir que propiedades o reglas debe cumplir un conjunto cualquiera para ser considerado el conjunto de los Naturales. Estas reglas son llamadas ’axiomas de Peano’.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Los-axiomas-de-Peano">Los axiomas de Peano</a></li>
+<li><a href="#La-suma">La suma</a></li>
+<ul>
+<li><a href="#Conmutatividad">Conmutatividad</a></li>
+</ul>
+<li><a href="#La-multiplicación">La multiplicación</a></li>
+<ul>
+<li><a href="#Ley-distributiva">Ley distributiva</a></li>
+<li><a href="#Transitividad">Transitividad</a></li>
+</ul>
+<li><a href="#El-orden">El orden</a></li>
+<ul>
+<li><a href="#Propiedades">Propiedades</a></li>
+</ul>
+<li><a href="#El-cero">El cero</a></li>
+<li><a href="#Propiedades">Propiedades</a></li>
+<ul>
+<li><a href="#De-la-suma">De la suma</a></li>
+<li><a href="#De-la-multiplicación">De la multiplicación</a></li>
+<li><a href="#Ley-distributiva">Ley distributiva</a></li>
+</ul>
+<li><a href="#Ejercicios">Ejercicios</a></li>
+</ul></div>
+<h2
+<h2 id="Los-axiomas-de-Peano">Los axiomas de Peano</h2>
+<p>N1
+:   1 pertenece a \(\mathbb{N}\)</p>
+<p>N2
+:   Si \(n\) pertenece a \(\mathbb{N}\) entonces su sucesor, \(S(n)\), pertenece a
+    \(\mathbb{N}\) también</p>
+<p>N3
+:   1 no es sucesor de ningún número en \(\mathbb{N}\)</p>
+<p>N4
+:   Si \(n\) y \(m\) en \(\mathbb{N}\) tienen el mismo sucesor, entonces \(n=m\)</p>
+<p>N5
+:   Si 1 cumple una propiedad de los Naturales y ademas si \(n\) cumple
+    esta propiedad implica que \(S(n)\) la cumple también, entonces todos
+    los Naturales lo cumplen.</p>
+<p>Cada axioma tiene su razón de ser, pero tal vez el más importante de
+todos es N5 conocido como Principio de inducción matemática Qué es
+pilar en todas las demostraciones que involucran a los números Naturales
+y se suele escribir de varias formas así que diremos:</p>
+<p>SI
+:   \(P(1)\) es cierto</p>
+<p>Y
+:   \(P(n)\Rightarrow P(S(n))\)</p>
+<p>ENTONCES
+:   \(P(n)\) es cierto \(\forall n \in \mathbb{N}\)</p>
+<p>Ahora no nos sirven de mucho estos axiomas si no sabemos por que son,
+por ejemplo, los primeros 2 nos dan las bases de los números Naturales,
+N3 nos dice que hay infinitos Naturales y las últimas dos nos dan
+las bases para hacer demostraciones.</p>
+<h2 id="La-suma">La suma</h2>
+<p>La operación más simple y la pionera en la aritmética es la suma, para
+definir una operación basta ver como se comporta bajo el primer
+elemento, en nuestro caso 1 y como se comporta bajo un sucesor y otro
+número, de esto definimos la suma con estos 2 axiomas:</p>
+<p>S1
+:   \(n+1=S(n)\)</p>
+<p>S2
+:   \(n+S(m)=S(n+m)\)</p>
+<p>Ya con esto Tenemos todo lo necesario para hacer demostraciones
+involucrando la suma ya que si una propiedad la cumple S1 y la
+cumple S2 por inducción la propiedad se mantiene para todos los</p>
+<p>Naturales, por ejemplo la Conmutatividad.</p>
+<h3 id="Conmutatividad">Conmutatividad</h3>
+<p>Decir que los Naturales son conmutativos bajo la suma es equivalente a
+decir que para dos números Naturales \(n\), \(m\) se cumple \(n+m=m+n\). Para
+eso vemos si nuestra definición es conmutativa y terminamos reafirmando
+por que si nuestra definición es conmutativa implica que los naturales
+son conmutativos bajo la suma.
+\[1+n=S(n)?\] Aplicamos inducción sobre \(n\), vemos que por definición
+\(n=1\) se cumple ya que \(1+1=S(1)\) ahora suponemos \(1+n=S(n)\) y vemos
+como se comporta el sucesor de \(n\) aquí. Otra vez por definición tenemos
+\(1+S(n)=S(1+n)\) y esto por nuestra suposición es igual a
+\(1+S(n)=S(S(n))\) que es lo que queremos demostrar y por lo tanto
+\(1+n=S(n)\) para todo \(n\) Natural.
+\[S(m)+n=S(m+n)?\] Aplicando otra vez inducción sobre \(n\) y vemos que
+por definición se cumple para \(n=1\), \(S(m)+1=S(S(m))=S(m+1)\), Ahora
+suponemos nuestra hipótesis y vemos como se comporta para el sucesor de
+\(n\), \(S(m)+S(n)=S(S(m)+n)\) por definición, y esto a su vez es igual a
+\(S(S(m+n))\) por nuestra hipótesis, y por definición esto es igual a
+\(S(m+S(n))\) que es lo que queríamos demostrar.
+\[n+m=m+n?\] Por último, aplicamos inducción para cualquier variable, en
+esta caso \(n\) y por nuestra primer demostración \(1+m=S(m)\) además por
+definición \(m+1=S(m)\) y por lo tanto se cumple para \(n=1\) ya que
+\(1+m=m+1\). Ahora suponemos nuestra hipótesis, \(n+m=m+n\), y vemos bajo un
+razonamiento similar a \(n=1\) que se cumple \(S(n)+m=m+S(n)\) y por lo
+tanto \(n+m=m+n\) para todo \(n\) y \(m\) Natural.</p>
+<h2 id="La-multiplicación">La multiplicación</h2>
+<p>Describir la multiplicación, nuestro segunda gran operación no es gran
+misterio, basta aplicar la misma técnica que usamos en la suma, de modo
+que se cumple.</p>
+<p>M1
+:   \(n\cdot 1=n\)</p>
+<p>M2
+:   \(n\cdot S(m)=n\cdot m+n\)</p>
+<p>De la misma forma podemos demostrar las propiedades de la
+multiplicación, pero antes necesitamos demostrar que relación hay entre
+la suma y multiplicación. Esta propiedad dice que la multiplicación se
+distribuye en la suma.</p>
+<h3 id="Ley-distributiva">Ley distributiva</h3>
+\[a\cdot (b+c)=ab+bc?\] Aplicamos inducción para cualquier variable, en
+<p>nuestro caso escogemos inducción sobre \(c\) ya que sale ligeramente más
+directo y vemos que para \(c=1\) se cumple,
+\(a\cdot (b+1)=a\cdot S(b)=a\cdot b +b=a\cdot b+b\cdot 1\) ahora suponemos
+que se cumple nuestra hipótesis y vemos que pasa con el sucesor de \(c\):
+\(a\cdot(b+S(c))=a\cdot b+a\cdot S(c)\) y con esto concluimos nuestra
+demostración.</p>
+<h3 id="Transitividad">Transitividad</h3>
+<p>Ahora ya podemos demostrar las propiedades de la multiplicación, en
+nuestro caso transitividad que es equivalente a decir que la siguiente
+proposición es cierta \[(a\cdot b)\cdot c=a\cdot(b\cdot c)?\]</p>
+<p>Para esto aplicamos inducción sobre \(c\) y vemos que para \(c=1\) se
+cumple, \((a\cdot b)\cdot 1=a\cdot b=a\cdot(b\cdot 1)\), ahora suponemos
+nuestra hipótesis y vemos su se cumple para el sucesor de \(c\). Por
+nuestra definición.
+\((a\cdot b)\cdot S(c)=((a\cdot b)\cdot c)+(a\cdot b)\) y aplicamos
+nuestra hipótesis \(a\cdot(b\cdot c)+a\cdot b\), Por último distribuimos,
+\(a\cdot(b\cdot c+ b)\) y por definición \(a\cdot (b\cdot S(c))\) y con esto
+concluimos nuestra demostración.</p>
+<p>Ya con 2 operaciones podemos demostrar la relación que hay entre ellas,
+esta relación es llamada Ley distributiva y nos dice que la
+multiplicación se distribuye en la suma.</p>
+<h2 id="El-orden">El orden</h2>
+<p>Podemos definir el orden de los números Naturales de distintas formas,
+por axiomas, por conjuntos, en nuestro caso haremos una definición, ya
+que sabemos lo que es y tenemos lo necesario para expresarlo, no como
+los números que no podemos definirlos como tal.</p>
+<p>Decimos que \(a\) es mayor que \(b\), \(a>b\), si y solo si existe un número</p>
+<p>Natural \(x\) tal que \(a=b+x\) para \(a,b\in \mathbb{N}\).
+\[\forall a,b\in \mathbb{N}\quad a>b \iff \exists x\in \mathbb{N} \,|\, a=b+x\]</p>
+<h3 id="Propiedades">Propiedades</h3>
+<p>Con esta definición ya podemos demostrar propiedades, por ejemplo es
+fácil mostrar \(S(n)>n\), pero las 3 propiedades elementales son las
+siguientes. \[(a>b) \textrm{ y } (b>c) \Rightarrow (a>c)\] Por definición sí,
+\(a>b\) y \(b>c\) entonces \(a=b+x_1\) y \(b=c+x_2\), sustituyendo tenemos
+\(a=c+x_2+x_1\) como \(x_2+x_1\in \mathbb{N}\) entonces \(a>c\) y con esto concluimos
+nuestra demostración. \[(a>b) \textrm{ y } (c\in \mathbb{N})\Rightarrow(a+c>b+c)\] Por
+definición \(a=b+x\), sumando un \(c\) natural en ambos lados \(a+c=b+x+c\), y
+conmutando nos implica que \(a+c>b+c\).</p>
+<h2 id="El-cero">El cero</h2>
+<p>Podemos incluir el cero en los Naturales, o considerarlo un conjunto
+extra, en cualquier caso diremos que \(\mathbb{N}'=\mathbb{N}\cup \{0\}\). Ahora veremos
+como se comporta el \(0\) bajo las operaciones y decimos.
+\[n+0=n \qquad n\cdot 0=0\]</p>
+<p>También podemos adaptar el orden para \(\mathbb{N}'\), ampliando el conjunto.</p>
+<p>Decimos que \(a\) es mayor o igual a \(b\), \(a\geq b\), si y solo si existe
+un \(x\) Natural o 0 tal que \(a=b+x\) para \(a,b\in \mathbb{N}'\). Mayor si \(x\in\mathbb{N}\)
+o igual si \(x=0\).
+\[\forall a,b\in \mathbb{N}'\quad a\geq b \iff \exists x\in \mathbb{N}' \,|\, a=b+x\]</p>
+<h2 id="Propiedades">Propiedades</h2>
+<p>Vemos que la definición de 0 con la suma es P3 para esta misma,
+ademas para generalizar las propiedades de \(\mathbb{N}\) en \(\mathbb{N}'\) vemos que si
+una propiedad la cumple los naturales y la cumple 0 entonces la cumple
+\(\mathbb{N}'\), o podemos iniciar nuestra inducción desde 0. En particular \(N'\)
+cumple estas propiedades y \(N\) no cumple P3 que es llamado elemento
+neutro.</p>
+<h3 id="De-la-suma">De la suma</h3>
+<p>P1
+:   \(a+b=b+a\)</p>
+<p>P2
+:   \((a+b)+c=a+(b+c)\)</p>
+<p>P3
+:   \(a+ 0=a\)</p>
+<h3 id="De-la-multiplicación">De la multiplicación</h3>
+<p>P1
+:   \(a\cdot b=b\cdot a\)</p>
+<p>P2
+:   \((a\cdot b)\cdot c=a\cdot (b\cdot c)\)</p>
+<p>P3
+:   \(a\cdot 1=a\)</p>
+<h3 id="Ley-distributiva">Ley distributiva</h3>
+<p>LD
+:   \(a\cdot(b+c)=a\cdot b+a\cdot c\)</p>
+<h2 id="Ejercicios">Ejercicios</h2>
+<ul>
+<li>  Demuestra P2 Para la suma</li>
+<li>  Demuestra P1 Para la multiplicación.</li>
+<li>  Demuestra que el orden de \(\mathbb{N}'\) es transitivo.</li>
+<li>  Demuestra Que siempre se cumple</li>
+    \((a>b) \textrm{ y } (c\in \mathbb{N})\Rightarrow(c\cdot a>c\cdot b)\).
+<li>  Si \((a>b) \textrm{ y } (b\geq c)\) ¿Cual es el orden entré \(a\) y \(c\)?.</li>
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

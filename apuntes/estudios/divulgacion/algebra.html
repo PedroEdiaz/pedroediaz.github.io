@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>¿Por qué nos importa el Álgebra? </title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="as demostraciones axiomáticas son el primer tipo de demostraciones lógicas en las matemáticas, son las más fundamentales, y nos dan una buena introducción al pensamiento matemático que es, en su mayoría, deductivo.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="¿Por-qué-nos-importa-el-Álgebra?-">¿Por qué nos importa el Álgebra? </h1>
+</center>
+<p>Las demostraciones axiomáticas son el primer tipo de demostraciones lógicas en las matemáticas, son las más fundamentales, y nos dan una buena introducción al pensamiento matemático que es, en su mayoría, deductivo.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Sobre-los-axiomas">Sobre los axiomas</a></li>
+<li><a href="#Las-preguntas-en-las-matemáticas.">Las preguntas en las matemáticas.</a></li>
+<li><a href="#Nuestra-primer-pregunta-matemática">Nuestra primer pregunta matemática</a></li>
+<li><a href="#Sobre-las-demostraciones-de-implicación-(Verticales)">Sobre las demostraciones de implicación (Verticales)</a></li>
+<li><a href="#Sobre-las-demostraciones-de-equivalencia-(horizontales)">Sobre las demostraciones de equivalencia (horizontales)</a></li>
+<li><a href="#Diferencias">Diferencias</a></li>
+<li><a href="#Extra:-Sobre-las-palabras">Extra: Sobre las palabras</a></li>
+</ul></div>
+<h2
+<h2 id="Sobre-los-axiomas">Sobre los axiomas</h2>
+<p>Las matemáticas, como ya dijimos, tienen un método deductivo ya que
+buscan generar conocimiento desde lo más particular posible, como el
+conocimiento se genera de la nada la matemática usa unas leyes
+fundamentales llamadas axiomas. Estas no pueden ser demostradas ya
+que si lo fueran no serían fundamentales, pero al no ser demostradas no
+sabemos si son verdaderas es por eso que los axiomas son acuerdos.</p>
+<p>En Álgebra usaremos 16 axiomas, 5 de grupo para la suma y
+multiplicación, 3 de equivalencia para la igualdad y las demás que
+relacionarán las operaciones y la igualdad.</p>
+<h2 id="Las-preguntas-en-las-matemáticas.">Las preguntas en las matemáticas.</h2>
+<p>Ahora ya podemos hacernos preguntas algebraicas y Argumentar nuestras
+respuestas, estas preguntas son llamadas lemas, si son muy simples o
+teoremas si no son tan inmediatas. Los argumentos, por otro lado,
+son llamadas demostraciones y su objetivo es convencerte a ti como
+lector que los teoremas son ciertos. Cuando se buscas hacer una
+demostración matemáticas, uno intenta tener argumentos firmes, y ser
+capaz de responder cualquier duda que le puedan hacer a su argumento.</p>
+<h2 id="Nuestra-primer-pregunta-matemática">Nuestra primer pregunta matemática</h2>
+<p>Ya que sabemos que es una pregunta matemática, en sus tecnicismos,
+podemos hacernos una duda simple, y empezar a argumentarla. ¿Si \(a+b=c\)
+y \(b=d\) es válido asegurar que \(a+d=c\)?, para nosotros puede ser muy
+obvio, pero para un niño muy preguntón no.</p>
+<p>Entonces pensamos, bueno si \(b=d\) y la suma no afecta la igualdad
+entonces \(a+b=a+d\) pero la igualdad es simétrica, \(a+d=a+b\), y por
+nuestra Hipótesis \(a+b=c\), entonces por transitividad \(a+d=b\).</p>
+<h2 id="Sobre-las-demostraciones-de-implicación-(Verticales)">Sobre las demostraciones de implicación (Verticales)</h2>
+<p>Esta cadena de razonamientos es llamado Silogismo hipotético ya que
+comienza con una hipótesis, y a partir de silogismos o razonamientos
+llegamos a una conclusión. Además podemos formalizar más nuestro
+razonamiento, dotándolo de símbolos universales como la implicación.</p>
+<p>Si \(p\) es cierto, entonces \(q\) es cierto. (\(p\Rightarrow q\)).
+\[b=d\quad\Rightarrow\quad a+b=a+d \quad\Rightarrow\quad a+d=a+b\quad\textrm{y}\quad a+b=c\quad\Rightarrow\quad a+b=c\]</p>
+<p>Ahora si ya sabemos que la implicación es transitiva, podemos poner esta
+cadena de razonamientos en una tabla, y ponerles nombre a los pasos para
+darle más argumentos a nuestros pasos
+\(\)\begin{aligned}
+b&=d &&\textrm{Hipótesis}\\
+a+b&=a+d &&\textrm{Suma de la a}\\
+a+d&=a+b &&\textrm{Conmutación}\\
+a+b&=c &&\textrm{Hipótesis}\\
+a+d&=c &&\textrm{Transitividad}\\\end{aligned}\(\)</p>
+<p>Estas demostraciones verticales empiezan con una de nuestras hipótesis y
+poco a poco, usando nuestros axiomas y las otras hipótesis llegamos a
+nuestra conclusión, o lo que queremos demostrar. Pero podemos hacer
+estas demostraciones bajo otra perspectiva.</p>
+<h2 id="Sobre-las-demostraciones-de-equivalencia-(horizontales)">Sobre las demostraciones de equivalencia (horizontales)</h2>
+<p>Podemos hacernos una pregunta más elemental, ¿la multiplicación se puede
+cancelar? \[a\cdot b=a\cdot c\quad\Rightarrow\quad b=c\] Es una pregunta
+tal vez obvia, pero no lo es tanto ya que si no se puede cancelar
+entonces una misma multiplicación daría dos resultados, y como
+matemáticos esas cosas nos da ansiedad así que mejor la demostramos.
+\(\)\begin{aligned}
+a\cdot b&=a\cdot c &&\textrm{Hipótesis}\\
+\overline{a}\cdot (a\cdot b)&=\overline{a}\cdot(a\cdot c) &&\textrm{Multiplicación de }\overline{a}\\
+(\overline{a}\cdot a)\cdot b&=(\overline{a}\cdot a)\cdot c &&\textrm{Asociatividad}\\
+1\cdot b&=1\cdot c &&\textrm{Elemento Inverso}\\
+b&=c &&\textrm{Elemento Neutro}\\\end{aligned}\(\)</p>
+<p>Pero podemos responder esta misma pregunta de una forma más fundamental.</p>
+<p>Nosotros sabemos que la igualdad es transitiva, como la implicación
+entonces podemos hacer una cadena de igualdades que nos permita
+demostrar \(b=c\), así que empezamos por lo más elemental, \(b=b\), y le
+queremos sumar algo a \(b\), entonces le sumamos \(0\) y así vamos armando
+una cadena de igualdades, que nos quedaría así.
+\[b=b\cdot{1}=b\cdot(a\cdot\overline{a})=(b\cdot a)\cdot\overline{a}=(c\cdot a)\cdot\overline{a}=c\cdot (a\cdot\overline{a})=c\cdot 1=c\]</p>
+<p>Esta cadena de igualdades, la podemos poner en una tabla, como en las
+demostraciones de implicación, poniendo los argumentos siempre del lado
+para argumentar por que hacemos lo que hacemos.
+\(\)\begin{aligned}
+b&=b\cdot 1 && \textrm{Elemento Neutro}\\
+&=b\cdot(a\cdot\overline{a}) && \textrm{Elemento Inverso}\\
+&=(b\cdot a)\cdot\overline{a} && \textrm{Asociatividad}\\
+&=(c\cdot a)\cdot\overline{a} && \textrm{Hipótesis} \\
+&=c\cdot(a\cdot\overline{a}) && \textrm{Asociatividad}\\
+&=c\cdot 1 && \textrm{Elemento Inverso}\\
+&=c && \textrm{Elemento Neutro}\\\end{aligned}\(\)</p>
+<h2 id="Diferencias">Diferencias</h2>
+<p>Ambas demostraciones son válidas, y usan los mismas axiomas, pero cada
+una usa una relación distinta para hacer su cadena de argumentos.</p>
+<p>La primera, la implicación, nos muestra que los argumentos no son
+simétricos. \(p\Rightarrow q\) no significa que \(q\Rightarrow p\) y se ve
+en nuestra tabla ya que no podemos argumentar de abajo hacia arriba por
+el otro lado.</p>
+<p>En nuestra segunda demostración la igualdad es simétrica, \(a=b\) implica
+que \(b=a\), y eso se ve en nuestra tabla de dos formas, la primera es
+volteando la tabla y viendo que los argumentos siguen siendo válidos. La
+segunda y la más bella es que los argumentos son simétricos, empiezas y
+terminas con Elemento neutro.</p>
+<p>Otra diferencia menos sutil es que la implicación, por su naturaleza
+lógica, nos obliga a comenzar nuestros razonamientos desde la hipótesis,
+sin embargo la igualdad siempre comienza por lo elemental \(a=a\) y usamos
+a mitad de nuestro razonamiento la hipótesis y al usarla ya nos implica
+la conclusión.</p>
+<h2 id="Extra:-Sobre-las-palabras">Extra: Sobre las palabras</h2>
+<p>Si analizamos la última demostración con mucho detenimiento, verán que
+se hizo trampa, Nuestra pregunta era simple.
+\[a+b=a+c\quad\Rightarrow\quad b=c?\] Que necesidad hay de hacer
+trampas, y más importante, ¿Qué trampa se hizo? La trampa es que decimos
+en nuestra demostración que nuestra hipótesis es \(b+a=c+a\) pero cuando
+nos hicimos la pregunta era la conmutación de eso.</p>
+<p>Ahora, ¿Por qué lo hicimos?, la respuesta fácil es por estética, los
+pasos de la conmutación no son nada estéticos, dicen casi lo mismo, son
+casi iguales, pero no.
+\(\)\begin{aligned}
+&=(b\cdot a)\cdot\overline{a} && \textrm{Asociatividad}\\
+&=(a\cdot b)\cdot\overline{a} && \textrm{Conmutatividad}\\
+&=(a\cdot c)\cdot\overline{a} && \textrm{Hipótesis} \\
+&=(c\cdot a)\cdot\overline{a} && \textrm{Conmutatividad}\\
+&=c\cdot(a\cdot\overline{a}) && \textrm{Asociatividad}\\\end{aligned}\(\)</p>
+<p>Pero la otra respuesta no es tan simple, podríamos cambiar la pregunta y
+empezar con la hipótesis conmutada, es una respuesta válida, pero
+dejaría de ser intuitivo. La ventaja de que nuestra hipótesis sea
+\(a+b=a+c\) es que le damos a la \(a\) la importancia que se merece, es como
+decir \"*\(a\) no cambia, ¿cambia \(b\)?*\" y la verdad para fines prácticos
+solo complica las cosas pero las palabras importan.</p>
+<p>Otro concepto a tomar en cuenta es que las demostraciones son
+argumentaciones, y eso nos da libertades que a veces ignoramos, puedo no
+dar mi argumento completo si te sigue convenciendo, y si me cuestionan
+puedo argumentar que despreciamos la conmutación o decir desde un inició
+que vamos a conmutar la hipótesis.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

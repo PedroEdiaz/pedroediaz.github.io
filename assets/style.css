@@ -1,0 +1,74 @@
+@font-face { font-family: Merriweather; src:url('/assets/Merriweather-Bold.woff');font-weight: bold;font-display: swap;}
+@font-face { font-family: Montserrat; src:url('/assets/Montserrat-Regular.woff');font-display: swap;}
+@font-face { font-family: Inconsolata; src:url('/assets/Inconsolata-Regular.woff');font-display: swap;}
+
+html {
+	scroll-behavior:smooth;
+}
+
+code {
+	font-family:'Inconsolata',monospace;
+}
+
+pre{
+	overflow:auto;margin-left:10%;
+}
+
+h1, h2, h3, h4 
+nav > a {
+	font-family:'Merriweather',sans-serif;
+}
+
+body {
+	font-family:'Montserrat',serif;
+	line-height:1.6;
+	max-width:7.5in;
+	margin:auto;
+	padding:1em;
+}
+
+nav{
+	display:flex;
+	justify-content:space-between;
+}
+
+nav, footer, header {
+	padding-top:0.5rem;
+	padding-bottom:0.5rem;
+}
+
+
+li {
+	padding-top:1rem;
+}
+
+footer a {
+	padding:1rem;
+}
+
+
+img {
+	width:min(90%, 3in);
+	margin:auto;
+	border-radius:5%;
+} 
+
+h1 {font-size:xx-large;}
+
+@media print, (min-width: 5.5in ){
+	h2 {font-size:xx-large;}
+	h1 {font-size:xxx-large;}
+	img[alt="cover"] {float:right;}
+}
+
+@media print{
+	a {text-decoration: none ;}
+	a, a:visited {color: currentColor ;}
+	nav, footer, hr {display:none !important;}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {background:black;color: white;}
+	a {color: #f4b;}
+	a:visited {color: #0ff;}
+}

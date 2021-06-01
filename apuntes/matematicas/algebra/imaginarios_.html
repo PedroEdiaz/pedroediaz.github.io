@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Formas de los Imaginarios</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="a que hemos definido todas las operaciones básicas que tiene un imáginario podemos pensar en que otras formas tenemos para representar a un número imaginario, por ejemplo, no sotros sabemos que no se suele representar un imáginario como par ordenado sino como binomio.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Formas-de-los-Imaginarios">Formas de los Imaginarios</h1>
+<p>01 de enero del 2021.
+</p></center>
+<p>Ya que hemos definido todas las operaciones básicas que tiene un imáginario podemos pensar en que otras formas tenemos para representar a un número imaginario, por ejemplo, no sotros sabemos que no se suele representar un imáginario como par ordenado sino como binomio.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Forma-Binómica">Forma Binómica</a></li>
+<li><a href="#Forma-Polar">Forma Polar</a></li>
+<li><a href="#Ley-de-Moivre">Ley de Moivre</a></li>
+</ul></div>
+<h2
+<h2 id="Forma-Binómica">Forma Binómica</h2>
+<p>Primero podemos analizar un subconjunto de los imaginarios que son todos los números de la forma \((a,0)\) estos números tienen la propiedad de que a la hora de operar con ellos siempre dan un número de este subconjunto.
+\[(a,0)+(b,0)=(a+b,0)\]
+\[(a,0)\cdot(b,0)=(a\cdot b,0)\]
+y no solo dan un número que es subconjunto de estos, sino que tambien se comportan como los Reales por lo que podemos representarlo como un real, por otro lado si a un número real lo multiplicas por \((0,1)\) se cumple lo siguiente.
+\[(a,0)(1,0)=(0,a)\]</p>
+<p>Ahora, si recordamos la definición de suma sabemos que todo número imaginario se puede expresar de la forma.
+\[(a,b)=(a,0)+(0,b)\]
+por lo que si juntamos todo lo anterior nos queda que un número imaginario se puede representar siempre como.
+\[(a,b)=(a,0)+(b,0)(0,1)\]</p>
+<p>Ahora, si los números de la forma \((a,0)\) se comportan como reales, le podemos representar como reales por comodidad. \((a,0)=a\) y si \((0,1)\) es una constante le podemos poner nombre en este caso \((0,1)=i\) por lo que sustituyendo decimos.
+\[(a,b)=a+bi\]</p>
+<p>Ahora usando la definición de multiplicación podemos mostrar que \((0,1)(0,1)=(-1,0)\) por lo que en esta notación se expresa como.
+\[i^2=-1\]
+de donde sale la famosa identidad que nos enseñaron en la prepa.</p>
+<h2 id="Forma-Polar">Forma Polar</h2>
+<p>Por otro lado tenemos la costumbre de representar un par ordenado de reales como un punto en el plano, por lo que podemos representar los imaginarios como coordenadas, estos puntos en el espacio se pueden determinar, tambien como la distancia que estan al origen, \((0,0)\) y el ángulo que forman apartir de \((1,0)\) al sentido cotra horario, estas representaciones se expresan como \(r\angle \theta\) que por trigonomia cumplen.
+\[r=\sqrt{a^2+b^2}\quad \theta=\tan^{-1}\left(\frac{b}{a}\right)\]</p>
+<p>Por otro lado se cumple tambien.
+\[a=r\cos\theta\quad b=r\sin\theta\]</p>
+<p>Esta representación geometrica nos muestra como la suma siempre se relaciona con una translación y la multiplicación con una rotación. de esta forma polar podemos redefinir la multiplicación por la ley de Moivre</p>
+<h2 id="Ley-de-Moivre">Ley de Moivre</h2>
+<p>La Ley de Moivre nos dice que si tenemos dos números imaginarios de la forma,
+\[A=r(\cos\theta+i\sin\theta)\]
+\[B=r'(\cos\theta'+i\sin\theta')\]
+podemos definir su multiplicación como.
+\[AB=rr'(\cos(\theta+\theta')+i(\sin\theta+\theta'))\]
+esto por la definición de la multiplicación y por las identidades trignométricas, en especial.
+\[\sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\sin\beta\cos\alpha\]
+\[\cos(\alpha\pm\beta)=\cos\alpha\cos\beta\mp\sin\beta\sin\alpha\]</p>
+<p>De esto se puede demostrar por inducción que \(A^n=r^n(\cos n\theta+i\sin n\theta)\) ademas de generalizar a la división demostrando que para \(n
+<0\) y expandirlo a raices demostrando que para \(n\in\mathbb{Q}\) tambien se cumple por lo que nos reduce infinito la forma de trabajar con exponentes y imaginarios.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

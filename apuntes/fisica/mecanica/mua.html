@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre la Aceleración Constante</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="a que tenemos una función del movimiento y sus derivadas es imposible no pensar en las series de Taylor, esta nos dice que se puede aproximar una función con sus derivadas.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-la-Aceleración-Constante">Sobre la Aceleración Constante</h1>
+</center>
+<p>Ya que tenemos una función del movimiento y sus derivadas es imposible no pensar en las series de Taylor, esta nos dice que se puede aproximar una función con sus derivadas.
+\[f(x)=f(x')+f'(x')(x-x')+\frac{f''(x')}{2}(x-x')^2+\frac{f'''(x')}{3!}(x-x')^3+\cdots\]</p>
+<p>Pensamos, sí la aceleración es constante la seríe de taylor no es
+infintia, y dessarrollamos cambiando \(f(x)\) por la posición de acuerdo
+al tiempo, \(s(t)\), para redefinir nuestra función del movimiento.
+\[s(t)=s(t')+v(t')(t-t')+\frac{a(t')}{2}(t-t')^2+\frac{a'(t')}{3!}(t-t')^3+\cdots\]</p>
+<p>Ahora, esta es una suma infinita y tenemos que poner un límite, para que
+esta formula sea precisa, es por eso que hacemos la aceleración
+constante. \(a(t)=a\), esto da la particularidad que todas las derivadas
+superiores son 0.
+\[s(t)=s(t')+v(t')(t-t')+\frac{a}{2}(t-t')^2\]</p>
+<p>Esta formula es precisa siempre que la aceleración sea constante, ya que
+la única variable es \(t\), es por eso que para facilitar la formula
+hacemos \(t'=0\).
+\[s(t)=s(0)+v(0)t+\frac{a}{2}t^2\]</p>
+<p>Por último usamos notación física para limpiar la formula denotando
+\(f(0)=f_0\) y poder tratarla como constantes así como redefinir \(s(t)\)
+para que \(s_0\) sea \(0\).
+\[s(t)=v_0t+\frac{a}{2}t^2\]</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Desarrollo-de-Formulas">Desarrollo de Formulas</a></li>
+<li><a href="#Velocidad-Promedio">Velocidad Promedio</a></li>
+</ul></div>
+<h2
+<h2 id="Desarrollo-de-Formulas">Desarrollo de Formulas</h2>
+<p>Ya con esto podemos deducir otras formulas basada en esta la aceleración
+constante, ya sabemos que la derivada del movimiento es la velocidad y
+concluimos.
+\[v(t)=v_0+at\]</p>
+<p>Podemos entender \(v(t)\) como la velocidad final después de un tiempo
+\(t\), es por eso que podemos encontrar \(v_f=v(t)\) por lo que.
+\[v_f=v_0+at\quad\iff\quad\frac{v_f-v_0}{a}=t\]</p>
+<p>Sustituyendo este tiempo en nuestra formula principal podemos deducir la
+siguiente formula.
+\(\)\begin{aligned}
+s &= v_0 t + \frac{1}{2} at^2\\
+ s &= v_0 \left(\frac{v_f-v_0}{a}\right) + \frac{1}{2} a\left(\frac{v_f-v_0}{a}\right)^2\\
+  s &= v_0 \frac{v_f-v_0}{a} + \frac{1}{2} \frac{v_f^2-2v_fv_0+v_0^2}{a}\\
+   as &= v_fv_0-v_0^2 + \frac{1}{2} (v_f^2-2v_fv_0+v_0^2)\\
+   2as &= 2v_fv_0-2v_0^2 + v_f^2-2v_fv_0+v_0^2\\
+     2as &=v_f^2-v_0^2\\
+\end{aligned}\(\)
+\[v_f^2=v_0^2+2as\]</p>
+<p>Si \(s\) tiene una dimensión podemos asegurar \(s=x\).</p>
+<h2 id="Velocidad-Promedio">Velocidad Promedio</h2>
+<p>Si nos ponemos muy estadísticos podemos usar la definición de promedio
+para calcular la velocidad promedio.
+\[\overline{v}=\frac{1}{\Delta t}\int_{t_1}^{t_2}v(t)dt\]</p>
+<p>Usando \(v(t)=v_0+at\) podemos desarrollar esta integral.
+\(\)\begin{aligned}
+\overline{v}&=\frac{1}{\Delta t}\int_{t_1}^{t_2}v(t)dt\\
+&=\frac{1}{t_2-t_1}\int_{t_1}^{t_2}(v_0+at)dt\\
+&=\frac{1}{t_2-t_1}\left(v_0(t_2-t_1)+\frac{1}{2}a(t_2^2-t_1^2)\right)\\
+&=v_0+\frac{1}{2}a(t_2+t_1)\\
+&=\frac{1}{2}(at_2+v_0+at_1+v_0)\\
+&=\frac{1}{2}(v_2+v_1)\\
+\end{aligned}\(\)</p>
+<p>Con lo que podemos concluir que la formula que estamos buscando es:
+\[\overline{v}=\frac{1}{2}(v_2+v_1)\]</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

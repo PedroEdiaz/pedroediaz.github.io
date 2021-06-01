@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Introducción a Linux.</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="uando estamos metidos en el mundo de la programación, no es raro escuchar sobre linux, pero ¿debería considerar instalar linux? Para eso es este artículo para exponer razones para considerar linux, un resumen de conceptos claves para entender la terminología, además de un apéndice para tener una base de cómo funciona linux a un nivel más abstracto.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Introducción-a-Linux.">Introducción a Linux.</h1>
+<p>26 de abril del 2021
+</p></center>
+<p>Cuando estamos metidos en el mundo de la programación, no es raro escuchar sobre linux, pero ¿debería considerar instalar linux? Para eso es este artículo para exponer razones para considerar linux, un resumen de conceptos claves para entender la terminología, además de un apéndice para tener una base de cómo funciona linux a un nivel más abstracto.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#¿Porqué-considerar-Linux?">¿Porqué considerar Linux?</a></li>
+<ul>
+<li><a href="#Optimización">Optimización</a></li>
+<li><a href="#Automatización">Automatización</a></li>
+<li><a href="#Seguridad">Seguridad</a></li>
+</ul>
+<li><a href="#Partes-de-un-sistema-Linux">Partes de un sistema Linux</a></li>
+<ul>
+<li><a href="#Shell">Shell</a></li>
+<li><a href="#Terminal">Terminal</a></li>
+<li><a href="#Emulador-de-Terminal">Emulador de Terminal</a></li>
+<li><a href="#Sistema-operativo">Sistema operativo</a></li>
+<li><a href="#Kernel-Linux">Kernel Linux</a></li>
+</ul>
+<li><a href="#Apendice:-Sistema-de-Archivos-de-linux">Apendice: Sistema de Archivos de linux</a></li>
+<li><a href="#Referencias">Referencias</a></li>
+</ul></div>
+<h2
+<h2 id="¿Porqué-considerar-Linux?">¿Porqué considerar Linux?</h2>
+<p>Yo uso linux por que me gusta entender cómo funciona mi computadora, y me gusta tener la capacidad de personalizarla lo máximo posible, porque si alguien más decide sobre mi computadora (cómo decidir cuando se actualiza) entonces no sentiría que me pertenece del todo y que feo no ser dueño de algo que compraste.</p>
+<h3 id="Optimización">Optimización</h3>
+<p>Ahora, entiendo que no todos piensas igual a mí, por ejemplo, puedes usar linux sí tienes una computadora de pocos recursos ya que optimiza mejor los recursos y tiene menos procesos (o tareas) ejecutándose de fondo que un sistema Windows; de Mac no puedo hablar porque no lo he usado.</p>
+<h3 id="Automatización">Automatización</h3>
+<p>Por otro lado en linux, y en cualquier computadora, todo lo que haces son comandos que se ejecutan: cuando aprietas un botón, ejecutas un comando; Cuando abres una aplicación, estás ejecutando un comando. Por lo que linux te da la capacidad de entender esos comandos y automatizarlos en un script, cómo el que uso para generar esta página.</p>
+<h3 id="Seguridad">Seguridad</h3>
+<p>Por último hay una capa extra de seguridad a la hora de trabajar con linux ya que tiene un sistema donde cada archivo le pertenece a un usuario y solo se ejecuta un programa si le das permiso de que se ejecute. </p>
+<h2 id="Partes-de-un-sistema-Linux">Partes de un sistema Linux</h2>
+<p>Ahora, Un sistema operativo linux básicamente se conforma del kernel, la terminal y los binarios. Los binarios son las aplicaciones que se ejecutan, normalmente se encuentran en la carpeta 
+<code>/bin</code> y suelen estar escritos en C, por lo que están bastante optimizados.</p>
+<h3 id="Shell">Shell</h3>
+<p>El shell, es el programa con el que te comunicas con la computadora, casi siempre tu shell por defecto es 
+<code>bash</code> sin embargo hay varias alternativas interesantes. Aquí puedes ejecutar comandos y comunicar comandos entre sí, y ejecutar tus propios programas para automatizar estos comandos.</p>
+<h3 id="Terminal">Terminal</h3>
+<p>La terminal es un concepto, no un programa, este concepto básicamente define al intermediario entre el usuario con la computadora, por lo que incluye, el teclado la pantalla, el kernel, las aplicaciones y el shell.</p>
+<h3 id="Emulador-de-Terminal">Emulador de Terminal</h3>
+<p>Esta es la aplicación gráfica que ejecuta la shell, aquí es donde escribiremos nuestros comandos, daremos permisos a scripts, ejecutaremos programas, además claro de compilar desde la terminal, básicamente aquí sacaremos toda la potencial de linux.</p>
+<h3 id="Sistema-operativo">Sistema operativo</h3>
+<p>El sistema operativo, en linux es el conjunto de aplicaciones, cada sistema operativo escoge aplicaciones a partir de su filosofía, es por eso que Ubuntu es tan recomendada ya que tiene una selección de aplicaciones básicas para el usuario promedio, y los sistemas basados en archlinux tienen el mínimo de aplicaciones, osea, tu instalas y configuras el entorno gráfico, porque su público es distinto.</p>
+<h3 id="Kernel-Linux">Kernel Linux</h3>
+<p>Por último el kernel linux es lo que comunica los componentes electrónicos con los ejecutables. Es por eso que se llama sistema operativo GNU/linux, linux es el kernel y las utilidades de GNU son aplicaciones muy simples pero bastante útiles para hacer algo más grande.</p>
+<h2 id="Apendice:-Sistema-de-Archivos-de-linux">Apendice: Sistema de Archivos de linux</h2>
+<p>Es fácil escuchar que En linux todo es un archivo, ya que su forma de abstraer las cosas es así, las aplicaciones son binarios que entiende la computadora y son archivos que se guardan en la carpeta 
+<code>/bin</code>.</p>
+<p>Cuando ejecutamos un programa y se queda ejecutándose de fondo es un proceso, que tiene una id que podemos ver ejecutando el comando 
+<code>ps ax</code>. Estos procesos se encuentran en el directorio <code>/proc</code>.</p>
+<p>Algunos programas requieren configuraciones extras que se pueden encontrar en 
+<code>/etc</code> sin embargo los usuarios tienen sus directorios personales en <code>/home</code> y sus configuraciones personales en <code>/home/.config</code>. El directorio personal del usuario root es <code>/root</p></code>
+<p>Los dispositivos físicos, sean nuestros discos duros, cámaras y usb que conectemos se encuentran en la carpeta 
+<code>/dev</code> por ejemplo, podemos ver nuestra cámara con <code>ffplay /dev/video0</code> o nuestros discos duros y sus particiones con el comando <code>lsblk</code>.</p>
+<h2 id="Referencias">Referencias</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=42iQKuQodW4">Linux Directories Explained in 100 Seconds</a>
+<li><a href="https://www.youtube.com/watch?v=dDwXnB6XeiA">"Everything is a file" in UNIX</a>
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

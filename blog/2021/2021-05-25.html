@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Primeras impresiones de Voidlinux</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="stos son dos artículos que en facebook mientras cambiaba de sistema operativo, cómo nota void ya no usa i tiene soporte para libressl.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Primeras-impresiones-de-Voidlinux">Primeras impresiones de Voidlinux</h1>
+<p>25 de mayo del 2021
+</p></center>
+<p>Estos son dos artículos que en facebook mientras cambiaba de sistema operativo, cómo nota void ya no usa i tiene soporte para libressl.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Instalación-de-Void">Instalación de Void</a></li>
+<li><a href="#Usando-qutebrowser">Usando qutebrowser</a></li>
+</ul></div>
+<h2
+<h2 id="Instalación-de-Void">Instalación de Void</h2>
+<p>Terminé mis responsabilidades inmediatas de la semana, y ya instalé void linux, la instalación es bastante rápida, y debes hacer todo de golpe por que se guarda la configuración en el cache y luego si la quieres cambiar causa problemas. lluego, para installar el driver del internet igual, sin ningún problema, todo muy fácil. </p>
+<p>Ahora,  ahi acabó lo fácil, es importante saber exactamente las dependencias que tienen los programas que usas, por ejemplo, instalando los programas de xorg que ocupaba en arch no bastaba ya que necesitaba una librería para detectar el teclado y mouse. luego vi que hay un paquete llamado xorg-mininal, y ya así no iba una a una viendo si ya funcionaba en conjunto. Para alacritty la terminal necesité mesa-dri, para poder usar aceleración por hardware, y para terminar, le puse variables de entorno para que las aplicaciones sepan que uso xorg y no wayland. </p>
+<p>Intenté usar chromium pero era imposible, se colgaba a cada rato, al parecer no se podía conectar a dbus. así que muy a mi pesar instalé firefox. firefox está bien, te crea carpetas nuevas y no me gusta, pero bueno, no crashea, usar spotify en el navegador es imposible tanto en chromium o firefox. y al parecer microsoft teams no te permite usarlo en firefox. por último, para usar el microfono en firefox necesitas dbus. en general no se necesita dbus en un void y sin embargo en arch es necesario para usar xorg.</p>
+<p>Los problemas con los navegadores web es por que void intenta no usar software que le pertenezca a una empreza, pero puedes ponerle la opción de que lo haga y yo creo que eso lo soluciona. por último, transferir las llaves ssh fue fácil, nada más le cambias los permisos y ya puedes acceder a los servidores pariados. xd, así que voy a pasar estos escritos largos al blog en el fin de semana.</p>
+<h2 id="Usando-qutebrowser">Usando qutebrowser</h2>
+<p>Después de estar probando navegadores web para mi nuevo setup y ver que ninguna me gustaba dije, pues ya que estamos vamos por lo más minmalista posible, y empecé a usar qutebrowser, este navegador sigue la filosofía de vim, que es una de mis aplicaciones favoritas. Vim, el predecesor de vi, es un programa para editar texto desde la terminal su filosofía, dice, bueno, si quieres estar escribiendo texto lo que menos necesitas es alejar tus manos de el, entonces ideó un sistema para haces esto. varios programas de linux usan sus mismos mapeos de teclas.</p>
+<p>Puede sonar muy desafiante usar este navegador sin el mouse, pero habiendo usando vim antes es bastante intuitivio, para copiar y pegar texto se hace exactamente lo mismo que en el editor. además con f, te sale todo lo que puedes clickear, y que teclas debes presionar para hacer click como en la imágen de abajo. también es muy extendible, con un comando en la configuracion, puedes hacer que te abra las imágenes, videos y pdfs, en tus aplicaciones locales, y no desde el navegador, cosa que nunca pude lograr con los otros. por último le puse a los demás programas los keybindings de vim para que la forma de navegar sea la misma en todo el sistema.</p>
+<p>Con esto mi computadora ya no depende de un mouse en si, si no que puedo ser más eficiente con la computadora, sin mover casi nada mis manos. cosa que me emociona, xd.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

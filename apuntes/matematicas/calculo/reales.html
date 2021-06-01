@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre los Reales</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="n subconjunto, (r), no vacio de (mathbb{Q}) es llamado un corte (de Dedekind">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-los-Reales">Sobre los Reales</h1>
+ 
+</center>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Corte-de-Dedekind">Corte de Dedekind</a></li>
+<li><a href="#Encaje-de-los-Racionales">Encaje de los Racionales</a></li>
+<li><a href="#Orden">Orden</a></li>
+<ul>
+<li><a href="#Conmutatividad">Conmutatividad</a></li>
+<li><a href="#Cerradura">Cerradura</a></li>
+</ul>
+</ul></div>
+<h2
+<h2 id="Corte-de-Dedekind">Corte de Dedekind</h2>
+<p>Un subconjunto, \(r\), no vacio de \(\mathbb{Q}\) es llamado un corte (de Dedekind
+en \(\mathbb{Q}\)) si satisface las siguientes propiedades.</p>
+<ul>
+<li>  \(\forall p\in r\quad\forall q \in r^c:\quad p<  q.\)</li>
+<li>  \(\forall p\in r\quad \exists q \in r:\quad p<  q.\)</li>
+</ul>
+<p>Ademas el conjunto de todos los cortes de Dedekind lo definimos por
+\(\mathbb{R}\). Esta definición nos dice que un corte de Dedekind Corta el
+continuo en dos partes, \(r\) y su complemento. todos los elementos de \(r\)
+son menores de su complemento y todo elemento de \(r\) tiene un elemento
+mayor.</p>
+<h2 id="Encaje-de-los-Racionales">Encaje de los Racionales</h2>
+<p>Pongamos de ejemplo el siguiente conjunto.
+\[\{x\in \mathbb{Q}:\, x
+< 0\}\]</p>
+<p>Es un perfecto conjunto de dedekind ya que, no es vacío y es un
+subconjunto de \(\mathbb{Q}\), ahora, su complemento son los números y talque
+\(y\geq 0\) y es fácil ver que esto cumple la primera propiedad, ahora
+como \(\mathbb{Q}\) es denso, entre 2 Racionales hay un racional, y como es
+abierto, cumple la segunda propiedad. bajo este razonamiento podemos
+asosear a cada elemento de \(\mathbb{Q}\) un corte de Dedekind. Para esto
+definimos un corte para cada \(q\in Q\). \[q^*=\{x\in \mathbb{Q}:\, x
+<  q\}\] Además
+definimos el conjunto de todos los cortes de \(\mathbb{Q}^*\). Ahora definimos las
+operaciones y el orden en \(\mathbb{R}\) de forma que \(\mathbb{Q}^*\) sea isomórfica a \(\mathbb{Q}\)
+y poder asegurar que \(\mathbb{Q}\subset\mathbb{R}\).</p>
+<h2 id="Orden">Orden</h2>
+<p>Si \(A,B\in\mathbb{R}\) Decimos que \(A
+<  B\) si A es un subconjunto de \(B\), esto es.
+\[A
+< B \quad\iff\quad A\subset B\] Ahora vemos si este orden se mantiene
+de \(\mathbb{Q}\) a \(\mathbb{R}\). para esto demostramos que si \(a
+<  b\) entonces \(a^< b^\).</p>
+<p>Reescribimos la definición de \(a^*\) y \(b^*\).
+\[x\in\mathbb{Q}\quad\textrm{ y }\quad x
+<  a \quad\rightarrow x\in a^*\]
+\[y\in\mathbb{Q}\quad\textrm{ y }\quad y
+<  b \quad\rightarrow y\in b^*\] Si \(x< a\) y \(a< b\)
+entonces \(x
+< b\) en otras palabras \(x\in a^*\rightarrow x\in b^*\) y por lo
+tanto \(a^*\subset b^*\).</p>
+<h3 id="Conmutatividad">Conmutatividad</h3>
+<p>Si \(A,B\in\mathbb{R}\) entonces existe \(a\in\mathbb{Q}\) y \(b\in \mathbb{Q}\) talque \(a\in A\) y
+\(b\in\mathbb{Q}\). Ahora, por definición de la Suma.
+\[a\in A\quad \textrm{ y }\quad b\in B\quad\rightarrow\quad a+b\in (A+B)\]
+\[b\in B\quad \textrm{ y }\quad a\in A\quad\rightarrow\quad a+b\in (B+A)\] Donde
+aplicamos la conmutatividad de la suma en \(\mathbb{Q}\) en la última parte,</p>
+<p>Ademas sabemos que la conjunción es conmutativa por lo tanto.
+\[a\in A\quad \textrm{ y }\quad b\in B\quad\iff b\in B\quad \textrm{ y }\quad a\in A\]</p>
+<p>Juntando todo vemos que si \(A,B\in\mathbb{R}\) Existen \(a,b\in\mathbb{Q}\) tal que
+\(a\in A\) y \(b\in B\) entonces \(a+b\in(A+B)\) y \(a+b\in (B+A)\) por lo
+tanto. \[A+B=B+A\]</p>
+<h3 id="Cerradura">Cerradura</h3>
+<p>Ahora solo basta demostrar la propiedad mas importantes, la cerradura.
+\[A,B\in\mathbb{R}\quad\rightarrow\quad A+B\in\mathbb{R}\] En otras palabras si \(A\) y
+\(B\) son cortes de Dedekind entonces lo es \(A+B\). Por definición ya
+sabemos que existe \(a\in A\) y \(b\in B\) y por lo tanto \(a+b\in A+B\) esto
+es \(A+B\neq\varnothing\).</p>
+<ul>
+<li>  Vemos que si \(a'\notin A\) implica que \(a'+b>a+b\) donde</li>
+    \(a'+b\notin A+B\) y \(a+b\in A+B\).
+<li>  Ahora si \(a''\in A\) implica que \(a''+b>a+b\), talque \(a''+b\in A+B\) y</li>
+    \(a+b\in A+B\).
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

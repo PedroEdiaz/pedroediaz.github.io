@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre los Cuantificadores</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="uando empezamos a Estudiar Análisis y más particular la definición de Límite encontramos 2 símbolos nuevos 'Para todos' y 'existe'. y nos dicen que pasa cuando negamos estas proposiciones, Pero cuando uno quiere profundizar en el tema estas definiciones no son suficientemente formales.">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-los-Cuantificadores">Sobre los Cuantificadores</h1>
+</center>
+<p>Cuando empezamos a Estudiar Análisis y más particular la definición de Límite encontramos 2 símbolos nuevos 'Para todos' y 'existe'. y nos dicen que pasa cuando negamos estas proposiciones, Pero cuando uno quiere profundizar en el tema estas definiciones no son suficientemente formales.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#En-Lógica">En Lógica</a></li>
+<li><a href="#Leyes-de-Morgan">Leyes de Morgan</a></li>
+<li><a href="#En-conjuntos">En conjuntos</a></li>
+<li><a href="#Ejercicios">Ejercicios</a></li>
+</ul></div>
+<h2
+<h2 id="En-Lógica">En Lógica</h2>
+<p>Podemos pensar estos 2 conceptos, Todo p es cierto y *Algún p es
+cierto*, con conceptos de Lógica que ya conocemos. Si todo \(p\) es cierto
+entonces \(p_1\) es cierto así como \(p_2\) y así hasta mencionar a todos
+los elementos de \(p\), y lo podemos representar por \(\forall\, p\).
+\[\forall \, p:=\quad p_1 \textrm{ y } p_2 \textrm{ y } \cdots \textrm{ y } p_n\]</p>
+<p>De la misma forma si algún \(p\) es cierto significa que o \(p_1\) o \(p_2\)
+lo cumple o cualquier \(p\) lo puede cumplir. Este lo representaremos por
+\(\exists p\).
+\[\exists \, p:=\quad p_1 \textrm{ o } p_2 \textrm{ o } \cdots \textrm{ o } p_n\]</p>
+<p>En este punto nosotros sabemos que para 2 proposiciones existe una
+relación entre estos 2 conceptos.</p>
+<h2 id="Leyes-de-Morgan">Leyes de Morgan</h2>
+<p>Las leyes de Morgan nos da una relación entre los 3 operadores lógicos
+más importantes, la negación (no), la conjunción (y) y la disyunción
+(o).
+\[\neg(p_1 \textrm{ y } p_2)\equiv \neg p_1 \textrm{ o } \neg p_2\]
+\[\neg(p_1 \textrm{ o } p_2)\equiv \neg p_1 \textrm{ y } \neg p_2\]</p>
+<p>Una pregunta inmediata nos nace, ¿Podemos generalizar esta relación para
+\(n\) proposiciones?.
+\[\neg(p_1 \textrm{ y } p_2 \textrm{ y } \cdots \textrm{ y } p_n)\equiv \neg p_1 \textrm{ o } \neg p_2 \textrm{ o } \cdots\textrm{ o } \neg p_n\]
+\[\neg(p_1 \textrm{ o } p_2 \textrm{ o } \cdots \textrm{ o } p_n)\equiv \neg p_1 \textrm{ y } \neg p_2 \textrm{ y } \cdots\textrm{ y } \neg p_n\]</p>
+<p>Para demostrar esta generalización no basta con usar tablas de verdad,
+si no que necesitaremos otra herramienta llamada inducción lógica,
+esta se profundizará junto con los axiomas de Peano. Para esto
+demostraremos la primera ley, sabemos que esta funciona para 2
+proposiciones, \(\neg( p_1 \textrm{ y } p_2)\equiv \neg p_1 \textrm{ o } \neg p_2\), Ahora
+suponemos que es cierta para \(n\) e intentamos concluir que es cierta
+para \(n+1\).
+\(\)\begin{aligned}
+\neg(p_1 \textrm{ y } p_2 \textrm{ y } \cdots \textrm{ y } p_n)&\equiv \neg p_1 \textrm{ o } \neg p_2 \textrm{ o } \cdots\textrm{ o } \neg p_n\\
+\neg(p_1 \textrm{ y } p_2 \textrm{ y } \cdots \textrm{ y } p_n)\textrm{ o } \neg p_{n+1}&\equiv \neg p_1 \textrm{ o } \neg p_2 \textrm{ o } \cdots\textrm{ o } \neg p_n \textrm{ o } \neg p_{n+1}\\
+\neg(p_1 \textrm{ y } p_2 \textrm{ y } \cdots \textrm{ y } p_n \textrm{ y } p_{n+1})&\equiv \neg p_1 \textrm{ o } \neg p_2 \textrm{ o } \cdots\textrm{ o } \neg p_n \textrm{ o } \neg p_{n+1}
+\end{aligned}\(\)</p>
+<p>En en último paso aplicamos la ley de Morgan para 2 proposiciones, para
+concluir que es cierta para \(n+1\). Con esto podemos asegurar que para
+toda \(n\) Natural se cumple. Por lo tanto podemos asegurar qué
+\[\neg (\forall \, p) \equiv \exists \, (\neg p) \qquad \neg (\exists \, p) \equiv \forall (\, \neg p)\]</p>
+<h2 id="En-conjuntos">En conjuntos</h2>
+<p>Pero, normalmente no usamos esta notación completamente Lógica sino que
+ampliamos el concepto con Teoría de conjuntos. Donde las proposiciones
+ampliadas son de la forma.
+\[\forall\,x\in S : P(x)\qquad \exists\,x\in S: P(x)\] Donde \(S\) es un
+conjunto y \(P(x)\) una propiedad que puede cumplir cada elemento de ese
+conjunto, de esto normalmente nos interesa su valor de verdad pero
+podemos pensar estos conceptos a partir de otros ya conocidos. Si
+\(S=\{x_1,x_2,\cdots,x_n\}\).
+\[\forall\,x\in S : P(x) :=\quad P(x_1) \textrm{ y } P(x_2) \textrm{ y } \cdots \textrm{ y } P(x_n)\]
+\[\exists\,x\in S : P(x) :=\quad P(x_1) \textrm{ o } P(x_2) \textrm{ o } \cdots \textrm{ o } P(x_n)\]</p>
+<h2 id="Ejercicios">Ejercicios</h2>
+<ul>
+<li>  Demuestra la otra generalización de la ley de Morgan</li>
+    \((\neg\exists\, p\equiv\forall\neg\, p)\).
+<li>  Entran 3 matemáticos a un bar, el bartender pregunta, ¿todos quieren</li>
+    una bebida?, el primer matemático responde \"no sé\", el segundo
+    responde \"no sé\" y el último matemático responde \"sí\". Si el
+    bartender hubiera preguntado \"¿Alguno no quiere?\", ¿Qué hubieran
+    respondido los Matemáticos?
+</ul>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>

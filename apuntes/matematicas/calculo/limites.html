@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Sobre los Limites</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ara la idea de de puntos cercanos a otros usamos el concepto de">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Sobre-los-Limites">Sobre los Limites</h1>
+</center>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Vecindad">Vecindad</a></li>
+<li><a href="#Punto-de-Acumulación">Punto de Acumulación</a></li>
+<li><a href="#Limite">Limite</a></li>
+<li><a href="#Demostraciones-epsilon-delta">Demostraciones epsilon-delta</a></li>
+<ul>
+<li><a href="#Ejemplo-1">Ejemplo 1</a></li>
+<li><a href="#Ejemplo-2">Ejemplo 2</a></li>
+</ul>
+<li><a href="#Sucesiones">Sucesiones</a></li>
+<li><a href="#Divergencia">Divergencia</a></li>
+<ul>
+<li><a href="#Ejemplo-1">Ejemplo 1</a></li>
+<li><a href="#Ejemplo-2">Ejemplo 2</a></li>
+</ul>
+<li><a href="#Teoremas">Teoremas</a></li>
+<li><a href="#Limites-y-infinito">Limites y infinito</a></li>
+</ul></div>
+<h2
+<h2 id="Vecindad">Vecindad</h2>
+<p>Para la idea de de puntos cercanos a otros usamos el concepto de</p>
+<p>Vecindad, decimos que los puntos a distancia \(\delta\) de \(a\) son la
+vecindad delta de ese punto.
+\[V_\delta(a):=\quad \{x\in \mathbb{R}:\,|x-a|
+<\delta\}\]</p>
+<p>Este concepto nos da unas equivalencias útiles para no trabajar en
+términos de conjuntos sino en términos de intervalos.
+\(\)\begin{aligned}
+        x\in V_\delta(a)&\iff |x-a|
+<\delta\\
+                &\iff -\delta
+<x-a<\delta\\
+                &\iff a-\delta
+<x<a+\delta\\
+    \end{aligned}\(\)
+\(x=a\) si y solo si, \(|x-a|
+<\delta\) para toda \(\delta>0\).</p>
+<p>Proof. Si \(x=a\) entonces \(0=|x-a|
+<\delta\), y esto se cumple para toda
+delta, para el segundo caso suponemos \(x\neq a\), entonces podemos ver
+que no se cumple para todo \(\delta>0\), sea \(\delta=\frac{1}{2}|x-a|\),
+esto implica \(1
+<\frac{1}{2}\), lo cual es una contradicción. Q.E.D</p>
+<h2 id="Punto-de-Acumulación">Punto de Acumulación</h2>
+<p>Otro concepto importante es el de punto de acumulación, este nos da un
+criterio para saber si se le puede aplicar límite a ese punto o no.</p>
+<p>Sea \(A\subseteq \mathbb{R}\), decimos que \(c\in\mathbb{R}\) es un punto de acumulación si
+\(\forall \, \delta > 0\) se cumple.
+\[A \cap (V_\delta(c)-\{c\})\neq \varnothing\]</p>
+<p>Es fácil demostrar si un punto \(c\) no es un punto de acumulación por
+contraposición, Solo basta demostrar que existe una vecindad \(\delta\),
+talque su intersección con \(A\) es vacío.</p>
+<h2 id="Limite">Limite</h2>
+<p>Ya con esto podemos definir formalmente nuestro concepto de limite para
+una función que va de \(A\mapsto \mathbb{R}\).</p>
+<p>Sea \(A\subseteq R\), \(f:A\mapsto \mathbb{R}\) y \(c\) un punto de Acumulación de
+\(A\). Se dice que \(L\) es un límite de \(f\) en \(c\) si para todo
+\(\varepsilon>0\) existe una \(\delta>0\) talque.
+\[x\in V_\delta(c)\quad\rightarrow\quad f(x)\in V_\varepsilon(L)\]</p>
+<p>Es importante que \(c\) sea un punto de acumulación, por que de no serlo
+\(f(x)\) no estaría definida, ademas podemos agregar una notación al
+límite y aplicar nuestras equivalencia de vecindades podemos cambiar
+nuestra definición a una lógico algebraica.
+\[\lim_{x \to c}f(x)=L\quad\iff\quad \forall\varepsilon>0\,\exists  \delta>0:\quad  |x-c|
+<\delta \,\rightarrow\, |f(x)-L|<\varepsilon\]</p>
+<p>Cuando existe un límite \(L\) decimos que \(f\) converge a \(c\), en caso de
+no existir decimos que diverge. Por último demostraremos la únicidad del
+límite.</p>
+<p>Si \(c\) tiene limite en \(f: A\mapsto \mathbb{R}\) entonces su limite es único.</p>
+<p>Proof. Si \(c\) tiene limite en \(f\), entonces es un punto de acumulación
+en \(A\), por lo tanto existe \(x_0\neq c\) en \(A\) tal que esté en ambas
+vecindades épsilon.
+\[L-\varepsilon
+< x_0< L+\varepsilon\quad\textrm{ y }\quad L'-\varepsilon<x_0< L'+\varepsilon\]</p>
+<p>Ahora podemos multiplicar por \(-1\) una de nuestras desigualdades y sumar
+uno a uno cada uno de los términos.
+\((L-L')-2\varepsilon
+<0<(L-L')+2\varepsilon\). Esto es
+\(L'\in V_{2\varepsilon}(L)\) para todo \(2\varepsilon\), en otras palabras
+\(L=L'\). Q.E.D</p>
+<h2 id="Demostraciones-epsilon-delta">Demostraciones epsilon-delta</h2>
+<p>Para hacer estas demostraciones dividimos en 2 partes nuestro ejercicio,
+para la primer parte, la Discusión, buscamos un delta en función de
+épsilon, para eso buscamos factorizar \(|x-c|\) de \(|f(x)-L|\) y notamos.
+\[|f(x)-L|=|x-c||g(x)|
+<\delta \cdot g(x)\] Después buscamos acotar \(x\)
+escogiendo un delta cualquiera, \(\delta_0\), de forma que \(g(x)
+< k\) y por
+lo tanto.
+\[|f(x)-L|
+< \delta \cdot g(x)< \delta \cdot k=\varepsilon \qquad \delta:=\frac{\varepsilon}{k}\]
+y por lo tanto nuestro \(\delta=\min\{\delta_0,\frac{\varepsilon}{k}\}\).</p>
+<p>Ahora para nuestra segunda parte buscamos demostrar. \(|x-c|
+<\delta\)
+implica \(|f(x)-L|
+<\varepsilon\) para todas nuestras opciones de \(\delta\).</p>
+<h3 id="Ejemplo-1">Ejemplo 1</h3>
+\[\lim_{x\to c}x^2=c^2\] Para estos ejercicios se busca primero un
+\(\delta\) en función de \(\varepsilon\), para eso factorizamos \(|x-c|\) y lo
+<p>convertimos en delta. \[|x^2-c^2|=|x-c||x+c|
+<\delta|x+c|\] Ahora
+trabajamos con \(x+c\) y buscamos su valor máximo acotando \(x\) con
+\(\delta=1\), \(|x-c|
+<1\) \[|x+c|<|(c+1)+c|=|2c+1|<2|c|+1\] Ahora ya podemos
+juntar todo.
+\[|x^2-c^2|
+<\delta\cdot (2|c|+1) =\varepsilon \qquad \delta:=\frac{\varepsilon}{2|c|+1}\]
+y por lo tanto basta escoger delta como el mínimo entre 1, nuestra
+primer cota de \(x\), y el delta que despejamos
+\(\delta=\min\{1,\frac{\varepsilon}{2|c|+1}\}\) ya que tenemos una
+\(\delta\) podemos empezar nuestra demostración.</p>
+<h4 id="Demostración">Demostración</h4>
+<p>Sea \(\delta=\min\{1,\frac{\varepsilon}{2|c|+1}\}\) y sea \(|x-c|
+<\delta\).</p>
+<p>Si se escoge \(\delta=1\) sabemos que se cumple \(|x+c|
+<2|c|+1\), esto es,
+\(|x^2-c^2|
+<2|c|+1\), pero como \(1<\frac{\varepsilon}{2|c|+1}\).
+\[|x^2-c^2|
+<2|c|+1<\varepsilon\] Ahora si se escoge
+\(\delta=\frac{\varepsilon}{2|c|+1}\) podemos asegurar que \(\delta
+<1\) y ya
+que \(x-c
+<\delta\) decimos \(|x|<1+|c|\) ahora.
+\[|x^2-c^2|
+<\delta|x+c|<\delta(|x|+|c|)<\delta (2|c|+1)=\varepsilon\] y
+esto concluye nuestra demostración ya que existe \(delta\) para cualquier
+épsilon tal que \(|x-c|
+<\delta\) implica \(|x^2-c^2|<\varepsilon\)</p>
+<h3 id="Ejemplo-2">Ejemplo 2</h3>
+\[\lim_{x\to c}\frac{1}{x}=\frac{1}{c}\] Ya que entendemos la teoría y
+<p>vimos un ejemplo ya es más rápido hacer la Discusión, basta ver que.
+\[\left|\frac{1}{x}-\frac{1}{c}\right|=\left|\frac{1}{cx}\right||c-x|
+<\left|\frac{1}{cx}\right|\cdot \delta\]</p>
+<p>Ahora acotamos \(x\), \(\delta=\frac{1}{2}|c|\), y de esto \(\frac{1}{2}c
+< x\),
+ahora podemos asegurar. \(0
+<\frac{1}{cx}<\frac{2}{c^2}\). Por lo tanto
+basta escoger \(\delta=\min\{\frac{1}{2}|c|,\frac{1}{2}c^2\varepsilon\}\).</p>
+<h4 id="Demostración">Demostración</h4>
+<p>Sea \(\delta=\min\{\frac{1}{2}|c|,\frac{1}{2}c^2\varepsilon \}\) y
+\(|x-c|
+<\delta\), si escogemos \(\delta=\frac{1}{2}|c|\) ya demostramos que
+\(\frac{1}{cx}
+<\frac{2}{c^2}\), esto es.
+\[\left|\frac{1}{x}-\frac{1}{c}\right|
+<\left|\frac{1}{cx}\right|\delta<\left|\frac{2}{c^2}\right| \delta =\varepsilon\]</p>
+<p>Ahora si \(\delta=\frac{1}{2}c^2\varepsilon\) y \(\delta
+<\frac{1}{2}|c|\)
+entonces \(c
+<2x\) de esto podemos decir.
+\[\left|\frac{1}{x}-\frac{1}{c}\right|
+<\left|\frac{1}{cx}\right|\delta<\left|\frac{c}{2x}\right|\varepsilon<\varepsilon\]</p>
+<p>Y con esto concluimos nuestra demostración.</p>
+<h2 id="Sucesiones">Sucesiones</h2>
+<p>Podemos redefinir el concepto de límite a partir de la idea de
+sucesiones, por eso decimos.</p>
+<p>Sea \(f:\, A\to \mathbb{R}\) y sea \(c\) un punto de acumulación en \(A\); entonces,</p>
+<p>Si \(\lim_{x\to c} f(x)=L\) entonces toda sucesión \((x_n)\) en \(A\) que
+converge a \(c\) con \(x_n\neq c\) para toda \(n\in N\), la sucesión
+\((f(x_n))\) converge a \(L\).</p>
+<p>El teorema es algo complicado y la demostración también pero lo que a
+nosotros nos importa son las conclusiones para los criterios de
+divergencia.</p>
+<p>PROOF</p>
+<h2 id="Divergencia">Divergencia</h2>
+<p>Ya con esto es fácil estudiar la contraposición de este teorema, ya que
+nos da una proposición clave para demostrar divergencia de sucesiones</p>
+<ul>
+<li>  Si una sucesión \((x_n)\) converge a \(c\) pero la sucesión</li>
+    \((f(x_n))\neq L\) por contraposición.
+<li>  Si dos sucesiones \((x_n), (y_n)\) convergen a \(c\), pero</li>
+    \((f(x_n))\neq (f(y_n))\) hacen una contradicción ya que el límite es
+    único.
+</ul>
+<p>Ya con esto podemos hacer demostraciones de divergencia, para eso
+generalmente aplicamos el segundo criterio.</p>
+<h3 id="Ejemplo-1">Ejemplo 1</h3>
+\[\lim_{x\to 0}\frac{1}{x}\]
+<p>Para eso vemos las sucesiones \(x_n:=\frac{1}{n}\) y \(y_n:=-\frac{1}{n}\)
+ambas sucesiones convergen a 0 ademas \(f(x_n)=n\) y \(f(y_n)=-n\) como todo
+número natural es positivo podemos asegurar que \((f(x_n))>0\) y
+\((f(y_n))
+<0\) por lo tanto podemos asegurar que es una contradicción que
+empieza al suponer que tiene limite la sucesión.</p>
+<h3 id="Ejemplo-2">Ejemplo 2</h3>
+\[\lim_{x\to 0}\sin\left(\frac{1}{x}\right)\] en este caso sabemos que
+\(\sin(x)=0\) cuando \(x=n\pi\) y \(\sin(x)=1\) cuando \(x=2n\pi+\frac{1}{2}\)
+<p>por esto podemos decir que la sucesiones \(x_n:=\frac{1}{n\pi}\) y
+\(y_n:=\frac{1}{\frac{1}{2}\pi+2\pi n}\) convergen a \(0\) pero \(f(x_n)=0\) y
+\(f(y_n)=1\) para toda \(n\) lo que implica que el límite no es único.</p>
+<h2 id="Teoremas">Teoremas</h2>
+<p>Para facilitar nuestro estudio de límites podemos demostrar ciertos
+teoremas, estos resultados harán que las demostraciones no sean tan
+abstractas como son los resultados épsilon delta.</p>
+<p>Sea \(A\subseteq \mathbb{R}\) y \(f:A\mapsto \mathbb{R}\) tiene un límite en \(c\) entonces
+\(f\) está acotada en una vecindad de \(c\).</p>
+<p>Si existe limite podemos escoger \(\varepsilon=1\) tal que existe
+\(x\in V_{\delta}(c)\) con \(x\neq c\) que implica \(|f(x)-L|
+<1\) ahora
+podemos aplicar la desigualdad del triángulo \(|f(x)|
+<|L|+1\) Si \(x=c\)
+tomamos \(M:=|L|+1\) pero si \(x\neq c\) y en \(V_\delta(c)\) tomamos
+\(M:=\max \{|f(c)|,|L|+1\}\) y por lo tanto \(|f(x)|\leq M\)</p>
+<p>Sea \(A\subseteq \mathbb{R}\), sean \(f\) y \(g\) funciones de \(A\) a \(\mathbb{R}\) con límite
+en \(\mathbb{R}\) entonces.
+\[\lim_{x\to c}\left(f(x))+g(x)\right):=\lim_{x\to c} f(x)+\lim_{x\to c}g(x)\]</p>
+<p>Sabemos que para cualquier épsilon existen vecindades de delta talque
+\(|f(x)-L|
+<\varepsilon\textrm{ y }|G(x)-M|<\varepsilon\) y por la desigualdad del
+triangulo podemos asegurar
+\(|(f(x)+g(x)-(L+M))|\leq |G(x)-M|+|f(x)-L|
+<2\varepsilon\). Ahora
+escogiendo \(\delta=\min\{\delta_f,\delta_g\}\) podemos concluir nuestra
+demostración.</p>
+<p>Sea \(A\subseteq \mathbb{R}\), sean \(f\) y \(g\) funciones de \(A\) a \(\mathbb{R}\) con límite
+en \(\mathbb{R}\) entonces.
+\[\lim_{x\to c}\left(f(x))\cdot g(x)\right):=\lim_{x\to c} f(x)\cdot \lim_{x\to c}g(x)\]</p>
+<p>PROOF</p>
+<p>Sea \(A\subseteq \mathbb{R}\), sea \(f:A\mapsto \mathbb{R}\) y sea \(c\in\mathbb{R}\) un punto de
+acumulación de \(A\) sí \(a\leq f(x)\leq b\) para toda \(x\neq c\) en \(A\)
+entonces, \[a\leq \lim_{x\to c} f(x)\leq b\]</p>
+<p>Por nuestra hipótesis sabemos que toda sucesión \(x_n\) en \(A\) que
+converge a \(c\) sin llegar a el tiene la propiedad que \(f(x_n)\) converge
+a \(L\) como \(a\leq f(x_n)\leq b\) para toda \(n\) podemos decir
+\(a\leq L\leq b\)</p>
+<p>Sea \(A\subseteq \mathbb{R}\), sea \(f,g,h\) funciones de \(A\) a \(\mathbb{R}\) y sea \(c\in\mathbb{R}\)
+un punto de acumulación de \(A\) sí \(g(x)\leq f(x)\leq h(x)\) para toda
+\(x\neq c\) en \(A\) entonces
+\[\lim_{x\to c} g(x) \leq \lim_{x\to c} f(x)\leq \lim_{x\to c} h(x)\]</p>
+<p>PROOF</p>
+<h2 id="Limites-y-infinito">Limites y infinito</h2>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://pedroediaz.xyz/rss.xml" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>
