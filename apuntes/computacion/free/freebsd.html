@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Poniendo un Servidor FreeBSD</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="%abstract%">
+	<meta name="author" content="Pedro E. Díaz C.">
+	<link rel="preload" href="/assets/Merriweather-Bold.woff" as="font" crossorigin="anonymous" />
+	<link rel="preload" href="/assets/Montserrat-Regular.woff" as="font" crossorigin="anonymous" />
+	<link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+	<nav><a href="/">PEDC</a><div>
+	<a href="/archivo.html">Archivo</a>&nbsp;
+	<a href="/apuntes.html">Apuntes</a>&nbsp;
+	<a href="/antologia.html">Antología</a>&nbsp;
+	<a href="/blog.html">Blog</a>&nbsp;
+	</div></nav>
+	<hr><article>
+<center>
+<h1 id="Poniendo-un-Servidor-FreeBSD">Poniendo un Servidor FreeBSD</h1>
+<p>Tuesday June 01, 2021
+</p></center>
+<p>Esta es una serie de pasos para poder tener un servidor con FreeBSD, esto para tener un sistema operativo libre que nos deje configurar como queremos sin preocuparnos por nada. Básicamente agregué un servidor en Vultr con este sistema operativo e hice un ssh root a el.</p>
+<div><h2>Índice</h2>
+<ul>
+<li><a href="#Limpiando-paquetes">Limpiando paquetes</a></li>
+<li><a href="#Cambiando-el-usuario-root">Cambiando el usuario root</a></li>
+<li><a href="#Limpiando-procesos.">Limpiando procesos.</a></li>
+</ul></div>
+<h2
+<h2 id="Limpiando-paquetes">Limpiando paquetes</h2>
+<p>Para administrar paquetes usaremos el comando 
+<code>pkg</code> primero vamos a actualizar la base de datos y paquetes con los siquientes comandos.</p>
+<pre><code>
+<p>pkg update
+pkg upgrade
+</code></p></pre>
+<p>pondremos 
+<code>pkg info</code> para ver la lista de paquetes que podemos administrar, y vamos a borrar todo menos vim y el pkg mismo. para eso vamos a usar el comando <code>pkg remove</code> basta borrar python3, los certificados nss y creo que gettext, ya con estos paquetes borrados, usamos el comando <code>pkg autoremove</code> para borrar los paquetes huérfanos.</p>
+<h2 id="Cambiando-el-usuario-root">Cambiando el usuario root</h2>
+<p>Vamos a instalar 
+<code>doas</code> como una alternativa a sudo con <code>pkg install</code> y vamos a modificar su archivo de configuración, <code>/usr/local/etc/doas.conf</code>, y le vamos a agregar la siguiente linea.</p>
+<pre><code>
+<p>permit :wheel
+</code></p></pre>
+<p>Para la configuración del ssh, nadamás le vamos a decir que no se puede acceder desde el usuario root también desde su archivo de configuración, 
+<code>/etc/ssh/sshd_config</code>, nos vamos al final del archivo y cambiamos la penúltima linea para que quede así.</p>
+<pre><code>
+<p>PermitRootLogin no
+</code></p></pre>
+<p>Reiniciamos el servicio de sshd con el siguiente comando 
+<code>/etc/rc.d/sshd restart</code> con esto ya podemos crear nuestro primer usuario con <code>adduser</code> le ponemos los datos que nos pide, y si no le ponemos nada da uno por default, nada más hay que preocuparnos por agregar al usuario al grupo <code>wheel</code>. </p>
+<p>Si hizimos todo bien al abrir otra terminal e intentar hacer ssh al root, no nos va a dejar y poniendo el comando 
+<code>doas whoani</code> como el usuario nos debe imprimir root.</p>
+<h2 id="Limpiando-procesos.">Limpiando procesos.</h2>
+<p>Nuestro último paso es quitar los procesos que no necesitamos, esto para baja el uso de memoria ram, y para mejor el rendimiento. para eso vamos a quitar los 
+<code>tty</code> y quedarnos con uno o a lo mucho dos. para eso en el archivo <code>/etc/ttys</code> vamos a bborar las terminales virtuales 2 a 7, para que solo esté la cero y uno.</p>
+<p>Para quitar los servicios de rtsold y ntpd, básicamente editamos el archivo 
+<code>/etc/rc.conf</code> y cambiamos las siguientes lineas.</p>
+<pre><code>
+<p>ntpd_enable="NO"
+rtsold_enable="NO"
+</code></p></pre>
+<p>Con esto ya podemos reinciar el servidor y terminamos con un sistema con procesos y paquetes limpios.</p>
+	</article><hr>
+	<footer><center>
+	<p>
+	<a href="https://www.github.com/PedroEdiaz" target="_blank" rel="noreferrer" >[Github]</a>
+	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
+	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
+	</p>
+	<a href="https://github.com/PedroEdiaz/pedroediaz.github.com/commits/master.atom" target="_blank" rel="noreferrer" >[rss]</a>
+	<a href="https://files.pedroediaz.xyz" target="_blank" rel="noreferrer" >[archivos]</a>
+	</center></footer>
+</body>
+</html>
