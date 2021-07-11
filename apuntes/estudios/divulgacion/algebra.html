@@ -16,7 +16,6 @@
 </head>
 <body>
 	<nav><a href="/">PEDC</a><div>
-	<a href="/archivo">Archivo</a>&nbsp;
 	<a href="/apuntes">Apuntes</a>&nbsp;
 	<a href="/antologia">Antología</a>&nbsp;
 	<a href="/blog">Blog</a>&nbsp;
@@ -73,12 +72,12 @@ razonamiento, dotándolo de símbolos universales como la implicación.</p>
 <p>Ahora si ya sabemos que la implicación es transitiva, podemos poner esta
 cadena de razonamientos en una tabla, y ponerles nombre a los pasos para
 darle más argumentos a nuestros pasos
-\(\)\begin{aligned}
+\[\begin{aligned}
 b&=d &&\textrm{Hipótesis}\\
 a+b&=a+d &&\textrm{Suma de la a}\\
 a+d&=a+b &&\textrm{Conmutación}\\
 a+b&=c &&\textrm{Hipótesis}\\
-a+d&=c &&\textrm{Transitividad}\\\end{aligned}\(\)</p>
+a+d&=c &&\textrm{Transitividad}\\\end{aligned}\]</p>
 <p>Estas demostraciones verticales empiezan con una de nuestras hipótesis y
 poco a poco, usando nuestros axiomas y las otras hipótesis llegamos a
 nuestra conclusión, o lo que queremos demostrar. Pero podemos hacer
@@ -89,12 +88,12 @@ cancelar? \[a\cdot b=a\cdot c\quad\Rightarrow\quad b=c\] Es una pregunta
 tal vez obvia, pero no lo es tanto ya que si no se puede cancelar
 entonces una misma multiplicación daría dos resultados, y como
 matemáticos esas cosas nos da ansiedad así que mejor la demostramos.
-\(\)\begin{aligned}
+\[\begin{aligned}
 a\cdot b&=a\cdot c &&\textrm{Hipótesis}\\
 \overline{a}\cdot (a\cdot b)&=\overline{a}\cdot(a\cdot c) &&\textrm{Multiplicación de }\overline{a}\\
 (\overline{a}\cdot a)\cdot b&=(\overline{a}\cdot a)\cdot c &&\textrm{Asociatividad}\\
 1\cdot b&=1\cdot c &&\textrm{Elemento Inverso}\\
-b&=c &&\textrm{Elemento Neutro}\\\end{aligned}\(\)</p>
+b&=c &&\textrm{Elemento Neutro}\\\end{aligned}\]</p>
 <p>Pero podemos responder esta misma pregunta de una forma más fundamental.</p>
 <p>Nosotros sabemos que la igualdad es transitiva, como la implicación
 entonces podemos hacer una cadena de igualdades que nos permita
@@ -105,14 +104,14 @@ una cadena de igualdades, que nos quedaría así.
 <p>Esta cadena de igualdades, la podemos poner en una tabla, como en las
 demostraciones de implicación, poniendo los argumentos siempre del lado
 para argumentar por que hacemos lo que hacemos.
-\(\)\begin{aligned}
+\[\begin{aligned}
 b&=b\cdot 1 && \textrm{Elemento Neutro}\\
 &=b\cdot(a\cdot\overline{a}) && \textrm{Elemento Inverso}\\
 &=(b\cdot a)\cdot\overline{a} && \textrm{Asociatividad}\\
 &=(c\cdot a)\cdot\overline{a} && \textrm{Hipótesis} \\
 &=c\cdot(a\cdot\overline{a}) && \textrm{Asociatividad}\\
 &=c\cdot 1 && \textrm{Elemento Inverso}\\
-&=c && \textrm{Elemento Neutro}\\\end{aligned}\(\)</p>
+&=c && \textrm{Elemento Neutro}\\\end{aligned}\]</p>
 <h2 id="Diferencias">Diferencias</h2>
 <p>Ambas demostraciones son válidas, y usan los mismas axiomas, pero cada
 una usa una relación distinta para hacer su cadena de argumentos.</p>
@@ -140,12 +139,12 @@ nos hicimos la pregunta era la conmutación de eso.</p>
 <p>Ahora, ¿Por qué lo hicimos?, la respuesta fácil es por estética, los
 pasos de la conmutación no son nada estéticos, dicen casi lo mismo, son
 casi iguales, pero no.
-\(\)\begin{aligned}
+\[\begin{aligned}
 &=(b\cdot a)\cdot\overline{a} && \textrm{Asociatividad}\\
 &=(a\cdot b)\cdot\overline{a} && \textrm{Conmutatividad}\\
 &=(a\cdot c)\cdot\overline{a} && \textrm{Hipótesis} \\
 &=(c\cdot a)\cdot\overline{a} && \textrm{Conmutatividad}\\
-&=c\cdot(a\cdot\overline{a}) && \textrm{Asociatividad}\\\end{aligned}\(\)</p>
+&=c\cdot(a\cdot\overline{a}) && \textrm{Asociatividad}\\\end{aligned}\]</p>
 <p>Pero la otra respuesta no es tan simple, podríamos cambiar la pregunta y
 empezar con la hipótesis conmutada, es una respuesta válida, pero
 dejaría de ser intuitivo. La ventaja de que nuestra hipótesis sea
@@ -164,7 +163,6 @@ que vamos a conmutar la hipótesis.</p>
 	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
 	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
 	</p>
-	<a href="https://github.com/PedroEdiaz/pedroediaz.github.com/commits/master.atom" target="_blank" rel="noreferrer" >[rss]</a>
 	</center></footer>
 </body>
 </html>

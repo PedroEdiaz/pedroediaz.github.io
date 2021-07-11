@@ -16,7 +16,6 @@
 </head>
 <body>
 	<nav><a href="/">PEDC</a><div>
-	<a href="/archivo">Archivo</a>&nbsp;
 	<a href="/apuntes">Apuntes</a>&nbsp;
 	<a href="/antologia">Antología</a>&nbsp;
 	<a href="/blog">Blog</a>&nbsp;
@@ -71,13 +70,13 @@ total.</p>
 \(p\) es verdadera y \(q\) es verdadera entonces \((p\textrm{ y } q)\) es verdadera, En
 particular nosotros acordaremos que la siguiente tabla de verdad es
 cierta.
-\(\)\begin{array}{ c c | c c c c c}
+\[\begin{array}{ c c | c c c c c}
     p & q & \neg p & p\textrm{ y } q & p \textrm{ o } q & p\rightarrow q& p\equiv q \\ \hline
     v & v  & f & v  & v & v & v \\
     v & f  & f & f  & v & f & f \\
     f & v  & v & f  & v & v & f \\
     f & f  & v & f  & f & v & v \\
-\end{array}\(\)</p>
+\end{array}\]</p>
 <h3 id="¿Cómo-resolver-una-tabla-de-verdad?">¿Cómo resolver una tabla de verdad?</h3>
 <p>Para resolver una tabla de verdad es importante reconocer las *fórmulas
 atómicas* que son aquellas que no se pueden separar, así como tener
@@ -96,7 +95,7 @@ definición.</p>
 poner todos los valores de verdad posible es contar de \(0\) a \(2^n\) en
 binario, donde \(n\) son el número de variables, y después asignar los \(0\)
 a falso y los \(1\) a verdaderos.
-\(\)\begin{array}{r | c c c | c c c | c c c | c}
+\[\begin{array}{r | c c c | c c c | c c c | c}
     & p & q & r & p &\textrm{ y }& q & (p\textrm{ y }  q)& \textrm{ o } & r & (p\textrm{ y }  q)\textrm{ o }  r\\ \hline
     111 & v & v & v & v & v & v & v & v & v & v \\
     110 & v & v & f & v & v & v & v & v & f & v \\
@@ -106,7 +105,7 @@ a falso y los \(1\) a verdaderos.
     010 & f & v & f & f & f & v & f & f & f & f \\
     001 & f & f & v & f & f & f & f & v & v & v \\
     000 & f & f & f & f & f & f & f & f & f & f\\
-\end{array}\(\)</p>
+\end{array}\]</p>
 <p>Podemos poner de ejemplo \((p\textrm{ o } q)\textrm{ y } r\). Al ser 3 variables, habrán \(8\)
 filas, ademas usaremos 5 columnas, la primera para contar en binario, la
 segunda para poner los valores de verdad y las otras tres para ir
@@ -124,22 +123,22 @@ columna sale con todas las filas en verdadero. La interpretación de esto
 es bastante literal, no importa los valores de verdad la fórmula siempre
 se cumple, esto nos ayuda a demostrar leyes o propiedades, como la ley
 de simplificación \((p \textrm{ y } q\rightarrow p)\).
-\(\)\begin{array}{ c c c | c | c}
+\[\begin{array}{ c c c | c | c}
     p & y & q & \rightarrow & p\\ \hline
     v & v & v & v  & v\\
     v & f & f & v  & v\\
     f & f & v & v  & f\\
     f & f & f & v  & f\\
-\end{array}\(\)</p>
+\end{array}\]</p>
 <p>Es importante notar que se puede hacer una tabla de verdad en una sola
 columna donde solo remarcamos el ultimo valor que sacamos, como en la
 tabla anterior, ademas se puede hacer una tabla de verdad con una sola
 variable, como La ley del tercero excluido.
-\(\)\begin{array}{c c c |c |c c c c}
+\[\begin{array}{c c c |c |c c c c}
     (p & \textrm{ o } & \neg p)& \textrm{ y } & \neg & (p &\equiv & \neg p) \\ \hline
     (v & v & f)& v & v & (v &f & f) \\
     (f & v & v)& v & v & (f &f & v) \\
-\end{array}\(\)</p>
+\end{array}\]</p>
 <p>La ley del tercero excluido, básicamente nos dice que algo es o no es,
 en otros enfoques de la lógica sería incorrecto afirmar esta ley pero en
 esta visión clásica, esta ley es un hecho, y por eso no termina en una
@@ -220,7 +219,6 @@ más interesante de todas, La ley de Morgan.</p>
 	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
 	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
 	</p>
-	<a href="https://github.com/PedroEdiaz/pedroediaz.github.com/commits/master.atom" target="_blank" rel="noreferrer" >[rss]</a>
 	</center></footer>
 </body>
 </html>

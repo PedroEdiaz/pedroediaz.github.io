@@ -16,7 +16,6 @@
 </head>
 <body>
 	<nav><a href="/">PEDC</a><div>
-	<a href="/archivo">Archivo</a>&nbsp;
 	<a href="/apuntes">Apuntes</a>&nbsp;
 	<a href="/antologia">Antología</a>&nbsp;
 	<a href="/blog">Blog</a>&nbsp;
@@ -47,10 +46,10 @@
 <h2
 <h2 id="Definitions">Definitions</h2>
 <p>We say that the Sucesor of a Natural number \(x\), diferent from \(0\),
-\(S(x)\), is defined by the Collatz's function. \(\)S(x)=\begin{cases}
+\(S(x)\), is defined by the Collatz's function. \]S(x)=\begin{cases}
             3x+1\quad \textrm{if}\quad [x]_2=1\\
             x/2\qquad \textrm{if}\quad [x]_2=0\\
-        \end{cases}\(\) This definition also proof that \(S(x)\) is unique
+        \end{cases}\] This definition also proof that \(S(x)\) is unique
 for all \(x\)</p>
 <p>We say that a number \(x\) goes to \(x'\) (\(x\mapsto x'\)) if \(x=x'\) or
 \(S(x)\) goes to \(x'\)
@@ -96,10 +95,10 @@ check if is true for the succesor of \(x'\), \(x'=\frac{3^ax+c}{3^b}\). If
 \([x']_2=0\) then \(S(x')=\frac{3^ax+c}{2^{b+1}}\) otherwise
 \(S(x')=\frac{3^{a+1}x+3c+2^b}{2^{b}}\). Q.E.D</p>
 <h3 id="corolaries">corolaries</h3>
-\(\)x'=\frac{3^ax+c}{2^b}\qquad S(x')=\begin{cases}
+\[x'=\frac{3^ax+c}{2^b}\qquad S(x')=\begin{cases}
         \frac{3^{a+1}x+3c+2^b}{2^b}\quad \textrm{if}\quad [x']_2=1\\
         \frac{3^ax+c}{2^{b+1}}\qquad\quad \textrm{if}\quad [x']_2=0\\
-        \end{cases}\(\)
+        \end{cases}\]
 <ul>
 <li>  \(a\) describe how many odd numbers are strictly between \(x\) and \(x'\)</li>
     since \(a\) incrise by one every time \(S(x)=3x+1\).
@@ -123,18 +122,18 @@ cannot be describe as a sum of powers. Now if \(a\neq 0\) it exists at
 least one odd number, \(x\), between \(x\) and \(x'\). since \(n\) is odd we can
 check that \(S(n)\) show us the behaivour of \(a+1\), now for
 \(b_i\in B_{x\mapsto n}\) Q.E.D</p>
-\(\)\begin{aligned}
+\[\begin{aligned}
             c_{n+1} &=3(c)+2^b\\
                 &=3\left(\sum_{i=0}^{a-1} 3^i 2^{b_i} \right) + 2^b\\
                 &=\sum_{i=0}^{a-1} (3^{i+1}2^{b_i}) + 2^b\\
-        \end{aligned}\(\) Now we must make a set \(B_{x\mapsto n+1}\), thats
+        \end{aligned}\] Now we must make a set \(B_{x\mapsto n+1}\), thats
 <p>define by \(b_0=b\) and \(b_{i+1}=b'_i\) for all \(b'\in B_{x\mapsto n}\). Now
 because \(b\) always increase then we can argue that \(b_{i+1}>b_i\) for all
 \(b\in B\), and conclude the proof.
-\(\)\begin{aligned}
+\[\begin{aligned}
             c_{n+1}&=\sum_{i=1}^{a} (3^i 2^{b_{i-1}})+ 3^0 2^{b_0}\\
                 &=\sum_{i=0}^{a} 3^i 2^{b_i}
-        \end{aligned}\(\) Since \(b_i\) does not reapeat it self and they are
+        \end{aligned}\] Since \(b_i\) does not reapeat it self and they are
 well ordered then we can encrypted on a númber that we are gonna call
 the determinant.</p>
 <h2 id="Determinant">Determinant</h2>
@@ -165,7 +164,6 @@ othen and vice versa.</p>
 	<a href="https://www.instagram.com/pedroe.diaz" target="_blank" rel="noreferrer" >[Instagram]</a>
 	<a href="https://www.facebook.com/apuntesESFM" target="_blank" rel="noreferrer" >[Facebook]</a>
 	</p>
-	<a href="https://github.com/PedroEdiaz/pedroediaz.github.com/commits/master.atom" target="_blank" rel="noreferrer" >[rss]</a>
 	</center></footer>
 </body>
 </html>
